@@ -1,0 +1,421 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-elevated: var(--bg-surface-elevated);
+  --color-surface-hover: var(--bg-surface-hover);
+  --color-input: var(--bg-input);
+  --color-theme-subtle: var(--border-subtle);
+  --color-theme-default: var(--border-default);
+  --color-theme-hover: var(--border-hover);
+  --color-theme-focus: var(--border-focus);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-tertiary: var(--text-tertiary);
+  --color-placeholder: var(--text-placeholder);
+  --color-openai-green: var(--openai-green);
+  --color-perk-gold: var(--perk-gold);
+}
+
+/* 1. 默认浅色模式 (Light Palette - OpenAI 官网极简纯白与冷灰) */
+:root {
+  --bg-canvas: #FAFAFB;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F4F4F6;
+  --bg-surface-hover: #ECECEF;
+  --bg-input: #F4F4F6;
+  
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-default: rgba(0, 0, 0, 0.12);
+  --border-hover: rgba(0, 0, 0, 0.22);
+  --border-focus: rgba(0, 0, 0, 0.45);
+  
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  --text-tertiary: #71717A;
+  --text-placeholder: #A1A1AA;
+  
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* OpenAI Accents */
+  --openai-green: #10A37F;
+  --openai-green-hover: #0D8C6D;
+  --openai-green-subtle: rgba(16, 163, 127, 0.09);
+  --openai-green-border: rgba(16, 163, 127, 0.28);
+  
+  /* Gold / Amber for VIP perks */
+  --perk-gold: #D97706;
+  --perk-gold-light: #B45309;
+  --perk-gold-subtle: rgba(217, 119, 6, 0.08);
+  --perk-gold-border: rgba(217, 119, 6, 0.28);
+
+  --grid-color: rgba(0, 0, 0, 0.035);
+  --top-vignette: radial-gradient(circle at 50% -10%, rgba(0, 0, 0, 0.03) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 20%, rgba(16, 163, 127, 0.04) 0%, transparent 40%);
+  --scrollbar-track: #F4F4F6;
+  --scrollbar-thumb: #D4D4D8;
+  --scrollbar-thumb-hover: #A1A1AA;
+}
+
+/* 2. 深色模式 (Dark Palette - OpenAI Codex 极客黑金绿) */
+html.dark, :root[data-theme="dark"] {
+  --bg-canvas: #09090B;
+  --bg-surface: #121215;
+  --bg-surface-elevated: #18181B;
+  --bg-surface-hover: #202025;
+  --bg-input: #0E0E12;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --border-focus: rgba(255, 255, 255, 0.4);
+  
+  --text-primary: #EDEDED;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #71717A;
+  --text-placeholder: #52525B;
+  
+  --card-shadow: none;
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  /* OpenAI Accents */
+  --openai-green: #10A37F;
+  --openai-green-hover: #0E8C6D;
+  --openai-green-subtle: rgba(16, 163, 127, 0.12);
+  --openai-green-border: rgba(16, 163, 127, 0.3);
+  
+  /* Gold / Amber for VIP perks */
+  --perk-gold: #D97706;
+  --perk-gold-light: #FBBF24;
+  --perk-gold-subtle: rgba(217, 119, 6, 0.1);
+  --perk-gold-border: rgba(245, 158, 11, 0.28);
+
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --top-vignette: radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 20%, rgba(16, 163, 127, 0.03) 0%, transparent 40%);
+  --scrollbar-track: #09090B;
+  --scrollbar-thumb: #27272A;
+  --scrollbar-thumb-hover: #3F3F46;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: var(--top-vignette);
+  background-attachment: fixed;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Semantic utility classes */
+.bg-canvas {
+  background-color: var(--bg-canvas);
+}
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+.bg-surface-elevated {
+  background-color: var(--bg-surface-elevated);
+}
+.bg-surface-hover {
+  background-color: var(--bg-surface-hover);
+}
+.bg-input {
+  background-color: var(--bg-input);
+}
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+.border-theme-subtle {
+  border-color: var(--border-subtle);
+}
+.border-theme-default {
+  border-color: var(--border-default);
+}
+.border-theme-hover {
+  border-color: var(--border-hover);
+}
+
+/* OpenAI / Codex Panel Styles */
+.codex-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.codex-panel:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.codex-panel-interactive {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.codex-panel-interactive:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* OpenAI Typography Gradients */
+.gradient-text-silver {
+  background: linear-gradient(180deg, #18181B 20%, #71717A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .gradient-text-silver {
+  background: linear-gradient(180deg, #FFFFFF 20%, #A1A1AA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #10A37F 0%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .gradient-text-gold {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* OpenAI Signature Buttons */
+/* 1. Primary High Contrast Capsule (Dark mode: White pill; Light mode: Black pill) */
+.btn-openai-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #09090B;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1px solid #09090B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 13px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.btn-openai-white:hover {
+  background-color: #27272A;
+  border-color: #27272A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+html.dark .btn-openai-white {
+  background-color: #FFFFFF;
+  color: #09090B;
+  border-color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .btn-openai-white:hover {
+  background-color: #F4F4F5;
+  border-color: #F4F4F5;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* 2. OpenAI Accent Green Button */
+.btn-openai-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--openai-green);
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 13px;
+  box-shadow: 0 1px 3px rgba(16, 163, 127, 0.25);
+}
+
+.btn-openai-green:hover {
+  background-color: var(--openai-green-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(16, 163, 127, 0.35);
+}
+
+/* 3. Secondary Ghost / Outline Button */
+.btn-openai-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+
+.btn-openai-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+html.dark .btn-openai-secondary {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+html.dark .btn-openai-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
+  color: #FFFFFF;
+}
+
+/* 4. Amber / Gold Perk Button */
+.btn-openai-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--perk-gold-subtle);
+  color: var(--perk-gold);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1px solid var(--perk-gold-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn-openai-gold:hover {
+  background-color: rgba(217, 119, 6, 0.16);
+  border-color: var(--perk-gold);
+  transform: translateY(-1px);
+}
+
+html.dark .btn-openai-gold {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+html.dark .btn-openai-gold:hover {
+  background-color: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+/* OpenAI Pill Badge */
+.codex-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+}
+
+.codex-pill-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--openai-green-border);
+  background-color: var(--openai-green-subtle);
+  color: #059669;
+}
+
+html.dark .codex-pill-green {
+  color: #34D399;
+}
+
+/* Codex Subtle Grid Texture */
+.bg-codex-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+}
+
+/* Subtle Terminal Dot */
+.terminal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--openai-green);
+  box-shadow: 0 0 8px var(--openai-green);
+}

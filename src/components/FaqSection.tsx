@@ -1,0 +1,88 @@
+"use client";
+
+import React, { useState } from "react";
+import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
+
+export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      q: "能不能开具 6% 增值税专用发票？企业财务如何报销？",
+      a: "完全支持！我们具备正规科技与信息技术服务资质，支持开具增值税专用发票（税率 6%）或增值税普通发票，发票服务类目通常开列为“*信息技术服务* 软件技术服务费”或“技术咨询费”。款项确认到账后 2 个工作日内推送至贵司财务指定邮箱，完全满足一般纳税人进项税额抵扣与公司正规入账报销要求。",
+    },
+    {
+      q: "是充值到我们公司员工现有的邮箱，还是由你们提供全新账号？",
+      a: "两种模式均可灵活支持：① 员工现有账号直充：支持客户提供已注册的 OpenAI 官方账号（如各类企业邮箱、Gmail等），由我方技术人员通过官方代充邀请链路直接激活；② 提供全新纯净账号：若员工尚未注册，我方可免费协助按贵司要求批量开通纯净未绑卡官方账号并直接交付管理员掌控。",
+    },
+    {
+      q: "如果使用期间账号被官方风控封禁，具体怎么退赔？",
+      a: "我们签署法务盖章的《SLA 服务等级保障协议》作为合同附件：① 72 小时闪电保换：激活 72 小时内若遇厂商批量风控，2 小时内免费更换补全；② 全周期按天折算退款：后续在正常使用期内若遇网络波动封禁，严格按照【当月支付单价 ÷ 30 × 剩余未生效天数】计算，1 个工作日内公对公原路退回至贵司企业账户，或者等额顺延至新账号抵扣，真正做到零风险兜底。",
+    },
+    {
+      q: "你们采用的卡段来源是什么？会不会是黑卡？",
+      a: "绝对不是黑卡！我们严格使用海外正规商业银行核准的企业商业信用卡（Corporate Commercial Cards）为企业代付。充值完成后，可向企业出具 OpenAI 官方后台原版的 Invoice 电子收据（带真实扣费卡号尾数与官方 Invoice ID），企业 IT 和法务均可核验真伪，从源头杜绝因黑卡盗刷导致的连带封号或法律追责。",
+    },
+    {
+      q: "“企业采购关怀计划（商务津贴）”是如何发放的？是否安全隐蔽？",
+      a: "非常安全私密！我们深刻理解采购内控审计的严肃性，因此严禁任何敏感的对公私下转账。关怀津贴全部以“全国通用主流商超卡密（如京东 E 卡、中石化油卡、盒马卡）”或通过第三方合规灵工平台发放，直接发送至采购负责人个人私域，不进入主合同与对公流水对账单，采购人员既办好公事，又免除任何后顾之忧。",
+    },
+    {
+      q: "后续每月/每季度如何续费？业务会不会断档？",
+      a: "不会断档！我们为每家企业配备专属客服与自动化台账管理。在订阅到期前 5 个工作日，大客户经理会在企微群中主动推送本期续订明细与对公付款账单。采购人员有充裕时间提交公司内部财务审批打款，款到后无感延续卡段扣费，保障研发与出海业务连续稳定运行。",
+    },
+    {
+      q: "ChatGPT Team 团队版与个人 Plus / Pro 有何区别？企业该如何选？",
+      a: "Plus / Pro 属于单人账号，适合岗位员工独立操作，其中 Pro 旗舰版适合需要 o1/o3 顶配深度推理算力的算法研发岗；而 Team 空间适合 2 人以上团队协同，最大优势是企业统一后台分配席位、员工离职可一键回收席位，并且官方承诺企业数据默认不用于模型训练，企业可根据安全与协作层级灵活搭配采购。",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-canvas border-t border-theme-subtle transition-colors">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <div className="codex-pill mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-secondary" />
+            <span>常见疑问与解答</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight mb-4">
+            解答财务、技术与采购关心的核心问题
+          </h2>
+          <p className="text-sm sm:text-base text-secondary">
+            如果您的企业还有其他特殊采购制度或开票需求，欢迎随时联系大客户商务顾问。
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="codex-panel border-theme-subtle overflow-hidden bg-surface transition-all shadow-xs"
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 hover:bg-surface-hover transition-colors cursor-pointer"
+                >
+                  <span className="text-sm sm:text-[15px] font-medium text-primary">
+                    {faq.q}
+                  </span>
+                  <span className="p-1 rounded-md bg-surface-elevated text-secondary shrink-0">
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-primary" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-secondary leading-relaxed border-t border-theme-subtle pt-3.5">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
