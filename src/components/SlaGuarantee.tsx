@@ -27,9 +27,9 @@ export default function SlaGuarantee({ onOpenDocs, onOpenContact }: SlaGuarantee
     {
       icon: Clock,
       color: "text-primary",
-      title: "≤ 15 分钟专属企微大客户服务",
-      subtitle: "专人专群响应，业务零断档",
-      desc: "建立由大客户商务主管、资深技术顾问组成的微信 VIP 服务群。承诺工作时段 15 分钟内响应；到期前 5 个工作日主动推送账单提醒，协助采购极速完成提单与续订审批。",
+      title: "7×24H 全天候专属大客户响应",
+      subtitle: "365天全天候专班轮守，≤15分钟极速必应",
+      desc: "建立由大客户商务主管、资深技术顾问组成的 VIP 专属服务群。承诺 7×24 小时全天候（含深夜攻坚、周末与法定节假日）15 分钟内极速响应；到期前 5 个工作日主动推送账单提醒，确保业务零断档。",
     },
     {
       icon: KeyRound,

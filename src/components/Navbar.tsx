@@ -67,10 +67,11 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           </button>
           <button
             onClick={() => onOpenContact("navbar")}
-            className="btn-openai-white text-xs !py-1.5 !px-4 cursor-pointer"
+            className="btn-openai-white text-xs !py-1.5 !px-4 cursor-pointer flex items-center gap-1.5"
           >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <MessageCircle className="w-3.5 h-3.5" />
-            <span>获取对公代采方案</span>
+            <span>7×24H 对公咨询</span>
           </button>
         </div>
 
@@ -79,9 +80,10 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           <ThemeToggle variant="icon" />
           <button
             onClick={() => onOpenContact("mobile-nav")}
-            className="btn-openai-white text-xs !py-1 !px-3 cursor-pointer"
+            className="btn-openai-white text-xs !py-1 !px-3 cursor-pointer flex items-center gap-1"
           >
-            对公咨询
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>7×24H 咨询</span>
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -155,10 +157,11 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenContact("mobile-drawer");
               }}
-              className="btn-openai-white w-full text-xs cursor-pointer"
+              className="btn-openai-white w-full text-xs cursor-pointer flex items-center justify-center gap-1.5"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <MessageCircle className="w-3.5 h-3.5" />
-              <span>添加官方大客户企微</span>
+              <span>添加 7×24H 官方大客户企微</span>
             </button>
           </div>
         </div>

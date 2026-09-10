@@ -42,13 +42,13 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="codex-pill mb-3">
             <Cpu className="w-3.5 h-3.5 text-[#10A37F]" />
-            <span>全版本官方代采与对公覆盖</span>
+            <span>全版本官方代采 · 采购越多单价越低 · 7×24H 极速开通</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight mb-4">
             满足企业从日常应用到顶配研发的全部需求
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            所有产品均使用正规商业卡段按需直充至企业指定账号，出具 6% 增值税专用发票并享受专属 SLA 兜底。
+            全系产品均支持阶梯批量集采：采购席位越多、结算周期越长，单席成本越低，最高可立减 25% 预算并赠大客户增值礼包。7×24 小时随时受理，出具 6% 增值税专用发票。
           </p>
         </div>
 
@@ -82,27 +82,47 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
                   <h3 className="text-lg font-semibold text-primary mb-1">{product.name}</h3>
                   <p className="text-xs text-secondary mb-4">{product.tagline}</p>
 
-                  {/* Pricing Box - Option B: Base Price Prominent + Bulk Tier Tag */}
+                  {/* Pricing Box - Direct Bulk Tier Matrix Display */}
                   <div className="p-3.5 rounded-xl bg-surface-elevated border border-theme-subtle mb-5 shadow-xs">
-                    <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center justify-between mb-1">
                       <span className="text-[10px] font-medium text-secondary">单席对公基准价</span>
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
-                        集采低至 ¥{product.lowestPriceRmb} 起
+                        多买立减 · 量大从优
                       </span>
                     </div>
 
-                    <div className="flex items-baseline gap-1.5">
+                    <div className="flex items-baseline gap-1.5 mb-2.5">
                       <span className="text-2xl font-bold text-primary tracking-tight">
                         ¥ {product.baseMonthlyRmb.toLocaleString()}
                       </span>
                       <span className="text-xs text-secondary">
-                        {product.id === "team" ? "/人/月 (含税)" : "/月/账号 (含税)"}
+                        {product.id === "team" ? "/人/月 (含税)" : "/月/席位 (含税)"}
                       </span>
                     </div>
 
-                    <div className="text-[11px] text-secondary mt-2 flex items-center justify-between font-mono pt-1.5 border-t border-theme-subtle/50">
-                      <span>原价: {product.officialPriceDisplay}</span>
-                      <span className="text-emerald-600 dark:text-[#10A37F] font-medium">5席起享阶梯价</span>
+                    {/* 阶梯价格梯度展示 */}
+                    <div className="space-y-1.5 pt-2 border-t border-theme-subtle/60 text-[11px]">
+                      <div className="flex justify-between items-center text-secondary">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                          <span>1~4 席 (基准)</span>
+                        </span>
+                        <span className="font-mono text-primary">¥{product.tiers.individual.monthly}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-secondary">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          <span>5~19 席 (团队)</span>
+                        </span>
+                        <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">¥{product.tiers.team.monthly} (单席立减)</span>
+                      </div>
+                      <div className="flex justify-between items-center text-secondary">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          <span>20+ 席 (集采)</span>
+                        </span>
+                        <span className="font-mono text-amber-600 dark:text-amber-400 font-bold">¥{product.lowestPriceRmb} 起 (低至底价)</span>
+                      </div>
                     </div>
                   </div>
 

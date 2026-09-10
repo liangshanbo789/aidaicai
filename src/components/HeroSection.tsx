@@ -20,7 +20,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
           <span className="font-medium text-primary">aidaicai.com</span>
           <span className="text-tertiary">/</span>
-          <span>全面支持 GPT-6 Astra · 企业级官方代采直通车 · 6% 专票</span>
+          <span>全面支持 GPT-6 Astra · 7×24H 全天响应 · 阶梯采购立减 · 6% 专票</span>
         </div>
 
         {/* Main Headline */}
@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
         {/* Subtitle */}
         <p className="text-base sm:text-lg text-secondary max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。全量支持 OpenAI 最新发布之 <strong className="text-primary font-medium">GPT-6 Astra</strong> 旗舰及 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方代采与对公结算。100% 正规商业信用卡代付、支持企业对公转账、6% 增值税专用发票与 72 小时风控兜底。
+          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。全量支持 OpenAI 最新发布之 <strong className="text-primary font-medium">GPT-6 Astra</strong> 旗舰及 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方代采与对公结算。100% 正规商业信用卡代付、支持企业对公转账、6% 增值税专用发票、席位阶梯量大从优与 72 小时风控兜底。
         </p>
 
         {/* Action Buttons */}
@@ -39,7 +39,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
             href="#calculator"
             className="btn-openai-white w-full sm:w-auto text-sm px-7 py-3"
           >
-            <span>测算企业代采预算</span>
+            <span>测算企业阶梯代采预算</span>
             <ArrowRight className="w-4 h-4" />
           </a>
 
@@ -100,12 +100,12 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
                 <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <div className="text-lg font-semibold text-primary tracking-tight">≤ 15 min</div>
-                <div className="text-[11px] text-secondary">企微极速代采交付</div>
+                <div className="text-lg font-semibold text-primary tracking-tight">7×24h / ≤15m</div>
+                <div className="text-[11px] text-secondary">全天候企微极速响应</div>
               </div>
             </div>
             <p className="text-xs text-secondary leading-relaxed">
-              专人专群对接大客户专属服务群，断订极速补齐，到期前 5 日主动提醒续订。
+              365天全天候专班轮守，深夜攻坚与突发断订 15 分钟内必应补齐，节假日不打烊。
             </p>
           </div>
 
@@ -127,20 +127,24 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         </div>
 
         {/* Live Reassurance Bar */}
-        <div className="mt-12 pt-6 border-t border-theme-subtle max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-secondary">
-          <div className="flex items-center gap-2">
+        <div className="mt-12 pt-6 border-t border-theme-subtle max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs text-secondary">
+          <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#10A37F]" />
+            <span className="font-medium text-primary">7×24H 全天候顾问轮守</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-[#10A37F]" />
+            <span className="font-medium text-primary">采购数量越多·单价越低</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
             <span>支持网银公对公电汇打款</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#10A37F]" />
-            <span>账号数据与历史零接触保密</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#10A37F]" />
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
             <span>正规代采合同加盖电子公章</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
             <span>大客户集采专属增值权益</span>
           </div>

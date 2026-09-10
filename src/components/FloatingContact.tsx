@@ -116,10 +116,10 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
               }}
             >
               <div className="font-semibold text-primary text-[12px] mb-0.5 flex items-center gap-1.5">
-                <span>遇到对公采购或开票问题？</span>
+                <span>7×24H 全天候顾问在线响应</span>
               </div>
               <p className="text-[11px] text-secondary leading-snug">
-                专属大客户总监随时在线，点击极速获取企业报价单与合规专票样张。
+                专属大客户总监全天候轮守待命，深夜攻坚或周末采购皆可极速获取企业报价单与合规专票样张。
               </p>
             </div>
             <button
@@ -150,11 +150,11 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
                 <h4 className="text-xs sm:text-sm font-semibold text-primary flex items-center gap-1.5">
                   <span>专属大客户顾问</span>
                   <span className="text-[10px] font-mono font-medium px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                    在线
+                    7×24H 在线
                   </span>
                 </h4>
                 <p className="text-[10px] text-secondary">
-                  工作时间 9:00 - 22:00 · 10分钟内响应
+                  全天候 365 天无休轮守 · 10分钟内极速必应
                 </p>
               </div>
             </div>
@@ -259,16 +259,16 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
             {/* 企业服务资质标签 */}
             <div className="grid grid-cols-3 gap-1.5 pt-0.5 text-center">
               <div className="p-1.5 rounded-lg bg-surface border border-theme-subtle text-[10px] text-secondary">
-                <div className="text-primary font-semibold">6% 专票</div>
-                <div>数电增值税</div>
+                <div className="text-primary font-semibold">7×24H 响应</div>
+                <div>全天专人专群</div>
               </div>
               <div className="p-1.5 rounded-lg bg-surface border border-theme-subtle text-[10px] text-secondary">
-                <div className="text-primary font-semibold">企业对公</div>
-                <div>银行直接汇款</div>
+                <div className="text-primary font-semibold">6% 专票对公</div>
+                <div>银行规范结算</div>
               </div>
               <div className="p-1.5 rounded-lg bg-surface border border-theme-subtle text-[10px] text-secondary">
-                <div className="text-primary font-semibold">72h SLA</div>
-                <div>售后封号退赔</div>
+                <div className="text-primary font-semibold">72h 退赔</div>
+                <div>售后风控兜底</div>
               </div>
             </div>
 
@@ -316,12 +316,12 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
             <span>{isOpen ? "收起客服" : "联系客服"}</span>
             {!isOpen && (
               <span className="hidden sm:inline-block text-[10px] font-normal text-secondary">
-                · 对公顾问
+                · 7×24H
               </span>
             )}
           </div>
           <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono hidden sm:block leading-none mt-0.5">
-            10分钟极速响应
+            全天10分钟内必应
           </span>
         </div>
       </button>
