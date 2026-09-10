@@ -184,12 +184,41 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   onChange={(e) => setSeats(parseInt(e.target.value))}
                   className="w-full h-1.5 bg-surface-hover rounded-lg appearance-none cursor-pointer accent-[#10A37F]"
                 />
-                <div className="flex justify-between text-[11px] text-secondary font-mono">
-                  <span>{config.minSeats} 起购</span>
-                  <span>5 席</span>
-                  <span>10 席 (研发标配)</span>
-                  <span>20 席</span>
-                  <span>50+ 席</span>
+                <div className="relative w-full h-5 text-[11px] font-mono select-none">
+                  {[
+                    { value: config.minSeats, label: `${config.minSeats} 起购` },
+                    { value: 10, label: "10 席" },
+                    { value: 25, label: "25 席" },
+                    { value: 40, label: "40 席" },
+                    { value: 50, label: "50+ 席" },
+                  ].map((mark) => {
+                    const min = config.minSeats;
+                    const max = 50;
+                    const percent = ((mark.value - min) / (max - min)) * 100;
+                    const isSelected = currentSeats === mark.value;
+                    const isMin = mark.value === min;
+                    const isMax = mark.value === max;
+
+                    return (
+                      <button
+                        key={mark.value}
+                        type="button"
+                        onClick={() => setSeats(mark.value)}
+                        className={`absolute transition-colors cursor-pointer hover:text-primary ${
+                          isSelected
+                            ? "text-emerald-600 dark:text-[#10A37F] font-semibold"
+                            : "text-secondary"
+                        }`}
+                        style={{
+                          left: isMin ? "0%" : isMax ? "auto" : `${percent}%`,
+                          right: isMax ? "0%" : "auto",
+                          transform: isMin || isMax ? "none" : "translateX(-50%)",
+                        }}
+                      >
+                        {mark.label}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

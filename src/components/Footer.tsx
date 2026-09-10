@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Mail, MessageCircle, MapPin, Globe } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 
 interface FooterProps {
@@ -82,15 +82,15 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-secondary" />
-                <span>biz@aidaicai.com</span>
+                <span>liang@yqtp.cn</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-secondary" />
-                <span>400-820-9188 / 企微在线值守</span>
+                <MessageCircle className="w-3.5 h-3.5 text-secondary" />
+                <span>业务经理微信：<span className="font-mono text-primary font-medium">yqtp01</span></span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-secondary" />
-                <span>北京市海淀区中关村前沿技术创新中心</span>
+                <span>四川省成都市高新区AI创新中心</span>
               </div>
             </div>
             <div className="pt-2">

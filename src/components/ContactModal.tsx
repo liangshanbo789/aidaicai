@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Phone, Copy, Check, QrCode, Building, Send, ShieldCheck } from "lucide-react";
+import { MessageCircle, Copy, Check, QrCode, Building, Send, ShieldCheck } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -22,7 +22,7 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
 
   if (!isOpen) return null;
 
-  const weChatAccount = "aidaicai_biz";
+  const weChatAccount = "yqtp01";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(weChatAccount).then(() => {
@@ -46,8 +46,8 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
               <MessageCircle className="w-4 h-4 text-[#10A37F]" />
             </div>
             <div>
-              <h3 className="text-sm sm:text-base font-semibold text-primary">联系 AI 代采 (aidaicai.com) 专属顾问</h3>
-              <p className="text-[11px] text-secondary">支持企业银行对公转账 · 6% 增值税专票 · 采购经理专属关怀</p>
+              <h3 className="text-sm sm:text-base font-semibold text-primary">联系业务经理 / 客服支持</h3>
+              <p className="text-[11px] text-secondary">微信扫码直联 · 支持企业公对公转账与 6% 增值税专票</p>
             </div>
           </div>
           <button
@@ -62,45 +62,81 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
         <div className="p-6 overflow-y-auto space-y-6">
           {/* Quick Connect Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* WeChat Card */}
-            <div className="codex-panel p-4 border-theme-subtle bg-surface-elevated">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-medium text-primary flex items-center gap-1.5">
-                  <QrCode className="w-3.5 h-3.5 text-[#10A37F]" />
-                  <span>官方企业微信 (蓝V认证)</span>
+            {/* 业务经理微信 */}
+            <div className="codex-panel p-4 border-theme-subtle bg-surface-elevated flex flex-col items-center text-center">
+              <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
+                <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
+                  <MessageCircle className="w-3.5 h-3.5 text-[#10A37F]" />
+                  <span>业务经理</span>
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">
-                  在线值守
+                  微信直联
                 </span>
               </div>
-              <div className="text-sm font-mono font-semibold text-primary mb-3">
-                企微号：<span className="text-[#10A37F]">{weChatAccount}</span>
+
+              {/* 微信二维码 (白底高对比度卡片，适配明暗主题) */}
+              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-3 flex items-center justify-center">
+                <img
+                  src="/images/微信二维码.webp"
+                  alt="业务经理微信二维码"
+                  className="w-36 h-36 object-contain rounded-lg block"
+                  loading="eager"
+                />
               </div>
+
+              <div className="text-xs text-secondary mb-3 flex items-center gap-1.5">
+                <span>微信号：</span>
+                <span className="font-mono font-bold text-primary text-sm select-all">{weChatAccount}</span>
+              </div>
+
               <button
+                type="button"
                 onClick={handleCopy}
-                className="w-full btn-openai-white text-xs !py-1.5 flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full btn-openai-white text-xs !py-1.5 flex items-center justify-center gap-1.5 cursor-pointer mt-auto"
               >
-                {copiedWeChat ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedWeChat ? "企微号已复制，快去微信添加吧！" : "复制微信号一键添加"}</span>
+                {copiedWeChat ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">微信号已复制！</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>复制微信号</span>
+                  </>
+                )}
               </button>
             </div>
 
-            {/* Direct Line Card */}
-            <div className="codex-panel p-4 border-theme-subtle bg-surface-elevated">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-medium text-secondary flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-secondary" />
-                  <span>大客户应急直拨热线</span>
+            {/* 业务经理企业微信 */}
+            <div className="codex-panel p-4 border-theme-subtle bg-surface-elevated flex flex-col items-center text-center">
+              <div className="w-full flex items-center justify-between mb-3 pb-2 border-b border-theme-subtle">
+                <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
+                  <QrCode className="w-3.5 h-3.5 text-[#10A37F]" />
+                  <span>业务经理企业微信</span>
                 </span>
-                <span className="text-[10px] text-secondary font-mono">
-                  7×12小时
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">
+                  官方认证
                 </span>
               </div>
-              <div className="text-sm font-semibold text-primary mb-1 font-mono">
-                400-820-9188 / 186-0000-8892
+
+              {/* 企业微信二维码 */}
+              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-3 flex items-center justify-center">
+                <img
+                  src="/images/企业微信二维码.jpg"
+                  alt="业务经理企业微信二维码"
+                  className="w-36 h-36 object-contain rounded-lg block"
+                  loading="eager"
+                />
               </div>
-              <div className="text-[11px] text-secondary">
-                服务时间：周一至周日 09:00 - 22:00
+
+              <div className="text-xs text-secondary mb-3">
+                微信或企微扫码一键添加
+              </div>
+
+              <div className="w-full py-1.5 px-3 rounded-lg bg-surface border border-theme-subtle text-[11px] text-secondary flex items-center justify-center gap-1.5 mt-auto">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#10A37F]" />
+                <span>对公转账 · 专票开具 · 方案对接</span>
               </div>
             </div>
           </div>

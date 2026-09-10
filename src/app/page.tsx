@@ -13,6 +13,7 @@ import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import DocsVault from "@/components/DocsVault";
 import ContactModal from "@/components/ContactModal";
+import FloatingContact from "@/components/FloatingContact";
 
 export default function Home() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -94,6 +95,11 @@ export default function Home() {
         isOpen={docsVaultOpen}
         onClose={() => setDocsVaultOpen(false)}
         onOpenContact={handleOpenContact}
+      />
+
+      {/* Floating Customer Service / Advisor Widget */}
+      <FloatingContact
+        onOpenFullContact={(source = "floating-widget") => handleOpenContact(source)}
       />
 
       {/* Contact Customer Advisor Modal */}
