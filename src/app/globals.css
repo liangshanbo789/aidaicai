@@ -419,3 +419,14 @@ html.dark .codex-pill-green {
   background-color: var(--openai-green);
   box-shadow: 0 0 8px var(--openai-green);
 }
+
+/* Print Styles for Official Quotation */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  header, footer, #compare, #products, #calculator, #compliance, #workflow, #sla, #perks, #faq, [aria-label="客服与采购顾问支持"] {
+    display: none !important;
+  }
+}

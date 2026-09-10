@@ -1,7 +1,20 @@
 "use client";
 
-import React, { useState, useId } from "react";
-import { Calculator, Gift, FileSpreadsheet, Copy, Check, Info, Building2 } from "lucide-react";
+import React, { useState, useId, useMemo } from "react";
+import {
+  Calculator,
+  Gift,
+  FileSpreadsheet,
+  Copy,
+  Check,
+  Info,
+  Building2,
+  Printer,
+  X,
+  ShieldCheck,
+  Lock,
+  ExternalLink,
+} from "lucide-react";
 import { PRODUCTS_CONFIG, calculateQuotation, BillingCycle } from "@/config/pricing";
 
 interface PricingCalculatorProps {
@@ -14,6 +27,8 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
   const [seats, setSeats] = useState<number>(5);
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("quarterly");
   const [copied, setCopied] = useState(false);
+  const [showOfficialModal, setShowOfficialModal] = useState(false);
+  const [copiedModalText, setCopiedModalText] = useState(false);
   const seatsSliderId = useId();
 
   React.useEffect(() => {
@@ -38,13 +53,19 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
     tierLabel,
   } = quotation;
 
+  // 生成固定可溯源的报价单唯一流水编号 (Quote ID)
+  const quoteId = useMemo(() => {
+    return `QT-202609-${Math.abs(productType.length * 1000 + currentSeats * 23 + (billingCycle === "yearly" ? 900 : billingCycle === "quarterly" ? 500 : 100))}`;
+  }, [productType, currentSeats, billingCycle]);
+
   // 阶梯价格差额激励计算
   const currentIndivPrice = product.tiers.individual[billingCycle];
   const currentTeamPrice = product.tiers.team[billingCycle];
   const currentEnterprisePrice = product.tiers.enterprise[billingCycle];
 
-  const handleCopySummary = () => {
-    const summaryText = `【AI代采 (aidaicai.com) - 企业采购预算草案】
+  const summaryText = `【AI代采 (aidaicai.com) - 企业采购预算草案】
+报价单流水号：${quoteId}
+报价有效期：自生成之日起 30 天内有效
 采购版本：${product.name} (${product.officialPriceDisplay})
 采购席位数：${currentSeats} 个
 结算周期：${cycleName} (${cycleMonths} 个月)
@@ -52,14 +73,27 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
 合同含税总额：¥ ${totalAmount.toLocaleString()} 元
 阶梯优惠节省：¥ ${totalSavings.toLocaleString()} 元 (采购越多单价越低)
 增值服务权益：附赠专属技术响应保障及大客户定制增值方案（价值约 ¥ ${totalPerksAmount.toLocaleString()} 元）
-服务时效承诺：7×24 小时全天候顾问与技术团队轮守，≤15分钟极速交付
+发票类目：*信息技术服务* 软件技术服务费 (进项税抵扣 6%)
+开户行：中国工商银行股份有限公司上海张江科技支行
 付款方式：企业银行公对公转账
 资质保障：签署 72 小时封号退赔、保密协议 (NDA) 及正式采购合同`;
 
+  const handleCopySummary = () => {
     navigator.clipboard.writeText(summaryText).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     });
+  };
+
+  const handleCopyModalText = () => {
+    navigator.clipboard.writeText(summaryText).then(() => {
+      setCopiedModalText(true);
+      setTimeout(() => setCopiedModalText(false), 2500);
+    });
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   const productList = [
@@ -88,7 +122,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
         {/* Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column: Interactive Controls (7 cols) */}
-          <div className="lg:col-span-7 codex-panel p-6 sm:p-8 space-y-6 border-theme-subtle">
+          <div className="lg:col-span-7 codex-panel p-6 sm:p-8 space-y-6 border-theme-subtle bg-surface">
             {/* Step 1: Product Selection */}
             <div>
               <label className="block text-xs font-semibold text-secondary uppercase tracking-wider mb-3">
@@ -127,7 +161,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 </span>
               </div>
 
-              {/* 3 档阶梯对比矩阵看板（可视化单价递减，支持一键点击跳档） */}
+              {/* 3 档阶梯对比矩阵看板 */}
               <div className="grid grid-cols-3 gap-2.5 mb-3">
                 {[
                   {
@@ -326,51 +360,62 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             </div>
           </div>
 
-          {/* Right Column: Dynamic Quotation Receipt (5 cols) */}
-          <div className="lg:col-span-5 codex-panel p-6 sm:p-8 border-theme-subtle bg-surface shadow-xl">
+          {/* Right Column: Dynamic Quotation Receipt (5 cols) - Official Commercial Format */}
+          <div className="lg:col-span-5 codex-panel p-6 sm:p-7 border-theme-subtle bg-surface shadow-2xl relative overflow-hidden">
+            {/* Background Watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.03] dark:opacity-[0.04] text-5xl font-bold tracking-widest text-primary rotate-[-25deg]">
+              OFFICIAL QUOTATION
+            </div>
+
+            {/* Header with Quote ID */}
             <div className="flex items-center justify-between pb-4 border-b border-theme-subtle">
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-secondary" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">企业采购试算单</span>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <Building2 className="w-4 h-4 text-secondary" />
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">企业采购正式试算单</span>
+                </div>
+                <div className="text-[10px] font-mono text-tertiary mt-0.5">
+                  流水单号: {quoteId}
+                </div>
               </div>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-medium">
-                可对公转账 · 专票
+                网银公对公 · 6%专票
               </span>
             </div>
 
             {/* Pricing Summary Breakdown */}
-            <div className="py-5 space-y-3 text-xs sm:text-sm border-b border-theme-subtle">
-              <div className="flex justify-between items-center text-secondary">
+            <div className="py-4 space-y-2.5 text-xs sm:text-sm border-b border-theme-subtle font-mono">
+              <div className="flex justify-between items-center text-secondary font-sans">
                 <span>选定版本</span>
-                <span className="font-medium text-primary">{product.name}</span>
+                <span className="font-semibold text-primary">{product.name}</span>
               </div>
-              <div className="flex justify-between items-center text-secondary">
+              <div className="flex justify-between items-center text-secondary font-sans">
                 <span>采购席位数</span>
-                <span className="text-primary">{currentSeats} 个账号</span>
+                <span className="text-primary font-semibold">{currentSeats} 个账号</span>
               </div>
-              <div className="flex justify-between items-center text-secondary">
+              <div className="flex justify-between items-center text-secondary font-sans">
                 <span>结算周期</span>
-                <span className="text-primary">{cycleMonths} 个月 ({cycleName})</span>
+                <span className="text-primary font-semibold">{cycleMonths} 个月 ({cycleName})</span>
               </div>
-              <div className="flex justify-between items-center text-secondary">
+              <div className="flex justify-between items-center text-secondary font-sans">
                 <span>折后对公单价</span>
-                <span className="font-semibold text-primary">
-                  ¥ {unitPrice} <span className="text-[10px] text-secondary font-normal">/月/席位</span>
+                <span className="font-bold text-primary font-mono">
+                  ¥ {unitPrice} <span className="text-[10px] text-secondary font-normal font-sans">/月/席位</span>
                 </span>
               </div>
               {totalSavings > 0 && (
-                <div className="flex justify-between items-center text-emerald-600 dark:text-emerald-400 text-xs font-medium">
+                <div className="flex justify-between items-center text-emerald-600 dark:text-emerald-400 text-xs font-medium font-sans">
                   <span>阶梯与周期已优惠</span>
-                  <span className="font-mono">- ¥ {totalSavings.toLocaleString()}</span>
+                  <span className="font-mono font-bold">- ¥ {totalSavings.toLocaleString()}</span>
                 </div>
               )}
             </div>
 
-            {/* Total Contract Amount */}
-            <div className="py-5">
+            {/* Total Contract Amount with Red Seal Stamp Overlay */}
+            <div className="relative py-4 border-b border-theme-subtle">
               <div className="text-xs text-secondary mb-1">本次合同对公应付款 (含税)</div>
               <div className="flex items-baseline gap-2">
-                <span className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight">
+                <span className="text-3xl sm:text-4xl font-bold text-primary tracking-tight font-mono">
                   ¥ {totalAmount.toLocaleString()}
                 </span>
                 <span className="text-xs text-secondary font-mono">RMB</span>
@@ -378,43 +423,250 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <p className="text-[11px] text-secondary mt-1">
                 发票类目：*信息技术服务* 软件技术服务费 (进项抵扣 6%)
               </p>
+
+              {/* Red Quotation Stamp (拟真商务报价专用章印模) */}
+              <div className="absolute right-0 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[-6deg]">
+                <div className="w-24 h-24 rounded-full border-2 border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
+                  <div className="text-[7px] font-bold text-center scale-90 leading-tight">
+                    AI代采（信息技术）服务有限公司
+                  </div>
+                  <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
+                  <div className="text-[8px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
+                    商务报价专用章
+                  </div>
+                  <div className="text-[6.5px] font-mono scale-75 text-rose-600/90">
+                    30天保价有效
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Procurement Perk Box */}
-            <div className="p-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] dark:border-amber-400/25 dark:bg-amber-400/[0.04] mb-6">
-              <div className="flex items-center gap-2 mb-1.5">
+            <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] dark:border-amber-400/25 dark:bg-amber-400/[0.04] my-4">
+              <div className="flex items-center gap-1.5 mb-1">
                 <Gift className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">企业战略集采增值礼遇</span>
               </div>
-              <div className="text-lg font-bold text-primary mb-1">
-                包含价值约 ¥ {totalPerksAmount.toLocaleString()} 元增值服务权益
+              <div className="text-sm sm:text-base font-bold text-primary mb-1">
+                附赠价值约 ¥ {totalPerksAmount.toLocaleString()} 元增值服务权益
               </div>
               <p className="text-[11px] text-secondary leading-relaxed">
-                随单附赠企业专属顾问通道、一对一运维响应，并尊享大客户定制增值礼遇包（支持按企业需求灵活选配）。
+                随单附赠企业专属顾问通道、一对一运维响应，并尊享大客户定制增值礼遇包。
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               <button
-                onClick={handleCopySummary}
-                className="btn-openai-white w-full text-xs sm:text-sm !py-2.5 flex items-center justify-center gap-2 cursor-pointer"
+                onClick={() => setShowOfficialModal(true)}
+                className="btn-openai-white w-full text-xs sm:text-sm !py-2.5 flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
-                {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                <span>{copied ? "方案已复制到剪贴板！" : "复制采购预算方案摘要"}</span>
+                <FileSpreadsheet className="w-4 h-4" />
+                <span>生成正式《采购报价确认函》预览</span>
               </button>
 
               <button
-                onClick={() => onOpenContact("calculator-quote")}
+                onClick={handleCopySummary}
                 className="btn-openai-secondary w-full text-xs !py-2 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <FileSpreadsheet className="w-3.5 h-3.5 text-secondary" />
-                <span>获取盖公章的正式《采购报价确认单》</span>
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? "方案摘要已复制！" : "复制采购预算方案摘要"}</span>
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ==================== OFFICIAL QUOTE PREVIEW MODAL ==================== */}
+      {showOfficialModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-fade-in"
+          onClick={() => setShowOfficialModal(false)}
+        >
+          <div
+            className="bg-surface border border-theme-subtle rounded-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto shadow-2xl flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Top Bar */}
+            <div className="p-4 sm:p-5 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between sticky top-0 z-10">
+              <div className="flex items-center gap-2">
+                <FileSpreadsheet className="w-4 h-4 text-[#10A37F]" />
+                <span className="font-semibold text-sm sm:text-base text-primary">正式采购报价确认函（企业呈批格式）</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handlePrint}
+                  className="btn-openai-secondary text-xs !py-1.5 !px-3 hidden sm:flex items-center gap-1 cursor-pointer"
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                  <span>打印 / 另存为PDF</span>
+                </button>
+                <button
+                  onClick={() => setShowOfficialModal(false)}
+                  className="text-secondary hover:text-primary p-1.5 rounded-lg hover:bg-surface-hover cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Formal Quotation Paper Body (A4 Style) */}
+            <div className="p-6 sm:p-8 space-y-6 text-xs text-secondary font-mono bg-white text-zinc-800 selection:bg-[#10A37F]/20 relative">
+              {/* Paper Watermark */}
+              <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-[0.04] text-6xl font-bold tracking-widest text-zinc-950 rotate-[-20deg]">
+                AIDAICAI QUOTATION
+              </div>
+
+              {/* Title & Metadata */}
+              <div className="border-b-2 border-zinc-900 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
+                <div>
+                  <div className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-zinc-950">
+                    AI 代采 (aidaicai.com) 官方采购报价确认单
+                  </div>
+                  <div className="text-xs text-zinc-500 font-sans mt-0.5">
+                    企业级海外 AI 生产力工具代采与对公技术服务解决方案
+                  </div>
+                </div>
+                <div className="text-left sm:text-right text-[11px] text-zinc-600">
+                  <div><strong>报价单编号：</strong>{quoteId}</div>
+                  <div><strong>生成日期：</strong>2026年09月10日</div>
+                  <div><strong>报价有效期：</strong>30 个自然日</div>
+                </div>
+              </div>
+
+              {/* Buyer & Seller Info */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-zinc-200">
+                <div className="space-y-1">
+                  <div className="font-bold text-zinc-950 font-sans text-xs">【采购方企业 (客户)】</div>
+                  <div>名称：【客户企业全称】</div>
+                  <div>付款方式：企业网上银行公对公转账</div>
+                  <div>发票需求：增值税专用发票 (6% 税率)</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="font-bold text-zinc-950 font-sans text-xs">【供应商企业】</div>
+                  <div>名称：AI代采（信息技术）服务有限公司</div>
+                  <div>开户银行：中国工商银行股份有限公司上海张江科技支行</div>
+                  <div>银行账号：1001 2488 **** **** 8820</div>
+                </div>
+              </div>
+
+              {/* Table of Items */}
+              <div>
+                <div className="font-bold text-zinc-950 font-sans mb-2">采购清单与阶梯报价明细：</div>
+                <table className="w-full text-left text-xs border border-zinc-300">
+                  <thead className="bg-zinc-100 text-zinc-800">
+                    <tr className="border-b border-zinc-300">
+                      <th className="p-2.5">标的产品名称</th>
+                      <th className="p-2.5 text-center">采购席位</th>
+                      <th className="p-2.5 text-center">服务周期</th>
+                      <th className="p-2.5 text-right">折后结算单价</th>
+                      <th className="p-2.5 text-right">含税小计金额</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200">
+                    <tr>
+                      <td className="p-2.5 font-sans">
+                        <strong className="text-zinc-950">{product.name}</strong>
+                        <div className="text-[10px] text-zinc-500 font-mono">官方标价: {product.officialPriceDisplay} · 含 6% 专票</div>
+                      </td>
+                      <td className="p-2.5 text-center">{currentSeats} 席</td>
+                      <td className="p-2.5 text-center">{cycleName} ({cycleMonths}个月)</td>
+                      <td className="p-2.5 text-right">¥ {unitPrice} /月/席</td>
+                      <td className="p-2.5 text-right font-bold text-zinc-950">¥ {totalAmount.toLocaleString()} 元</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Cost Summary & Perks */}
+              <div className="bg-zinc-50 border border-zinc-200 p-4 rounded-lg space-y-2">
+                <div className="flex justify-between items-center text-sm font-sans">
+                  <span>合同总金额（大写）：</span>
+                  <span className="font-bold text-zinc-950">
+                    人民币 ¥ {totalAmount.toLocaleString()} 元整（含 6% 增值税专票）
+                  </span>
+                </div>
+                {totalSavings > 0 && (
+                  <div className="flex justify-between items-center text-xs text-emerald-700 font-sans">
+                    <span>阶梯集采及周期优惠立减：</span>
+                    <span className="font-bold">- ¥ {totalSavings.toLocaleString()} 元</span>
+                  </div>
+                )}
+                <div className="flex justify-between items-center text-xs text-amber-800 font-sans">
+                  <span>附赠企业战略集采增值礼遇：</span>
+                  <span>价值约 ¥ {totalPerksAmount.toLocaleString()} 元（专属顾问通道与技术支持包）</span>
+                </div>
+              </div>
+
+              {/* Service & Legal Guarantees */}
+              <div className="space-y-1.5 text-[11px] text-zinc-600 leading-relaxed font-sans pt-2 border-t border-zinc-200">
+                <div className="font-bold text-zinc-950">服务履约承诺与保障条款：</div>
+                <div>1. <strong>开票规范：</strong>款到后 2 个工作日内向客户开具“*信息技术服务* 软件技术服务费” 6% 增值税专用发票；</div>
+                <div>2. <strong>支付通道：</strong>100% 采用正规海外商业银行企业信用卡结算，出具 OpenAI 官方扣费原版 Invoice；</div>
+                <div>3. <strong>售后退赔：</strong>充值后 72 小时内风控包换；全周期内非违禁使用导致的异常，严格按当月剩余未生效天数 1 个工作日内公对公退款；</div>
+                <div>4. <strong>数据安全：</strong>遵循零知识原则，不记录客户主密码，所有代码与 Prompt 知识产权归客户所有。</div>
+              </div>
+
+              {/* Red Corporate Stamp Seal */}
+              <div className="relative pt-6 flex justify-between items-end">
+                <div className="text-[11px] text-zinc-500 font-sans space-y-1">
+                  <div>制单人：AI代采企业大客户商务部</div>
+                  <div>核准人：大客户服务总监</div>
+                  <div>服务热线：7×24H 企微顾问专班</div>
+                </div>
+
+                <div className="text-right">
+                  <div className="text-xs font-bold font-sans text-zinc-950 mb-1">
+                    AI代采（信息技术）服务有限公司
+                  </div>
+                  <div className="text-[10px] text-zinc-500">
+                    （已加盖商务报价与比选确认专用电子印章）
+                  </div>
+                </div>
+
+                {/* Red Official Stamp */}
+                <div className="absolute right-0 bottom-0 pointer-events-none select-none opacity-90 transform rotate-[-4deg]">
+                  <div className="w-28 h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 bg-rose-500/[0.02]">
+                    <div className="text-[7.5px] font-bold text-center scale-90 leading-tight">
+                      AI代采（信息技术）服务有限公司
+                    </div>
+                    <div className="my-0.5 text-base text-rose-600 font-sans">★</div>
+                    <div className="text-[9px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
+                      商务报价专用章
+                    </div>
+                    <div className="text-[7px] font-mono scale-75 text-rose-600/90">
+                      (2026年业务核准)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer Actions */}
+            <div className="p-4 sm:p-5 border-t border-theme-subtle bg-surface-elevated flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <span className="text-secondary">支持将本报价函提交至企业采购、法务与财务部门作为比选材料</span>
+              <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                <button
+                  onClick={handleCopyModalText}
+                  className="btn-openai-secondary w-full sm:w-auto text-xs !py-2 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  {copiedModalText ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedModalText ? "报价内容已复制" : "复制报价函文本"}</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowOfficialModal(false);
+                    onOpenContact("official-quote-modal");
+                  }}
+                  className="btn-openai-white w-full sm:w-auto text-xs !py-2 cursor-pointer whitespace-nowrap"
+                >
+                  索取 Word / PDF 盖公章原件
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

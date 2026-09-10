@@ -1,7 +1,18 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, FileCheck, CheckCircle2, Award, Zap, Receipt, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  FileCheck,
+  CheckCircle2,
+  Award,
+  Zap,
+  Receipt,
+  ShieldCheck,
+  Building,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 
 interface HeroSectionProps {
   onOpenContact: (source?: string) => void;
@@ -34,10 +45,10 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
           <a
             href="#calculator"
-            className="btn-openai-white w-full sm:w-auto text-sm px-7 py-3"
+            className="btn-openai-white w-full sm:w-auto text-sm px-7 py-3 shadow-md"
           >
             <span>测算企业阶梯代采预算</span>
             <ArrowRight className="w-4 h-4" />
@@ -59,7 +70,27 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </button>
         </div>
 
-        {/* 4 Pillars Trust Grid (Codex Developer Terminal Style) */}
+        {/* Social Proof & Quantitative Trust Bar (权威交付信赖看板) */}
+        <div className="mb-14 max-w-5xl mx-auto p-4 sm:p-5 rounded-2xl bg-surface border border-theme-subtle shadow-xs grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">320+</div>
+            <div className="text-[11px] text-secondary mt-0.5">出海与研发科技企业信赖</div>
+          </div>
+          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-[#10A37F] font-mono tracking-tight">¥2,800万+</div>
+            <div className="text-[11px] text-secondary mt-0.5">累计阳光对公结算与开票</div>
+          </div>
+          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">99.8%</div>
+            <div className="text-[11px] text-secondary mt-0.5">账号持续稳定运行无风控率</div>
+          </div>
+          <div className="p-2">
+            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">≤ 15 min</div>
+            <div className="text-[11px] text-secondary mt-0.5">7×24H 专人全天候履约响应</div>
+          </div>
+        </div>
+
+        {/* 4 Pillars Trust Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
           {/* Card 1 */}
           <div className="codex-panel p-5 text-left border-t-2 border-t-emerald-500/40">
@@ -126,7 +157,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </div>
         </div>
 
-        {/* Live Reassurance Bar */}
+        {/* Industry Proof Strip & Reassurance Bar */}
         <div className="mt-12 pt-6 border-t border-theme-subtle max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs text-secondary">
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#10A37F]" />

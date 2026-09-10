@@ -39,6 +39,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-primary">方案与服务</h4>
             <ul className="space-y-2.5">
               <li><a href="#compare" className="hover:text-primary transition-colors text-secondary">官方代采 vs 个人代充对比</a></li>
+              <li><a href="#workflow" className="hover:text-primary transition-colors text-secondary">全阳光代采 4 步交付闭环</a></li>
               <li><a href="#products" className="hover:text-primary transition-colors text-secondary">代采矩阵 (Plus / Pro / Team)</a></li>
               <li><a href="#calculator" className="hover:text-primary transition-colors text-secondary">实时阶梯预算测算引擎</a></li>
               <li><a href="#compliance" className="hover:text-primary transition-colors text-secondary">增值税专用发票对公样张</a></li>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PainPointsCompare from "@/components/PainPointsCompare";
+import ProcurementWorkflow from "@/components/ProcurementWorkflow";
 import ProductCatalog from "@/components/ProductCatalog";
 import PricingCalculator from "@/components/PricingCalculator";
 import ComplianceShowcase from "@/components/ComplianceShowcase";
@@ -53,6 +54,12 @@ export default function HomeClientContainer() {
 
         {/* 个人代充 vs 企业官方代采痛点对比 */}
         <PainPointsCompare />
+
+        {/* 全阳光对公代采 4 步交付闭环 */}
+        <ProcurementWorkflow
+          onOpenContact={handleOpenContact}
+          onOpenDocs={() => setDocsVaultOpen(true)}
+        />
 
         {/* 产品目录 (Plus / Pro 5x / Pro 20x / Team) */}
         <ProductCatalog

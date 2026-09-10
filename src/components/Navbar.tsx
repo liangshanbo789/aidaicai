@@ -34,6 +34,9 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           <a href="#compare" className="hover:text-primary transition-colors">
             选型对比
           </a>
+          <a href="#workflow" className="hover:text-primary transition-colors">
+            交付闭环
+          </a>
           <a href="#products" className="hover:text-primary transition-colors">
             代采矩阵
           </a>
@@ -105,6 +108,13 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             className="block text-xs font-medium text-secondary hover:text-primary py-1"
           >
             代采 vs 个人代充对比
+          </a>
+          <a
+            href="#workflow"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-xs font-medium text-secondary hover:text-primary py-1"
+          >
+            全阳光代采 4 步交付闭环
           </a>
           <a
             href="#products"
