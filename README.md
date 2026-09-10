@@ -4,7 +4,7 @@
 ### 企业级海外 AI 官方代采 · 阶梯量采降本 · 对公财税合规结算平台
 
 [![Official Website](https://img.shields.io/badge/官方网站-www.aidaicai.com-10a37f?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.aidaicai.com)
-[![WeChat Certified](https://img.shields.io/badge/企微认证-成都游手科技有限公司-07c160?style=for-the-badge&logo=wechat&logoColor=white)](https://www.aidaicai.com)
+[![WeChat Certified](https://img.shields.io/badge/企微认证-成都游手好闲科技有限公司-07c160?style=for-the-badge&logo=wechat&logoColor=white)](https://www.aidaicai.com)
 [![Corporate Bank](https://img.shields.io/badge/对公结算-中国工商银行-c7000b?style=for-the-badge)](https://www.aidaicai.com)
 [![VAT Invoice](https://img.shields.io/badge/数电发票-6%25增值税专用发票-2563eb?style=for-the-badge)](https://www.aidaicai.com)
 [![SLA Guarantee](https://img.shields.io/badge/品质承诺-72H封号包赔退款-f59e0b?style=for-the-badge)](https://www.aidaicai.com)
@@ -30,7 +30,7 @@
       <img src="./public/images/企业微信二维码.jpg" width="180" alt="官方认证企业微信二维码" />
       <br/><br/>
       <b>💼 企微官方实名商户认证</b><br/>
-      <sub>认证主体：<b>成都游手科技有限公司</b></sub><br/>
+      <sub>认证主体：<b>成都游手好闲科技有限公司</b></sub><br/>
       <sub>微信扫一扫 · 10分钟内出具公章合同</sub><br/>
       <sub>支持网银公对公 · 6% 数电专票抵扣</sub>
       <br/><br/>
@@ -146,7 +146,7 @@ graph LR
 
 | 项目 | 官方核验信息 |
 | :--- | :--- |
-| **签约实体** | 成都游手科技有限公司 |
+| **签约实体** | 成都游手好闲科技有限公司 |
 | **统一社会信用代码** | 经得起反洗钱核验与企查查穿透审查 |
 | **开户银行** | 中国工商银行股份有限公司成都武侯大道支行 |
 | **银行对公账号** | `1001 2488 0910 0088 820` |
@@ -212,6 +212,6 @@ npm run dev
 
 **💼 立即开启企业合规海外 AI 采买通道**  
 添加大客户经理微信：`yqtp01` ｜ 官网：[www.aidaicai.com](https://www.aidaicai.com)  
-*Copyright © 2026 AI 代采 (aidaicai.com) · 成都游手科技有限公司 · 版权所有*
+*Copyright © 2026 AI 代采 (aidaicai.com) · 成都游手好闲科技有限公司 · 版权所有*
 
 </div>
