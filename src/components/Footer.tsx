@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Mail, MessageCircle, MapPin, Globe } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 
@@ -50,24 +51,29 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-primary">商务与采购支持</h4>
             <ul className="space-y-2.5">
               <li>
-                <button onClick={onOpenDocs} className="hover:text-primary transition-colors text-left text-secondary cursor-pointer">
-                  《企业代采立项呈批模板》Word
-                </button>
+                <Link href="/docs/proposal" className="hover:text-primary transition-colors text-left text-secondary block">
+                  《企业代采立项呈批模板》在线阅读
+                </Link>
               </li>
               <li>
-                <button onClick={onOpenDocs} className="hover:text-primary transition-colors text-left text-secondary cursor-pointer">
-                  《官方阶梯代采报价单》PDF
-                </button>
+                <Link href="/docs/pricing" className="hover:text-primary transition-colors text-left text-secondary block">
+                  《官方阶梯代采报价单》价格表
+                </Link>
               </li>
               <li>
-                <a href="#perks" className="hover:text-amber-500 transition-colors text-amber-600 dark:text-amber-400 font-medium">
+                <Link href="/docs/sla" className="hover:text-primary transition-colors text-left text-secondary block">
+                  《SLA 72h 封号退赔保障条款》
+                </Link>
+              </li>
+              <li>
+                <Link href="/docs/agreement" className="hover:text-primary transition-colors text-left text-secondary block">
+                  《代采购框架合作协议范本》
+                </Link>
+              </li>
+              <li>
+                <a href="#perks" className="hover:text-amber-500 transition-colors text-amber-600 dark:text-amber-400 font-medium block">
                   大客户集采尊享权益计划
                 </a>
-              </li>
-              <li>
-                <button onClick={() => onOpenContact("footer-contract")} className="hover:text-primary transition-colors text-left text-secondary cursor-pointer">
-                  索取加盖公章标准代采合同范本
-                </button>
               </li>
             </ul>
           </div>

@@ -197,13 +197,23 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
               <p className="text-xs text-secondary">{currentDoc.desc}</p>
             </div>
 
-            <button
-              onClick={handleCopy}
-              className="btn-openai-white text-xs !py-1.5 !px-3.5 shrink-0 flex items-center gap-1.5 cursor-pointer"
-            >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? "已复制全文！" : "复制文档内容"}</span>
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href={`/docs/${activeDoc}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-openai-secondary text-xs !py-1.5 !px-3 hidden sm:inline-flex items-center gap-1 text-secondary hover:text-primary"
+              >
+                <span>新页面阅读</span>
+              </a>
+              <button
+                onClick={handleCopy}
+                className="btn-openai-white text-xs !py-1.5 !px-3.5 flex items-center gap-1.5 cursor-pointer"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? "已复制全文！" : "复制文档内容"}</span>
+              </button>
+            </div>
           </div>
 
           {/* Preformatted text card */}
