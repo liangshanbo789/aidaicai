@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "ChatGPT专票采购价格表",
   ],
   alternates: {
-    canonical: "https://www.aidaicai.com/docs/pricing",
+    canonical: "https://gongsi.one/docs/pricing",
   },
   openGraph: {
     title: "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 aidaicai.com",

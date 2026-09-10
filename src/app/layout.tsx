@@ -11,11 +11,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://gongsi.one"),
   title: {
-    default: "AI代采 aidaicai.com | 企业级海外 AI 官方代采与对公合规解决方案",
+    default: "AI代采 aidaicai.com | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     template: "%s | AI代采 aidaicai.com",
   },
-  description: "国内领先的企业级 OpenAI / ChatGPT Plus、Pro (5x/20x)、Team 官方代采服务平台。全量支持最新 GPT-6 Astra 与 GPT-5.6 前沿模型，支持企业银行对公转账、开具 6% 增值税专用发票、100% 正规商业信用卡直充、72小时封号包赔兜底及大客户战略集采增值权益。官网：gongsi.one",
+  description: "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：gongsi.one",
   keywords: [
+    "codex采购",
+    "OpenAI Codex采购",
+    "Codex企业采购",
+    "Codex代采",
+    "GPT集采",
+    "ChatGPT集采",
+    "企业GPT集采",
+    "代码大模型采购",
+    "研发团队AI代采",
+    "ChatGPT批量采购",
     "AI代采",
     "gongsi.one",
     "aidaicai.com",
@@ -25,11 +35,7 @@ export const metadata: Metadata = {
     "ChatGPT发票报销",
     "ChatGPT Pro 20x代采",
     "GPT-6 Astra采购",
-    "ChatGPT Plus企业采购",
-    "ChatGPT团队版购买",
-    "OpenAI官方代采",
     "出海企业SaaS采购",
-    "AI工具合规采购",
     "信息技术服务费专票",
   ],
   authors: [{ name: "AI代采", url: "https://gongsi.one" }],
@@ -42,8 +48,8 @@ export const metadata: Metadata = {
     canonical: "https://gongsi.one",
   },
   openGraph: {
-    title: "AI代采 | 企业级海外 AI 官方代采与对公合规解决方案",
-    description: "国内领先的企业级 OpenAI / ChatGPT 官方代采与对公结算平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡代充与 72 小时封号退赔保障。",
+    title: "AI代采 | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+    description: "国内领先的企业级 GPT 官方集中采购与 OpenAI Codex 研发代采平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡直充与 72 小时封号退赔保障。",
     url: "https://gongsi.one",
     siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
@@ -59,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI代采 aidaicai.com | 企业级海外 AI 官方代采与对公合规解决方案",
-    description: "让中国企业合规、阳光代采全球顶尖 AI 生产力。支持 6% 增值税专票、银行对公转账与 72h 封号包赔。",
+    title: "AI代采 aidaicai.com | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+    description: "让中国企业合规、阳光采购全球顶尖 AI 生产力与 Codex 研发工具。支持 6% 增值税专票、银行对公转账与 72h 封号包赔。",
     images: ["/logo.svg"],
   },
   robots: {
@@ -89,7 +95,7 @@ const jsonLdData = [
     "alternateName": "AI Enterprise Hub",
     "url": "https://gongsi.one",
     "logo": "https://gongsi.one/logo.svg",
-    "description": "国内领先的企业级海外 AI 官方代采、对公财务结算与合规风控兜底服务平台",
+    "description": "国内领先的企业级海外 AI / OpenAI Codex 官方代采、GPT 批量集采、对公财务结算与合规风控兜底服务平台",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "liang@yqtp.cn",
@@ -110,12 +116,28 @@ const jsonLdData = [
     "@type": "WebSite",
     "name": "AI代采 aidaicai.com",
     "url": "https://gongsi.one",
-    "description": "企业级海外 AI 官方代采与对公合规解决方案平台",
+    "description": "企业级海外 AI 官方代采与 GPT 集中采购合规解决方案平台",
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "软件公司与研发团队如何采购 OpenAI Codex 及代码大模型？支持对公和专票吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "完全支持！我们专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 深度编程算力代采通道。彻底解决研发人员个人外币卡拒付、某宝代充被封、无票难报销的痛点。支持中国工商银行对公转账、开具国家税务 6% 增值税专用发票（信息技术服务费），提供官方原版 Invoice 与 72 小时封号退赔保障，支持研发费用合规列支。",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "大中型企业进行 GPT 批量集采有哪些阶梯优惠？如何统一切入？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "我们实行透明的“采购越多单价越低”大宗集采机制：5~19 席自动触发团队集采阶梯，立减约 6%~10%；20 席及以上解锁大客户战略集采底价，最高可立减 25% 预算。针对集采客户，提供加盖公章的一揽子框架合作协议、一张大额 6% 专票统一报销、批量席位开通及大客户经理 1 对 1 专属技术顾问与履约保障。",
+        },
+      },
       {
         "@type": "Question",
         "name": "能不能开具 6% 增值税专用发票？企业财务如何报销？",

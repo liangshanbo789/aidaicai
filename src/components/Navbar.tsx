@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Sparkles, MessageCircle, FileText, Menu, X } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
@@ -30,7 +31,13 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-7 text-xs font-medium text-secondary">
+        <nav className="hidden md:flex items-center gap-6 text-xs font-medium text-secondary">
+          <Link href="/solutions/codex-procurement/" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+            Codex研发代采
+          </Link>
+          <Link href="/solutions/gpt-bulk-procurement/" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+            企业GPT集采
+          </Link>
           <a href="#compare" className="hover:text-primary transition-colors">
             选型对比
           </a>
@@ -44,7 +51,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             预算计算器
           </a>
           <a href="#compliance" className="hover:text-primary transition-colors">
-            发票与对公样张
+            对公样张
           </a>
           <a href="#sla" className="hover:text-primary transition-colors">
             SLA保障
@@ -53,7 +60,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             href="#perks"
             className="hover:text-amber-500 dark:hover:text-amber-300 transition-colors flex items-center gap-1.5 text-amber-600 dark:text-amber-400 font-medium"
           >
-            <span>采购关怀计划</span>
+            <span>集采礼遇</span>
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400 animate-pulse" />
           </a>
         </nav>
@@ -102,6 +109,20 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-theme-subtle bg-surface-elevated px-6 py-5 space-y-3.5 shadow-lg">
           <ThemeToggle variant="mobile-item" className="mb-2" />
+          <Link
+            href="/solutions/codex-procurement/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-xs font-semibold text-emerald-600 dark:text-emerald-400 py-1"
+          >
+            ★ 研发团队 OpenAI Codex 代采方案
+          </Link>
+          <Link
+            href="/solutions/gpt-bulk-procurement/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-xs font-semibold text-emerald-600 dark:text-emerald-400 py-1"
+          >
+            ★ 大中型企业 GPT 官方集中采购方案
+          </Link>
           <a
             href="#compare"
             onClick={() => setMobileMenuOpen(false)}

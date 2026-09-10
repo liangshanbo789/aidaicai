@@ -65,6 +65,18 @@ export default function DocsLayout({
           </div>
 
           <div className="flex items-center gap-3">
+            <Link
+              href="/solutions/codex-procurement/"
+              className="text-xs text-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors hidden md:inline-flex items-center gap-1 font-medium"
+            >
+              <span>Codex研发代采</span>
+            </Link>
+            <Link
+              href="/solutions/gpt-bulk-procurement/"
+              className="text-xs text-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors hidden md:inline-flex items-center gap-1 font-medium"
+            >
+              <span>企业GPT集采</span>
+            </Link>
             <ThemeToggle />
             <a
               href="/#calculator"

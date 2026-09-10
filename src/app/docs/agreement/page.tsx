@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "软件技术服务费专票合同",
   ],
   alternates: {
-    canonical: "https://www.aidaicai.com/docs/agreement",
+    canonical: "https://gongsi.one/docs/agreement",
   },
   openGraph: {
     title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",

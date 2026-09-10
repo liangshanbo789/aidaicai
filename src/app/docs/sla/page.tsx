@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "ChatGPT企业代采合同条款",
   ],
   alternates: {
-    canonical: "https://www.aidaicai.com/docs/sla",
+    canonical: "https://gongsi.one/docs/sla",
   },
   openGraph: {
     title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI代采 aidaicai.com",

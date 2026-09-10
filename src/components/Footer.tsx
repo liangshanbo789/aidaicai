@@ -38,6 +38,16 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-primary">方案与服务</h4>
             <ul className="space-y-2.5">
+              <li>
+                <Link href="/solutions/codex-procurement/" className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium">
+                  研发团队 Codex 代码助手代采
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions/gpt-bulk-procurement/" className="hover:text-primary transition-colors text-emerald-600 dark:text-emerald-400 font-medium">
+                  大中型企业 GPT 官方集中采购
+                </Link>
+              </li>
               <li><a href="#compare" className="hover:text-primary transition-colors text-secondary">官方代采 vs 个人代充对比</a></li>
               <li><a href="#workflow" className="hover:text-primary transition-colors text-secondary">全阳光代采 4 步交付闭环</a></li>
               <li><a href="#products" className="hover:text-primary transition-colors text-secondary">代采矩阵 (Plus / Pro / Team)</a></li>

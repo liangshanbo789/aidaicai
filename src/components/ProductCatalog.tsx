@@ -42,13 +42,13 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="codex-pill mb-3">
             <Cpu className="w-3.5 h-3.5 text-[#10A37F]" />
-            <span>全版本官方代采 · 采购越多单价越低 · 7×24H 极速开通</span>
+            <span>全版本官方代采 · 支持 OpenAI Codex 研发代采与 GPT 战略集采 · 7×24H 极速开通</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight mb-4">
             满足企业从日常应用到顶配研发的全部需求
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            全系产品均支持阶梯批量集采：采购席位越多、结算周期越长，单席成本越低，最高可立减 25% 预算并赠大客户增值礼包。7×24 小时随时受理，出具 6% 增值税专用发票。
+            全系产品均全面支持研发团队 Codex 代采与企业阶梯批量集采：采购席位越多、结算周期越长，单席成本越低，最高可立减 25% 预算并赠大客户增值礼包。7×24 小时随时受理，出具 6% 增值税专用发票。
           </p>
         </div>
 

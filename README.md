@@ -139,6 +139,8 @@ graph LR
 * ⚖️ [《企业软件代采购框架合作协议》(法务现成公章合同文本)](docs/legal/enterprise-service-agreement.md)
 * 🛡️ [《SLA 服务等级与 72h 封号退赔保障条款》(官方赔付责任细则)](docs/legal/sla-guarantee-terms.md)
 * 🎁 [《战略集采增值权益与先锋引荐人激励规范》(合规履约SOP)](docs/operations/procurement-rewards-policy.md)
+* 💻 [《研发团队 OpenAI Codex 采购与 6% 专票全攻略》(CTO技术管理内参)](docs/marketing/zhihu-codex-procurement-guide.md)
+* 🌐 [《软件公司批量采购 ChatGPT 合规避坑指南》(知乎专栏软文)](docs/marketing/zhihu-software-procurement-gpt-guide.md)
 
 ---
 

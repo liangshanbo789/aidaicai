@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "企业AI采购立项申请书",
   ],
   alternates: {
-    canonical: "https://www.aidaicai.com/docs/proposal",
+    canonical: "https://gongsi.one/docs/proposal",
   },
   openGraph: {
     title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 aidaicai.com",

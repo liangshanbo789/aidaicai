@@ -26,7 +26,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         {/* Top Terminal Badge - 突出大中型企业采购与阶梯优惠 */}
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-theme-subtle bg-surface-elevated text-xs font-mono text-secondary mb-6 backdrop-blur-md shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
-          <span className="font-semibold text-primary">专为大中型企业采购打造</span>
+          <span className="font-semibold text-primary">企业 GPT 官方集采 · 研发 Codex 代采</span>
           <span className="text-tertiary">/</span>
           <span>阶梯定价 · 采购量越大单价越低 · 100% 官方正规直采</span>
         </div>
@@ -53,13 +53,13 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
         {/* Main Headline - 第一时间明确传达大企业集采与量大价优 */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-primary max-w-4xl mx-auto leading-[1.12] mb-6">
-          大中型企业 AI 官方集采：<br className="hidden sm:inline" />
-          <span className="gradient-text-silver font-bold">阶梯定价，采购量越大单价越低</span>
+          企业级 GPT 官方集采与 Codex 代采：<br className="hidden sm:inline" />
+          <span className="gradient-text-silver font-bold">阶梯降本定价，采购越多单价越低</span>
         </h1>
 
         {/* Subtitle - 精简干练，直击价值定位，去除与下方卡片重复的繁琐细节 */}
         <p className="text-base sm:text-lg text-secondary max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-          打破海外支付与报销合规壁垒。专为研发技术团队、出海机构及大中型企业提供 ChatGPT / GPT-6 全系官方直采；实行透明阶梯让利机制，采购席位越多、综合单价越低，全流程对公结算。
+          打破海外支付与报销合规壁垒。专为软件研发团队、出海技术架构与中大型企业提供 OpenAI Codex 及 ChatGPT / GPT-6 全系官方直充与集中采购 (集采)；实行透明阶梯让利机制，采购越多单价越低，全流程银行对公与 6% 增值税专票。
         </p>
 
         {/* Enterprise Tier Scale Ribbon (大企业阶梯降本直观路线图) */}
