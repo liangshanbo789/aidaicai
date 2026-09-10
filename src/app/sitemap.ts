@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.aidaicai.com";
+  const baseUrl = "https://gongsi.one";
   const lastModified = new Date();
 
   return [

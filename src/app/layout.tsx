@@ -9,14 +9,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.aidaicai.com"),
+  metadataBase: new URL("https://gongsi.one"),
   title: {
     default: "AI代采 aidaicai.com | 企业级海外 AI 官方代采与对公合规解决方案",
     template: "%s | AI代采 aidaicai.com",
   },
-  description: "国内领先的企业级 OpenAI / ChatGPT Plus、Pro (5x/20x)、Team 官方代采服务平台。全量支持最新 GPT-6 Astra 与 GPT-5.6 前沿模型，支持企业银行对公转账、开具 6% 增值税专用发票、100% 正规商业信用卡直充、72小时封号包赔兜底及大客户战略集采增值权益。官网：aidaicai.com",
+  description: "国内领先的企业级 OpenAI / ChatGPT Plus、Pro (5x/20x)、Team 官方代采服务平台。全量支持最新 GPT-6 Astra 与 GPT-5.6 前沿模型，支持企业银行对公转账、开具 6% 增值税专用发票、100% 正规商业信用卡直充、72小时封号包赔兜底及大客户战略集采增值权益。官网：gongsi.one",
   keywords: [
     "AI代采",
+    "gongsi.one",
     "aidaicai.com",
     "ChatGPT企业代采",
     "ChatGPT对公转账",
@@ -31,19 +32,19 @@ export const metadata: Metadata = {
     "AI工具合规采购",
     "信息技术服务费专票",
   ],
-  authors: [{ name: "AI代采 aidaicai.com", url: "https://www.aidaicai.com" }],
-  creator: "AI代采 aidaicai.com",
-  publisher: "AI代采 aidaicai.com",
+  authors: [{ name: "AI代采", url: "https://gongsi.one" }],
+  creator: "AI代采",
+  publisher: "AI代采",
   formatDetection: {
     telephone: false,
   },
   alternates: {
-    canonical: "https://www.aidaicai.com",
+    canonical: "https://gongsi.one",
   },
   openGraph: {
-    title: "AI代采 aidaicai.com | 企业级海外 AI 官方代采与对公合规解决方案",
+    title: "AI代采 | 企业级海外 AI 官方代采与对公合规解决方案",
     description: "国内领先的企业级 OpenAI / ChatGPT 官方代采与对公结算平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡代充与 72 小时封号退赔保障。",
-    url: "https://www.aidaicai.com",
+    url: "https://gongsi.one",
     siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "website",
@@ -86,8 +87,8 @@ const jsonLdData = [
     "@type": "Organization",
     "name": "AI代采 aidaicai.com",
     "alternateName": "AI Enterprise Hub",
-    "url": "https://www.aidaicai.com",
-    "logo": "https://www.aidaicai.com/logo.svg",
+    "url": "https://gongsi.one",
+    "logo": "https://gongsi.one/logo.svg",
     "description": "国内领先的企业级海外 AI 官方代采、对公财务结算与合规风控兜底服务平台",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -108,7 +109,7 @@ const jsonLdData = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AI代采 aidaicai.com",
-    "url": "https://www.aidaicai.com",
+    "url": "https://gongsi.one",
     "description": "企业级海外 AI 官方代采与对公合规解决方案平台",
   },
   {

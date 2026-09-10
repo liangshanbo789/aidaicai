@@ -21,6 +21,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://www.aidaicai.com/sitemap.xml",
+    sitemap: "https://gongsi.one/sitemap.xml",
   };
 }
