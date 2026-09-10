@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 import { ArrowLeft, BookOpen, ShieldCheck, Receipt, FileText, FileCheck } from "lucide-react";
 
 const DOCS_NAV = [

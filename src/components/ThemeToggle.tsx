@@ -103,3 +103,6 @@ export default function ThemeToggle({
     </button>
   );
 }
+
+export { ThemeToggle };
+
