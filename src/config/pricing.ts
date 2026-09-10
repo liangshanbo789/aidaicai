@@ -39,7 +39,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$20 / 月",
     minSeats: 1,
     baseMonthlyRmb: 165,
-    lowestPriceRmb: 125,
+    lowestPriceRmb: 135,
     perkPerSeatMonth: 15,
     description: "畅享最新 GPT-6 Astra 与 GPT-5.6 前沿旗舰，满足出海电商文案主笔、日常翻译、海外客服及职能部门的高频交互需求。",
     features: [
@@ -51,9 +51,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 165, quarterly: 155, yearly: 145 },
-      team: { monthly: 155, quarterly: 145, yearly: 135 },
-      enterprise: { monthly: 145, quarterly: 135, yearly: 125 },
+      individual: { monthly: 165, quarterly: 155, yearly: 148 },
+      team: { monthly: 155, quarterly: 148, yearly: 140 },
+      enterprise: { monthly: 145, quarterly: 140, yearly: 135 },
     },
   },
   pro5x: {
@@ -66,7 +66,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$100 / 月",
     minSeats: 1,
     baseMonthlyRmb: 790,
-    lowestPriceRmb: 610,
+    lowestPriceRmb: 650,
     perkPerSeatMonth: 60,
     description: "适合资深独立站运营、高级研发工程及需要超长大上下文并行研判的业务核心人员。",
     features: [
@@ -78,9 +78,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 790, quarterly: 740, yearly: 690 },
-      team: { monthly: 740, quarterly: 690, yearly: 650 },
-      enterprise: { monthly: 690, quarterly: 650, yearly: 610 },
+      individual: { monthly: 790, quarterly: 740, yearly: 710 },
+      team: { monthly: 740, quarterly: 690, yearly: 670 },
+      enterprise: { monthly: 690, quarterly: 660, yearly: 650 },
     },
   },
   pro20x: {
@@ -93,7 +93,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$200 / 月",
     minSeats: 1,
     baseMonthlyRmb: 1580,
-    lowestPriceRmb: 1190,
+    lowestPriceRmb: 1280,
     perkPerSeatMonth: 120,
     description: "专为算法科学家、系统架构师及攻坚团队打造。搭载最新 GPT-6 Astra 满血旗舰与顶级深度推理集群。",
     features: [
@@ -105,9 +105,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: true,
     tiers: {
-      individual: { monthly: 1580, quarterly: 1480, yearly: 1390 },
-      team: { monthly: 1480, quarterly: 1390, yearly: 1290 },
-      enterprise: { monthly: 1380, quarterly: 1290, yearly: 1190 },
+      individual: { monthly: 1580, quarterly: 1480, yearly: 1420 },
+      team: { monthly: 1480, quarterly: 1390, yearly: 1350 },
+      enterprise: { monthly: 1380, quarterly: 1330, yearly: 1280 },
     },
   },
   team: {
@@ -120,7 +120,7 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     officialPriceDisplay: "$30 / 人 / 月",
     minSeats: 2,
     baseMonthlyRmb: 245,
-    lowestPriceRmb: 185,
+    lowestPriceRmb: 198,
     perkPerSeatMonth: 25,
     description: "适合 5 人以上研发及商业敏感型团队，统一掌控工作空间，数据严密隔离不参与训练。",
     features: [
@@ -132,9 +132,9 @@ export const PRODUCTS_CONFIG: Record<string, ProductPricingConfig> = {
     ],
     highlight: false,
     tiers: {
-      individual: { monthly: 245, quarterly: 230, yearly: 215 },
-      team: { monthly: 230, quarterly: 215, yearly: 198 },
-      enterprise: { monthly: 215, quarterly: 198, yearly: 185 },
+      individual: { monthly: 245, quarterly: 230, yearly: 218 },
+      team: { monthly: 230, quarterly: 218, yearly: 208 },
+      enterprise: { monthly: 215, quarterly: 208, yearly: 198 },
     },
   },
 };

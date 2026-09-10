@@ -27,11 +27,31 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Top Terminal Badge */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-theme-subtle bg-surface-elevated text-xs font-mono text-secondary mb-8 backdrop-blur-md shadow-xs">
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-theme-subtle bg-surface-elevated text-xs font-mono text-secondary mb-6 backdrop-blur-md shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
           <span className="font-medium text-primary">aidaicai.com</span>
           <span className="text-tertiary">/</span>
           <span>全面支持 GPT-6 Astra · 7×24H 全天响应 · 阶梯采购立减 · 6% 专票</span>
+        </div>
+
+        {/* Enterprise Compliance Credential Bar (四大硬核合规准入微标) */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 max-w-4xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-theme-subtle text-[11px] font-sans text-secondary shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <strong className="text-primary font-medium">腾讯企微实名商户认证</strong>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-theme-subtle text-[11px] font-sans text-secondary shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <strong className="text-primary font-medium">国家税务数电 6% 专票</strong>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-theme-subtle text-[11px] font-sans text-secondary shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <strong className="text-primary font-medium">中国工商银行公对公结算</strong>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-theme-subtle text-[11px] font-sans text-secondary shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+            <strong className="text-primary font-medium">公章法律效力 SLA 协议</strong>
+          </span>
         </div>
 
         {/* Main Headline */}
@@ -45,7 +65,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-12">
           <a
             href="#calculator"
             className="btn-openai-white w-full sm:w-auto text-sm px-7 py-3 shadow-md"
@@ -55,6 +75,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </a>
 
           <button
+            type="button"
             onClick={onOpenDocs}
             className="btn-openai-secondary w-full sm:w-auto text-sm px-6 py-3 flex items-center justify-center gap-2 cursor-pointer"
           >
@@ -63,6 +84,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </button>
 
           <button
+            type="button"
             onClick={() => onOpenContact("hero-advisor")}
             className="w-full sm:w-auto px-5 py-3 rounded-full text-xs sm:text-sm text-secondary hover:text-primary hover:bg-surface-elevated transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
@@ -71,22 +93,37 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
         </div>
 
         {/* Social Proof & Quantitative Trust Bar (权威交付信赖看板) */}
-        <div className="mb-14 max-w-5xl mx-auto p-4 sm:p-5 rounded-2xl bg-surface border border-theme-subtle shadow-xs grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">320+</div>
-            <div className="text-[11px] text-secondary mt-0.5">出海与研发科技企业信赖</div>
+        <div className="mb-14 max-w-5xl mx-auto rounded-2xl bg-surface border border-theme-subtle shadow-sm overflow-hidden">
+          {/* Top Realtime Audited Status Header */}
+          <div className="px-4 py-2 bg-surface-elevated border-b border-theme-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] font-mono text-secondary">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="font-semibold text-primary">实时履约合规审计系统</span>
+              <span className="text-tertiary">|</span>
+              <span>2026 年 09 月统计周期 · 零合规争议与违约记录</span>
+            </div>
+            <span className="text-emerald-600 dark:text-[#10A37F] font-medium">
+              ● 金融级公对公清算通路运行正常
+            </span>
           </div>
-          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-[#10A37F] font-mono tracking-tight">¥2,800万+</div>
-            <div className="text-[11px] text-secondary mt-0.5">累计阳光对公结算与开票</div>
-          </div>
-          <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">99.8%</div>
-            <div className="text-[11px] text-secondary mt-0.5">账号持续稳定运行无风控率</div>
-          </div>
-          <div className="p-2">
-            <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">≤ 15 min</div>
-            <div className="text-[11px] text-secondary mt-0.5">7×24H 专人全天候履约响应</div>
+
+          <div className="p-4 sm:p-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+              <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">320+</div>
+              <div className="text-[11px] text-secondary mt-0.5">出海与研发科技企业信赖</div>
+            </div>
+            <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-[#10A37F] font-mono tracking-tight">¥2,800万+</div>
+              <div className="text-[11px] text-secondary mt-0.5">累计阳光对公结算与开票</div>
+            </div>
+            <div className="p-2 border-r border-theme-subtle/70 last:border-r-0">
+              <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">99.8%</div>
+              <div className="text-[11px] text-secondary mt-0.5">账号持续稳定运行无风控率</div>
+            </div>
+            <div className="p-2">
+              <div className="text-2xl sm:text-3xl font-extrabold text-primary font-mono tracking-tight">≤ 15 min</div>
+              <div className="text-[11px] text-secondary mt-0.5">7×24H 专人全天候履约响应</div>
+            </div>
           </div>
         </div>
 

@@ -35,14 +35,14 @@ const pricingDocText = `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT �
 
 二、 企业采购阶梯报价方案 (RMB / 含税对公 6% 专票)
 1. ChatGPT Plus 采购价：
-   - 1 ~ 4 席：¥ 165/月/个 (季付 ¥ 155，年付 ¥ 145)
-   - 5 ~ 19 席：¥ 155/月/个 (季付 ¥ 145，年付 ¥ 135)
-   - 20 席以上：¥ 145/月/个 (季付 ¥ 135，年付 ¥ 125)
+   - 1 ~ 4 席：¥ 165/月/个 (季付 ¥ 155，年付 ¥ 148)
+   - 5 ~ 19 席：¥ 155/月/个 (季付 ¥ 148，年付 ¥ 140)
+   - 20 席以上：¥ 145/月/个 (季付 ¥ 140，年付 ¥ 135)
 
 2. ChatGPT Pro 20x 旗舰版采购价：
-   - 1 ~ 2 席：¥ 1,580/月/个 (季付 ¥ 1,480，年付 ¥ 1,380)
-   - 3 ~ 9 席：¥ 1,480/月/个 (季付 ¥ 1,390，年付 ¥ 1,290)
-   - 10 席以上：¥ 1,380/月/个 (季付 ¥ 1,290，年付 ¥ 1,190)
+   - 1 ~ 4 席：¥ 1,580/月/个 (季付 ¥ 1,480，年付 ¥ 1,420)
+   - 5 ~ 19 席：¥ 1,480/月/个 (季付 ¥ 1,390，年付 ¥ 1,350)
+   - 20 席以上：¥ 1,380/月/个 (季付 ¥ 1,330，年付 ¥ 1,280)
 
 三、 对公与发票保障
 1. 开具类目：*信息技术服务* 软件技术服务费 / 技术咨询费；
@@ -160,38 +160,38 @@ export default function PricingDocPage() {
                   <td className="p-3">1 ~ 4 席</td>
                   <td className="p-3">¥ 165 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 155 / 月</td>
-                  <td className="p-3">¥ 145 / 月</td>
+                  <td className="p-3">¥ 148 / 月</td>
                 </tr>
                 <tr>
                   <td className="p-3">5 ~ 19 席 (团队优选)</td>
                   <td className="p-3">¥ 155 / 月</td>
-                  <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">¥ 145 / 月</td>
-                  <td className="p-3">¥ 135 / 月</td>
+                  <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">¥ 148 / 月</td>
+                  <td className="p-3">¥ 140 / 月</td>
                 </tr>
                 <tr>
                   <td className="p-3">20 席及以上 (大客户)</td>
                   <td className="p-3">¥ 145 / 月</td>
-                  <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 135 / 月</td>
-                  <td className="p-3 font-bold text-primary">¥ 125 / 月</td>
+                  <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 140 / 月</td>
+                  <td className="p-3 font-bold text-primary">¥ 135 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
                   <td className="p-3 font-semibold text-primary" rowSpan={3}>ChatGPT Pro (20x 旗舰版)</td>
-                  <td className="p-3">1 ~ 2 席</td>
+                  <td className="p-3">1 ~ 4 席</td>
                   <td className="p-3">¥ 1,580 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 1,480 / 月</td>
-                  <td className="p-3">¥ 1,380 / 月</td>
+                  <td className="p-3">¥ 1,420 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
-                  <td className="p-3">3 ~ 9 席 (研发标配)</td>
+                  <td className="p-3">5 ~ 19 席 (研发标配)</td>
                   <td className="p-3">¥ 1,480 / 月</td>
                   <td className="p-3 text-emerald-600 dark:text-emerald-400 font-semibold">¥ 1,390 / 月</td>
-                  <td className="p-3">¥ 1,290 / 月</td>
+                  <td className="p-3">¥ 1,350 / 月</td>
                 </tr>
                 <tr className="bg-surface-elevated/40">
-                  <td className="p-3">10 席及以上 (科研大客户)</td>
+                  <td className="p-3">20 席及以上 (科研大客户)</td>
                   <td className="p-3">¥ 1,380 / 月</td>
-                  <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 1,290 / 月</td>
-                  <td className="p-3 font-bold text-primary">¥ 1,190 / 月</td>
+                  <td className="p-3 text-emerald-600 dark:text-emerald-400">¥ 1,330 / 月</td>
+                  <td className="p-3 font-bold text-primary">¥ 1,280 / 月</td>
                 </tr>
               </tbody>
             </table>

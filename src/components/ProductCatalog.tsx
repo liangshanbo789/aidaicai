@@ -105,23 +105,23 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
-                          <span>1~4 席 (基准)</span>
+                          <span>1~4 席 (月付基准)</span>
                         </span>
-                        <span className="font-mono text-primary">¥{product.tiers.individual.monthly}</span>
+                        <span className="font-mono text-primary">¥{product.tiers.individual.monthly}/月</span>
                       </div>
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          <span>5~19 席 (团队)</span>
+                          <span>5~19 席 (团队月付)</span>
                         </span>
-                        <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">¥{product.tiers.team.monthly} (单席立减)</span>
+                        <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">¥{product.tiers.team.monthly}/月 (立减)</span>
                       </div>
                       <div className="flex justify-between items-center text-secondary">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                          <span>20+ 席 (集采)</span>
+                          <span>20+ 席 (年采购)</span>
                         </span>
-                        <span className="font-mono text-amber-600 dark:text-amber-400 font-bold">¥{product.lowestPriceRmb} 起 (低至底价)</span>
+                        <span className="font-mono text-amber-600 dark:text-amber-400 font-bold">¥{product.lowestPriceRmb}/月 (年采购特惠)</span>
                       </div>
                     </div>
                   </div>

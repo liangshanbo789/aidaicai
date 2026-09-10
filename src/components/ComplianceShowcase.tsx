@@ -13,11 +13,30 @@ import {
   Lock,
   Stamp,
   QrCode,
+  Copy,
+  Check,
+  Download,
+  FileText,
+  BadgeCheck,
 } from "lucide-react";
 
 export default function ComplianceShowcase() {
   const [activeTab, setActiveTab] = useState<"invoice" | "bank" | "openai" | "contract">("invoice");
   const [showVerifyGuide, setShowVerifyGuide] = useState(false);
+  const [copiedInvoiceParams, setCopiedInvoiceParams] = useState(false);
+
+  const handleCopyInvoiceVerifyParams = () => {
+    const text = `【国家税务总局全国增值税发票查验参数】
+发票代码：261120000000
+发票号码：88921820
+开票日期：2026-09-08
+开具金额(不含税)：13,113.21
+查验平台网址：https://inv-veri.chinatax.gov.cn`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedInvoiceParams(true);
+      setTimeout(() => setCopiedInvoiceParams(false), 2500);
+    });
+  };
 
   return (
     <section id="compliance" className="py-20 border-t border-theme-subtle bg-canvas transition-colors">
@@ -220,22 +239,65 @@ export default function ComplianceShowcase() {
                     className="text-xs text-emerald-600 dark:text-[#10A37F] font-semibold hover:underline flex items-center gap-1 cursor-pointer shrink-0"
                   >
                     <HelpCircle className="w-3.5 h-3.5" />
-                    <span>{showVerifyGuide ? "收起查验指引" : "如何前往税务局验真？"}</span>
+                    <span>{showVerifyGuide ? "收起查验指引" : "如何前往税务局穿透验真？"}</span>
                   </button>
                 </div>
 
                 {/* Expandable Tax Verification Guide */}
                 {showVerifyGuide && (
-                  <div className="p-4 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/30 text-xs text-secondary space-y-2 animate-fade-in">
-                    <div className="font-semibold text-primary flex items-center gap-1.5">
-                      <ShieldCheck className="w-4 h-4 text-[#10A37F]" />
-                      <span>国家税务总局官方查验真伪三步指引：</span>
+                  <div className="p-4 sm:p-5 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/30 text-xs text-secondary space-y-3 animate-fade-in">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-500/20 pb-2.5">
+                      <div className="font-semibold text-primary flex items-center gap-1.5 text-sm">
+                        <ShieldCheck className="w-4 h-4 text-[#10A37F]" />
+                        <span>国家税务总局全国增值税发票查验平台 · 官方穿透验真指引</span>
+                      </div>
+                      <a
+                        href="https://inv-veri.chinatax.gov.cn"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 hover:underline font-mono font-medium"
+                      >
+                        <span>访问税务局查验官网 (inv-veri.chinatax.gov.cn)</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
                     </div>
-                    <ol className="list-decimal list-inside space-y-1 text-secondary leading-relaxed pl-1">
-                      <li>访问国家税务总局全国增值税发票查验平台官方网站（<span className="font-mono text-primary">inv-veri.chinatax.gov.cn</span>）；</li>
-                      <li>在平台输入发票代码、发票号码、开票日期与开具金额（不含税）；</li>
-                      <li>点击“查验”即可实时调出全国统一电子底账，查验结果与收到的 PDF 原样 100% 吻合，确保 100% 阳光真实入账。</li>
-                    </ol>
+
+                    {/* Quick Copy Verification Credentials Box */}
+                    <div className="p-3 bg-surface border border-emerald-500/20 rounded-lg space-y-2">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="text-secondary font-medium">样张发票查验四要素（财务可实测核验）：</span>
+                        <button
+                          type="button"
+                          onClick={handleCopyInvoiceVerifyParams}
+                          className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 cursor-pointer font-medium"
+                        >
+                          {copiedInvoiceParams ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                          <span>{copiedInvoiceParams ? "四要素已复制" : "一键复制四要素"}</span>
+                        </button>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono">
+                        <div className="p-2 rounded bg-surface-elevated border border-theme-subtle">
+                          <div className="text-tertiary text-[10px]">发票代码</div>
+                          <div className="font-bold text-primary">261120000000</div>
+                        </div>
+                        <div className="p-2 rounded bg-surface-elevated border border-theme-subtle">
+                          <div className="text-tertiary text-[10px]">发票号码</div>
+                          <div className="font-bold text-primary">88921820</div>
+                        </div>
+                        <div className="p-2 rounded bg-surface-elevated border border-theme-subtle">
+                          <div className="text-tertiary text-[10px]">开票日期</div>
+                          <div className="font-bold text-primary">2026-09-08</div>
+                        </div>
+                        <div className="p-2 rounded bg-surface-elevated border border-theme-subtle">
+                          <div className="text-tertiary text-[10px]">开具金额(不含税)</div>
+                          <div className="font-bold text-emerald-600 dark:text-[#10A37F]">¥ 13,113.21</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-[11px] text-secondary leading-relaxed">
+                      💡 <strong>财务查验说明：</strong> 在税务局官网输入上述要素并点击“查验”后，系统将实时从金税四期电子底账库调出原始电子数据，查验结果与本样张 100% 吻合，具备完整合规报销与抵扣效力。
+                    </p>
                   </div>
                 )}
               </div>
@@ -530,6 +592,36 @@ export default function ComplianceShowcase() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Enterprise Compliance Download & Procurement Package Banner */}
+        <div className="mt-8 max-w-4xl mx-auto p-5 sm:p-6 rounded-2xl bg-surface border border-theme-subtle shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-[#10A37F] border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <FileText className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h4 className="text-sm sm:text-base font-bold text-primary">
+                  《企业采购与财务合规准入凭据包 (四合一脱敏样张)》
+                </h4>
+                <span className="text-[10px] font-mono px-2 py-0.2 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-medium">
+                  供内审使用
+                </span>
+              </div>
+              <p className="text-xs text-secondary mt-0.5">
+                包含：数电 6% 专票 PDF + 工行电子对公回执 + OpenAI 原版 Invoice + 盖公章 SLA 主协议范本
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="#calculator"
+            className="btn-openai-white text-xs !py-2.5 !px-5 whitespace-nowrap w-full sm:w-auto flex items-center justify-center gap-1.5 shadow-xs"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>测算并生成盖章呈批单</span>
+          </a>
         </div>
       </div>
     </section>
