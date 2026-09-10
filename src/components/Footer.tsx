@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Terminal, Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import BrandLogo from "./BrandLogo";
 
 interface FooterProps {
   onOpenDocs: () => void;
@@ -16,8 +17,8 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
           {/* Col 1: Brand Info */}
           <div className="space-y-3.5 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-surface border border-theme-subtle flex items-center justify-center text-primary shadow-xs">
-                <Terminal className="w-3.5 h-3.5 text-[#10A37F]" />
+              <div className="w-7 h-7 rounded-lg bg-surface border border-theme-subtle flex items-center justify-center shadow-xs">
+                <BrandLogo size={16} variant="emerald" />
               </div>
               <div>
                 <span className="font-semibold text-base text-primary">AI 代采</span>

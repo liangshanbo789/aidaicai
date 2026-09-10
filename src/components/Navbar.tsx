@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, MessageCircle, FileText, Menu, X, Terminal } from "lucide-react";
+import { Sparkles, MessageCircle, FileText, Menu, X } from "lucide-react";
+import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
@@ -17,8 +18,8 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo with aidaicai.com */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-surface-elevated border border-theme-subtle flex items-center justify-center text-primary shadow-xs">
-            <Terminal className="w-4 h-4 text-[#10A37F]" />
+          <div className="w-8 h-8 rounded-lg bg-surface-elevated border border-theme-subtle flex items-center justify-center shadow-xs transition-colors hover:border-[#10A37F]/30">
+            <BrandLogo size={18} variant="emerald" />
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold text-base tracking-tight text-primary">AI 代采</span>
