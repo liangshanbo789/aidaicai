@@ -8,43 +8,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/solutions/codex-procurement`,
+      url: `${baseUrl}/solutions/codex-procurement/`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/solutions/gpt-bulk-procurement`,
+      url: `${baseUrl}/solutions/gpt-bulk-procurement/`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/docs/proposal`,
+      url: `${baseUrl}/docs/proposal/`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/docs/pricing`,
+      url: `${baseUrl}/docs/pricing/`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/docs/sla`,
+      url: `${baseUrl}/docs/sla/`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/docs/agreement`,
+      url: `${baseUrl}/docs/agreement/`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,

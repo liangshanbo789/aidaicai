@@ -7,8 +7,8 @@ export interface BrandLogoProps {
   size?: number | "xs" | "sm" | "md" | "lg" | "xl";
   /** 自定义 class 样式 */
   className?: string;
-  /** 配色变体：emerald 经典翡翠绿（默认）、monochrome 随父级文字色、glow 带微发光效果 */
-  variant?: "emerald" | "monochrome" | "glow";
+  /** 配色变体：emerald 经典翡翠绿（默认）、monochrome 随父级文字色、glow 带微发光效果、white 纯白 */
+  variant?: "emerald" | "monochrome" | "glow" | "white";
   /** 是否隐藏无障碍标签 */
   ariaLabel?: string;
 }
@@ -32,7 +32,9 @@ export default function BrandLogo({
   // 颜色样式映射
   let colorClass = "text-[#10A37F]";
   if (variant === "monochrome") {
-    colorClass = "text-primary";
+    colorClass = "text-current";
+  } else if (variant === "white") {
+    colorClass = "text-white";
   }
 
   return (

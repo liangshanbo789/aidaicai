@@ -45,6 +45,21 @@ export const metadata: Metadata = {
     siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "研发团队 OpenAI Codex 代码助手企业对公代采解决方案",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI代采",
+    description:
+      "告别员工私人外币卡垫资与黑卡代充封号风险。支持中国工商银行对公转账，开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。",
+    images: ["/og-image.png"],
   },
 };
 
@@ -151,6 +166,27 @@ export default function CodexProcurementPage() {
     })),
   };
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案",
+    serviceType: "企业级海外 AI / OpenAI Codex 官方合规代采与对公技术服务",
+    provider: {
+      "@type": "Organization",
+      name: "AI代采",
+      url: "https://gongsi.one/",
+    },
+    areaServed: "CN",
+    description: "专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 算力代采通道。支持中国工商银行对公转账、6% 增值税专票与 72h 封号退赔保障。",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "CNY",
+      lowPrice: "135",
+      highPrice: "1580",
+      url: "https://gongsi.one/solutions/codex-procurement/",
+    },
+  };
+
   return (
     <article className="space-y-12">
       {/* 结构化数据注入 */}
@@ -161,6 +197,10 @@ export default function CodexProcurementPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
       {/* 面包屑导航 */}

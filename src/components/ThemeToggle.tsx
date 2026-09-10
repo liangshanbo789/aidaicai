@@ -19,7 +19,7 @@ export default function ThemeToggle({
   if (!mounted) {
     if (variant === "icon") {
       return (
-        <div className={`w-8 h-8 rounded-full border border-theme-subtle opacity-50 ${className}`} />
+        <div className={`w-8 h-8 rounded-lg border border-theme-subtle bg-surface-elevated opacity-50 ${className}`} />
       );
     }
     if (variant === "mobile-item") {
@@ -68,7 +68,7 @@ export default function ThemeToggle({
       <button
         onClick={toggleTheme}
         type="button"
-        className={`p-2 rounded-full border border-theme-subtle bg-surface-elevated text-secondary hover:text-primary hover:border-theme-hover transition-all duration-200 shadow-sm ${className}`}
+        className={`w-8 h-8 rounded-lg border border-theme-subtle bg-surface-elevated text-secondary hover:text-primary hover:border-theme-hover flex items-center justify-center transition-all duration-200 shadow-xs cursor-pointer ${className}`}
         title={isDark ? "切换为浅色模式" : "切换为深色模式"}
         aria-label="切换颜色模式"
       >

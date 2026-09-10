@@ -51,10 +51,15 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </span>
         </div>
 
-        {/* Main Headline - 第一时间明确传达大企业集采与量大价优 */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-primary max-w-4xl mx-auto leading-[1.12] mb-6">
-          企业级 GPT 官方集采与 Codex 代采：<br className="hidden sm:inline" />
-          <span className="gradient-text-silver font-bold">阶梯降本定价，采购越多单价越低</span>
+        {/* Main Headline - 第一时间明确传达大企业集采与量大价优，采用两行对称结构与防断词保护 */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-6xl font-semibold tracking-tight text-primary max-w-5xl mx-auto leading-[1.16] mb-6 text-balance">
+          <span className="block">
+            <span className="inline-block">企业级 AI 官方集采</span>
+          </span>
+          <span className="block mt-1.5 sm:mt-2.5 gradient-text-silver font-bold">
+            <span className="inline-block">阶梯降本定价，</span>
+            <span className="inline-block">采购越多单价越低</span>
+          </span>
         </h1>
 
         {/* Subtitle - 精简干练，直击价值定位，去除与下方卡片重复的繁琐细节 */}

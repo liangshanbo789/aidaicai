@@ -42,6 +42,21 @@ export const metadata: Metadata = {
     siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "大中型企业 GPT 官方集中采购集采方案与阶梯报价手册",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI代采",
+    description:
+      "多买立减、量大从优。专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 专票统一入账与经办人战略集采礼遇。",
+    images: ["/og-image.png"],
   },
 };
 
@@ -136,6 +151,27 @@ export default function GptBulkProcurementPage() {
     })),
   };
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价",
+    serviceType: "大中型企业级海外 AI / OpenAI GPT 批量代采与框架采购服务",
+    provider: {
+      "@type": "Organization",
+      name: "AI代采",
+      url: "https://gongsi.one/",
+    },
+    areaServed: "CN",
+    description: "专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 增值税专用发票统一平账、最高立减 25% 预算与公章 SLA 72h 封号包赔兜底。",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "CNY",
+      lowPrice: "135",
+      highPrice: "1580",
+      url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
+    },
+  };
+
   return (
     <article className="space-y-12">
       {/* 结构化数据注入 */}
@@ -146,6 +182,10 @@ export default function GptBulkProcurementPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
       {/* 面包屑导航 */}

@@ -14,13 +14,69 @@ export const metadata: Metadata = {
     "软件技术服务费专票合同",
   ],
   alternates: {
-    canonical: "https://gongsi.one/docs/agreement",
+    canonical: "https://gongsi.one/docs/agreement/",
   },
   openGraph: {
     title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
     description: "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
-    url: "https://www.aidaicai.com/docs/agreement",
+    url: "https://gongsi.one/docs/agreement/",
+    siteName: "AI代采 aidaicai.com",
+    locale: "zh_CN",
+    type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "企业级海外软件代采购框架合作协议范本",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
+    description: "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://gongsi.one/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文档知识库",
+          "item": "https://gongsi.one/docs/agreement/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "代采购合作协议",
+          "item": "https://gongsi.one/docs/agreement/",
+        },
+      ],
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "企业级海外软件代采购框架合作协议范本",
+      "description": "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
+      "url": "https://gongsi.one/docs/agreement/",
+      "author": {
+        "@type": "Organization",
+        "name": "AI代采",
+      },
+    },
+  ],
 };
 
 const agreementText = `【标准合同范本】企业级海外软件采购与技术支持服务框架协议
@@ -60,36 +116,11 @@ const agreementText = `【标准合同范本】企业级海外软件采购与技
 5.2 凡因执行本协议所发生的任何争议，双方应友好协商解决；协商不成的，可向原告所在地人民法院提起诉讼。`;
 
 export default function AgreementDocPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://www.aidaicai.com",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "商务与合规知识库",
-        "item": "https://www.aidaicai.com/docs/agreement",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "企业海外软件代采购框架合作协议范本",
-        "item": "https://www.aidaicai.com/docs/agreement",
-      },
-    ],
-  };
-
   return (
     <article className="space-y-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* 面包屑 */}

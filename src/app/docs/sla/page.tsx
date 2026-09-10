@@ -15,13 +15,69 @@ export const metadata: Metadata = {
     "ChatGPT企业代采合同条款",
   ],
   alternates: {
-    canonical: "https://gongsi.one/docs/sla",
+    canonical: "https://gongsi.one/docs/sla/",
   },
   openGraph: {
     title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI代采 aidaicai.com",
     description: "加盖公章合规 SLA 条款：72h 闪电保换，全周期按天折算退款，100% 正规海外商业卡代充。",
-    url: "https://www.aidaicai.com/docs/sla",
+    url: "https://gongsi.one/docs/sla/",
+    siteName: "AI代采 aidaicai.com",
+    locale: "zh_CN",
+    type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SLA 服务等级保障与 72h 封号退赔兜底条款",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "SLA 服务等级保障与 72h 封号退赔兜底条款 | AI代采 aidaicai.com",
+    description: "加盖公章合规 SLA 条款：72h 闪电保换，全周期按天折算退款，100% 正规海外商业卡代充。",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://gongsi.one/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文档知识库",
+          "item": "https://gongsi.one/docs/sla/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SLA退赔保障条款",
+          "item": "https://gongsi.one/docs/sla/",
+        },
+      ],
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "SLA 服务等级保障与 72h 封号退赔兜底条款",
+      "description": "加盖公章合规 SLA 条款：72h 闪电保换，全周期按天折算退款，100% 正规海外商业卡代充。",
+      "url": "https://gongsi.one/docs/sla/",
+      "author": {
+        "@type": "Organization",
+        "name": "AI代采",
+      },
+    },
+  ],
 };
 
 const slaDocText = `【AI 代采 aidaicai.com】企业级海外 AI 账号服务 SLA 与风控兜底保障条款
@@ -47,36 +103,11 @@ const slaDocText = `【AI 代采 aidaicai.com】企业级海外 AI 账号服务 
 2. 企业知识产权归属：使用产生的全部代码、文档资产 100% 归客户所有。`;
 
 export default function SlaDocPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://www.aidaicai.com",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "商务与合规知识库",
-        "item": "https://www.aidaicai.com/docs/sla",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "SLA 服务等级保障与 72h 封号退赔兜底条款",
-        "item": "https://www.aidaicai.com/docs/sla",
-      },
-    ],
-  };
-
   return (
     <article className="space-y-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* 面包屑 */}

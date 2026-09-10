@@ -45,21 +45,21 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://gongsi.one",
+    canonical: "https://gongsi.one/",
   },
   openGraph: {
     title: "AI代采 | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description: "国内领先的企业级 GPT 官方集中采购与 OpenAI Codex 研发代采平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡直充与 72 小时封号退赔保障。",
-    url: "https://gongsi.one",
+    url: "https://gongsi.one/",
     siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "website",
     images: [
       {
-        url: "/logo.svg",
-        width: 800,
-        height: 600,
-        alt: "AI代采 aidaicai.com 官方标志",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AI代采 aidaicai.com 企业级海外 AI 官方代采合规平台",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI代采 aidaicai.com | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description: "让中国企业合规、阳光采购全球顶尖 AI 生产力与 Codex 研发工具。支持 6% 增值税专票、银行对公转账与 72h 封号包赔。",
-    images: ["/logo.svg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

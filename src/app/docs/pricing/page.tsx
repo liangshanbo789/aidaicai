@@ -16,13 +16,77 @@ export const metadata: Metadata = {
     "ChatGPT专票采购价格表",
   ],
   alternates: {
-    canonical: "https://gongsi.one/docs/pricing",
+    canonical: "https://gongsi.one/docs/pricing/",
   },
   openGraph: {
     title: "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 aidaicai.com",
     description: "全面覆盖 Plus、Pro 5x/20x、Team 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
-    url: "https://www.aidaicai.com/docs/pricing",
+    url: "https://gongsi.one/docs/pricing/",
+    siteName: "AI代采 aidaicai.com",
+    locale: "zh_CN",
+    type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "企业级 OpenAI / ChatGPT 官方代采阶梯报价单",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 aidaicai.com",
+    description: "全面覆盖 Plus、Pro 5x/20x、Team 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://gongsi.one/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文档知识库",
+          "item": "https://gongsi.one/docs/pricing/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "阶梯代采报价单",
+          "item": "https://gongsi.one/docs/pricing/",
+        },
+      ],
+    },
+    {
+      "@type": "Product",
+      "name": "企业级 OpenAI / ChatGPT 官方合规代采服务",
+      "description": "全面覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间对公含税阶梯价格，支持 6% 增值税专用发票开具与银行对公转账。",
+      "brand": {
+        "@type": "Brand",
+        "name": "AI代采",
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "CNY",
+        "lowPrice": "135",
+        "highPrice": "1580",
+        "offerCount": "6",
+        "availability": "https://schema.org/InStock",
+        "url": "https://gongsi.one/docs/pricing/",
+      },
+    },
+  ],
 };
 
 const pricingDocText = `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
@@ -50,36 +114,11 @@ const pricingDocText = `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT �
 3. 履约保障：100% 正规商业信用卡代付，出具官方后台 Invoice 账单，法务盖章《SLA 72h 封号包赔协议》。`;
 
 export default function PricingDocPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://www.aidaicai.com",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "商务与合规知识库",
-        "item": "https://www.aidaicai.com/docs/pricing",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "企业级 OpenAI 阶梯报价单与权益手册",
-        "item": "https://www.aidaicai.com/docs/pricing",
-      },
-    ],
-  };
-
   return (
     <article className="space-y-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* 面包屑 */}

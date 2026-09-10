@@ -9,10 +9,9 @@ import {
   QrCode,
   ShieldCheck,
   FileText,
-  Sparkles,
   BadgeCheck,
-  Building,
   Video,
+  Gift,
 } from "lucide-react";
 
 interface FloatingContactProps {
@@ -23,34 +22,37 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"wechat" | "wework">("wechat");
   const [copied, setCopied] = useState(false);
-  const [showBubble, setShowBubble] = useState(false);
-  const [bubbleDismissed, setBubbleDismissed] = useState(false);
+  const [hasManuallyClosed, setHasManuallyClosed] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const weChatAccount = "yqtp01";
 
-  // 页面初次加载后，延迟 2.5 秒优雅弹出关怀气泡（若未被手动关闭过且微名片未展开）
+  // 用户自然浏览 5 秒后，若未手动关闭过且当前未展开，直接平滑自动展开客服微名片
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!bubbleDismissed && !isOpen) {
-        setShowBubble(true);
+      if (!hasManuallyClosed && !isOpen) {
+        setIsOpen(true);
       }
-    }, 2500);
+    }, 5000);
 
     return () => clearTimeout(timer);
-  }, [bubbleDismissed, isOpen]);
+  }, [hasManuallyClosed, isOpen]);
 
-  // 点击组件外部自动收起快捷微名片
+  // 点击组件外部自动收起快捷微名片，并标记已手动关闭以避免重复打扰
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+        if (isOpen) {
+          setIsOpen(false);
+          setHasManuallyClosed(true);
+        }
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && isOpen) {
         setIsOpen(false);
+        setHasManuallyClosed(true);
       }
     };
 
@@ -74,27 +76,27 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
     });
   };
 
-  // 切换展开状态
+  // 手动收起/展开
   const toggleOpen = () => {
     setIsOpen((prev) => {
       const nextState = !prev;
-      if (nextState) {
-        setShowBubble(false);
+      if (!nextState) {
+        setHasManuallyClosed(true);
       }
       return nextState;
     });
   };
 
-  // 手动关闭引导气泡
-  const handleDismissBubble = (e: React.MouseEvent) => {
+  const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setShowBubble(false);
-    setBubbleDismissed(true);
+    setIsOpen(false);
+    setHasManuallyClosed(true);
   };
 
   // 点击进入完整需求表单
   const handleOpenFullForm = () => {
     setIsOpen(false);
+    setHasManuallyClosed(true);
     onOpenFullContact("floating-widget-form");
   };
 
@@ -104,42 +106,7 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
       className="fixed bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end pointer-events-auto"
       aria-label="客服与采购顾问支持"
     >
-      {/* 1. 主动关怀引导气泡 */}
-      {showBubble && !isOpen && (
-        <div className="mb-3 max-w-[280px] sm:max-w-xs animate-fade-in transition-all duration-300 transform origin-bottom-right">
-          <div className="relative p-3.5 rounded-xl bg-surface border border-theme-subtle shadow-xl backdrop-blur-md text-xs text-secondary flex items-start gap-2.5">
-            <div className="w-5 h-5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-              <Sparkles className="w-3.5 h-3.5" />
-            </div>
-            <div
-              className="flex-1 cursor-pointer"
-              onClick={() => {
-                setShowBubble(false);
-                setIsOpen(true);
-              }}
-            >
-              <div className="font-semibold text-primary text-[12px] mb-0.5 flex items-center gap-1.5">
-                <span>7×24H 官方大客户顾问在线</span>
-              </div>
-              <p className="text-[11px] text-secondary leading-snug">
-                支持出具加盖公章正式报价单、银行对公回单及 6% 增值税专票样张，随时极速对接。
-              </p>
-            </div>
-            <button
-              onClick={handleDismissBubble}
-              className="text-tertiary hover:text-primary p-0.5 rounded transition-colors -mr-1 -mt-1 cursor-pointer"
-              aria-label="关闭提示"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-
-            {/* 向下的小箭头 */}
-            <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-surface border-r border-b border-theme-subtle transform rotate-45" />
-          </div>
-        </div>
-      )}
-
-      {/* 2. 快捷客服微名片展开卡片 */}
+      {/* 快捷客服微名片展开卡片 */}
       {isOpen && (
         <div className="mb-3 w-[320px] sm:w-[350px] rounded-2xl bg-surface border border-theme-subtle shadow-2xl overflow-hidden animate-fade-in transition-all origin-bottom-right flex flex-col">
           {/* Header with Enterprise Verification Blue Badge */}
@@ -163,7 +130,7 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
               </div>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
               className="text-secondary hover:text-primary p-1 rounded-lg hover:bg-surface-hover transition-colors cursor-pointer"
               aria-label="关闭微名片"
             >
@@ -173,6 +140,14 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
 
           {/* Body Content */}
           <div className="p-4 space-y-3.5">
+            {/* 顶部福利与即领提示 */}
+            <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-[11px] text-emerald-700 dark:text-emerald-400 flex items-center justify-between shadow-2xs">
+              <span className="flex items-center gap-1.5 font-medium">
+                <Gift className="w-3.5 h-3.5 text-[#10A37F] shrink-0" />
+                <span>加微领《立项报告Word》与底价表</span>
+              </span>
+              <span className="text-[10px] font-mono opacity-80 shrink-0">10分钟发送</span>
+            </div>
             {/* Tab 切换: 个人微信 (前) vs 企业微信 (后) */}
             <div className="flex p-1 rounded-lg bg-surface-elevated border border-theme-subtle text-xs">
               <button
@@ -228,7 +203,7 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
               </div>
               <p className="mt-2 text-[11px] text-secondary text-center">
                 {activeTab === "wechat"
-                  ? "微信扫码直联大客户总监私人业务直通号"
+                  ? "微信扫码直联大客户总监（加微领立项报告，支持个性化商务统筹）"
                   : "支持微信或企业微信扫码添加官方认证专员"}
               </p>
             </div>
@@ -264,10 +239,10 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
             <div className="p-2.5 rounded-xl bg-surface-elevated border border-theme-subtle space-y-1 text-[11px] text-secondary">
               <div className="flex items-center gap-1.5 text-primary font-medium">
                 <Video className="w-3.5 h-3.5 text-[#10A37F]" />
-                <span>支持在线视频对公核验：</span>
+                <span>支持在线对公核验：</span>
               </div>
               <p className="text-[10px] text-tertiary leading-snug">
-                为消除异地采购顾虑，支持通过腾讯会议实时查验营业执照原件、增值电信许可、国税查验平台及对公账户信息。
+                为消除异地采购顾虑，支持通过腾讯会议实时查验营业执照原件、国税查验平台及对公账户信息。
               </p>
             </div>
 

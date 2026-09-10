@@ -14,13 +14,69 @@ export const metadata: Metadata = {
     "企业AI采购立项申请书",
   ],
   alternates: {
-    canonical: "https://gongsi.one/docs/proposal",
+    canonical: "https://gongsi.one/docs/proposal/",
   },
   openGraph: {
     title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 aidaicai.com",
     description: "专为采购与行政编写，解决业务必要性论证、供应商合规比选及财务专票报销流程。",
-    url: "https://www.aidaicai.com/docs/proposal",
+    url: "https://gongsi.one/docs/proposal/",
+    siteName: "AI代采 aidaicai.com",
+    locale: "zh_CN",
+    type: "article",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "企业采购 OpenAI 高级生产力工具立项申请报告模板",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 aidaicai.com",
+    description: "专为采购与行政编写，解决业务必要性论证、供应商合规比选及财务专票报销流程。",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://gongsi.one/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文档知识库",
+          "item": "https://gongsi.one/docs/proposal/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "立项呈批申报模板",
+          "item": "https://gongsi.one/docs/proposal/",
+        },
+      ],
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "企业采购 OpenAI 高级生产力工具立项申请报告模板",
+      "description": "专为企业行政、采购与研发总监打造的 ChatGPT / OpenAI 官方企业代采立项呈批报告模板，解决业务论证与财务专票报销。",
+      "url": "https://gongsi.one/docs/proposal/",
+      "author": {
+        "@type": "Organization",
+        "name": "AI代采",
+      },
+    },
+  ],
 };
 
 const fullTextContent = `关于采购 OpenAI 高级企业生产力账号以提升团队业务效能的立项申请报告
@@ -55,36 +111,11 @@ const fullTextContent = `关于采购 OpenAI 高级企业生产力账号以提�
 该采购能直接赋能研发与核心业务，链路合规、风险闭环，特此提请领导审批预算。`;
 
 export default function ProposalDocPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://www.aidaicai.com",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "商务与合规知识库",
-        "item": "https://www.aidaicai.com/docs/proposal",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "企业采购 OpenAI 立项申请呈批报告",
-        "item": "https://www.aidaicai.com/docs/proposal",
-      },
-    ],
-  };
-
   return (
     <article className="space-y-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* 面包屑 */}

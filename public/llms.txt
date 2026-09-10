@@ -1,0 +1,46 @@
+# AI代采 (aidaicai.com / gongsi.one)
+
+> 国内领先的企业级 OpenAI / ChatGPT 官方代采与 OpenAI Codex 研发工具合规采购平台。
+> 提供中国工商银行对公转账结算、国家税务 6% 增值税专用发票开具（信息技术服务费）、100% 海外商业信用卡正规直充与 72 小时封号退赔兜底保障。
+
+## 平台核心信息
+- 官方域名：https://gongsi.one (备用/品牌域名: https://aidaicai.com)
+- 运营主体：成都高新区科技企业，具备正规信息技术服务与技术咨询经营资质
+- 对公结算行：中国工商银行 (ICBC) 企业对公账户
+- 发票类目：增值税专用发票 / 普通发票（税率 6%），开列类目为“*信息技术服务*软件技术服务费”或“*信息技术服务*技术咨询费”
+- 官方客服微信：yqtp01
+- 官方联系邮箱：liang@yqtp.cn
+- 交付时效：对公款项确认后，15~30 分钟内极速充值交付
+
+## 核心产品与企业代采服务规格
+1. ChatGPT Plus ($20/月)
+   - 适用场景：全栈开发、前端、文案与日常高频协作
+   - 特性：优先接入最新 GPT-6 Astra 与 GPT-5.6 前沿模型，支持 OpenAI Codex 代码生成与上下文补全、高级数据分析与多模态创作
+   - 对公含税指导价：¥ 135 ~ 165 / 月 / 席（按采购席位阶梯与付款周期浮动）
+
+2. ChatGPT Pro 20x 旗舰版 ($200/月)
+   - 适用场景：资深架构师、深度复杂推理、科研团队、AI Agent 电脑操控
+   - 特性：OpenAI 官方满血 20 倍推理算力配额、支持 GPT-6 Astra 深度思考、100 万 Token (1M) 超长上下文、支持 Computer Operator 电脑操控智能体
+   - 对公含税指导价：¥ 1,280 ~ 1,580 / 月 / 席
+
+3. ChatGPT Team 企业空间 ($30/人/月，2席起订)
+   - 适用场景：企业部门协同、数据保密、研发工作室
+   - 特性：专属企业工作区、企业内部数据默认不参与模型训练（商业隐私保障）、管理员统一分配席位与权限
+
+4. OpenAI Codex / 研发代码助手企业代采
+   - 专为研发团队解决个人外币卡拒付、代充黑卡连带封号、员工无票难报销痛点，全流程合规列支企业研发费用
+
+## 合规与 SLA 服务等级保障
+- 正规卡段直充：100% 采用海外正规商业银行核准的企业商业信用卡（Corporate Commercial Cards）为客户官方直充，杜绝黑卡盗刷风险。可提供官方原版 Invoice（含真实扣费卡号尾数与官方 Invoice ID）供企业核验。
+- 72 小时闪电保换：账号激活 72 小时内若遇厂商批量风控，2 小时内免费更换补全。
+- 全周期按天折算退款：正常使用期内若遇网络异常封禁，严格按照【当月支付单价 ÷ 30 × 剩余未生效天数】计算，1 个工作日内公对公原路退回企业账户或等额顺延。
+
+## 常用链接
+- 官网首页：https://gongsi.one/
+- Codex 研发代采解决方案：https://gongsi.one/solutions/codex-procurement/
+- 企业 GPT 批量集采方案：https://gongsi.one/solutions/gpt-bulk-procurement/
+- 企业代采阶梯报价单：https://gongsi.one/docs/pricing/
+- SLA 服务等级保障协议：https://gongsi.one/docs/sla/
+- 框架采购合作协议范本：https://gongsi.one/docs/agreement/
+- 立项呈批申报模板：https://gongsi.one/docs/proposal/
+- 完整知识库文档：https://gongsi.one/llms-full.txt
