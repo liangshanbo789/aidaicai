@@ -2,6 +2,7 @@
 
 import React, { useState, useId } from "react";
 import { Calculator, Gift, FileSpreadsheet, Copy, Check, Info, Building2 } from "lucide-react";
+import { PRODUCTS_CONFIG, calculateQuotation, BillingCycle } from "@/config/pricing";
 
 interface PricingCalculatorProps {
   selectedProductId: string;
@@ -11,99 +12,38 @@ interface PricingCalculatorProps {
 export default function PricingCalculator({ selectedProductId, onOpenContact }: PricingCalculatorProps) {
   const [productType, setProductType] = useState<string>(selectedProductId || "pro20x");
   const [seats, setSeats] = useState<number>(5);
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "quarterly" | "yearly">("quarterly");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("quarterly");
   const [copied, setCopied] = useState(false);
   const seatsSliderId = useId();
 
   React.useEffect(() => {
-    if (selectedProductId) {
+    if (selectedProductId && PRODUCTS_CONFIG[selectedProductId]) {
       setProductType(selectedProductId);
+      // Ensure seats not below new product's minSeats
+      const targetMin = PRODUCTS_CONFIG[selectedProductId].minSeats;
+      setSeats((prev) => Math.max(prev, targetMin));
     }
   }, [selectedProductId]);
 
-  const getBaseConfig = () => {
-    switch (productType) {
-      case "plus":
-        return {
-          name: "ChatGPT Plus",
-          officialUsd: 20,
-          baseMonthlyRmb: 165,
-          perkPerSeatMonth: 15,
-          minSeats: 1,
-        };
-      case "pro5x":
-        return {
-          name: "ChatGPT Pro (5x)",
-          officialUsd: 100,
-          baseMonthlyRmb: 790,
-          perkPerSeatMonth: 60,
-          minSeats: 1,
-        };
-      case "pro20x":
-        return {
-          name: "ChatGPT Pro (20x 旗舰版)",
-          officialUsd: 200,
-          baseMonthlyRmb: 1580,
-          perkPerSeatMonth: 120,
-          minSeats: 1,
-        };
-      case "team":
-        return {
-          name: "ChatGPT Team 企业空间",
-          officialUsd: 30,
-          baseMonthlyRmb: 245,
-          perkPerSeatMonth: 25,
-          minSeats: 2,
-        };
-      default:
-        return {
-          name: "ChatGPT Pro (20x 旗舰版)",
-          officialUsd: 200,
-          baseMonthlyRmb: 1580,
-          perkPerSeatMonth: 120,
-          minSeats: 1,
-        };
-    }
-  };
-
-  const config = getBaseConfig();
-  const currentSeats = Math.max(seats, config.minSeats);
-
-  let volumeDiscountRate = 1.0;
-  if (currentSeats >= 20) {
-    volumeDiscountRate = 0.88;
-  } else if (currentSeats >= 10) {
-    volumeDiscountRate = 0.92;
-  } else if (currentSeats >= 5) {
-    volumeDiscountRate = 0.95;
-  }
-
-  let cycleMonths = 1;
-  let cycleDiscountRate = 1.0;
-  let cycleName = "按月结算";
-
-  if (billingCycle === "quarterly") {
-    cycleMonths = 3;
-    cycleDiscountRate = 0.94;
-    cycleName = "按季度结算 (推荐)";
-  } else if (billingCycle === "yearly") {
-    cycleMonths = 12;
-    cycleDiscountRate = 0.88;
-    cycleName = "按年度结算 (特惠)";
-  }
-
-  const rawTotalWithoutDiscount = config.baseMonthlyRmb * currentSeats * cycleMonths;
-  const finalUnitPrice = Math.round(config.baseMonthlyRmb * volumeDiscountRate * cycleDiscountRate);
-  const totalAmount = finalUnitPrice * currentSeats * cycleMonths;
-  const totalSavings = rawTotalWithoutDiscount - totalAmount;
-  const totalPerksAmount = config.perkPerSeatMonth * currentSeats * cycleMonths;
+  const quotation = calculateQuotation(productType, seats, billingCycle);
+  const {
+    product,
+    seats: currentSeats,
+    unitPrice,
+    totalAmount,
+    totalSavings,
+    totalPerksAmount,
+    cycleMonths,
+    cycleName,
+    tierLabel,
+  } = quotation;
 
   const handleCopySummary = () => {
     const summaryText = `【AI代采 (aidaicai.com) - 企业采购预算草案】
-采购版本：${config.name}
+采购版本：${product.name} (${product.officialPriceDisplay})
 采购席位数：${currentSeats} 个
 结算周期：${cycleName} (${cycleMonths} 个月)
-最终结算单价：¥ ${finalUnitPrice} 元/月/席位 (含 6% 增值税专票)
+最终结算单价：¥ ${unitPrice} 元/月/席位 (含 6% 增值税专票)
 合同含税总额：¥ ${totalAmount.toLocaleString()} 元
 阶梯优惠节省：¥ ${totalSavings.toLocaleString()} 元
 增值服务权益：附赠专属技术响应保障及大客户定制增值方案（价值约 ¥ ${totalPerksAmount.toLocaleString()} 元）
@@ -115,6 +55,13 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
       setTimeout(() => setCopied(false), 2500);
     });
   };
+
+  const productList = [
+    { id: "plus", label: "Plus", desc: "$20/月" },
+    { id: "pro5x", label: "Pro (5x)", desc: "$100/月" },
+    { id: "pro20x", label: "Pro (20x)", desc: "$200/月 旗舰" },
+    { id: "team", label: "Team 空间", desc: "$30/人/月" },
+  ];
 
   return (
     <section id="calculator" className="py-20 bg-canvas border-t border-theme-subtle transition-colors">
@@ -142,15 +89,14 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 1. 选择采购产品版本
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {[
-                  { id: "plus", label: "Plus", desc: "$20/月" },
-                  { id: "pro5x", label: "Pro (5x)", desc: "$100/月" },
-                  { id: "pro20x", label: "Pro (20x)", desc: "$200/月 旗舰" },
-                  { id: "team", label: "Team 空间", desc: "$30/人/月" },
-                ].map((item) => (
+                {productList.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => setProductType(item.id)}
+                    onClick={() => {
+                      setProductType(item.id);
+                      const targetMin = PRODUCTS_CONFIG[item.id]?.minSeats || 1;
+                      setSeats((prev) => Math.max(prev, targetMin));
+                    }}
                     className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       productType === item.id
                         ? "border-emerald-500/50 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
@@ -171,14 +117,14 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   2. 采购账号席位数 (当前: {currentSeats} 个)
                 </label>
                 <span className="text-xs text-emerald-600 dark:text-[#10A37F] font-mono font-medium">
-                  {currentSeats >= 20 ? "🔥 已触发大客户阶梯 88 折" : currentSeats >= 10 ? "✨ 已触发 92 折优惠" : currentSeats >= 5 ? "👍 已触发 95 折优惠" : "基础阶梯"}
+                  {tierLabel}
                 </span>
               </div>
               <div className="space-y-3">
                 <input
                   id={seatsSliderId}
                   type="range"
-                  min={config.minSeats}
+                  min={product.minSeats}
                   max={50}
                   value={currentSeats}
                   onChange={(e) => setSeats(parseInt(e.target.value))}
@@ -186,15 +132,15 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 />
                 <div className="relative w-full h-5 text-[11px] font-mono select-none">
                   {[
-                    { value: config.minSeats, label: `${config.minSeats} 起购` },
+                    { value: product.minSeats, label: `${product.minSeats} 起购` },
+                    { value: 5, label: "5 席 (团队)" },
                     { value: 10, label: "10 席" },
-                    { value: 25, label: "25 席" },
-                    { value: 40, label: "40 席" },
+                    { value: 20, label: "20 席 (集采)" },
                     { value: 50, label: "50+ 席" },
                   ].map((mark) => {
-                    const min = config.minSeats;
+                    const min = product.minSeats;
                     const max = 50;
-                    const percent = ((mark.value - min) / (max - min)) * 100;
+                    const percent = Math.max(0, Math.min(100, ((mark.value - min) / (max - min)) * 100));
                     const isSelected = currentSeats === mark.value;
                     const isMin = mark.value === min;
                     const isMax = mark.value === max;
@@ -231,12 +177,12 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div className="grid grid-cols-3 gap-3">
                 {[
                   { id: "monthly", title: "按月结算", note: "灵活月结" },
-                  { id: "quarterly", title: "按季度结算", note: "额外再省 6%", rec: true },
-                  { id: "yearly", title: "按年度结算", note: "额外再省 12%", rec: false },
+                  { id: "quarterly", title: "按季度结算", note: "团队优选 (立减)", rec: true },
+                  { id: "yearly", title: "按年度结算", note: "低至底价 (折上折)", rec: false },
                 ].map((cycle) => (
                   <button
                     key={cycle.id}
-                    onClick={() => setBillingCycle(cycle.id as any)}
+                    onClick={() => setBillingCycle(cycle.id as BillingCycle)}
                     className={`p-3 rounded-xl border text-center transition-all relative cursor-pointer ${
                       billingCycle === cycle.id
                         ? "border-emerald-500/50 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
@@ -245,7 +191,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   >
                     {cycle.rec && (
                       <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#09090B] dark:bg-white text-white dark:text-zinc-900 text-[9px] font-semibold px-2 py-0.2 rounded-full shadow-xs">
-                        热荐
+                        推荐
                       </span>
                     )}
                     <div className="font-semibold text-xs sm:text-sm text-primary">{cycle.title}</div>
@@ -264,7 +210,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             </div>
           </div>
 
-          {/* Right Column: Dynamic Quotation Receipt (5 cols) - OpenAI Console Style */}
+          {/* Right Column: Dynamic Quotation Receipt (5 cols) */}
           <div className="lg:col-span-5 codex-panel p-6 sm:p-8 border-theme-subtle bg-surface shadow-xl">
             <div className="flex items-center justify-between pb-4 border-b border-theme-subtle">
               <div className="flex items-center gap-2">
@@ -280,7 +226,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <div className="py-5 space-y-3 text-xs sm:text-sm border-b border-theme-subtle">
               <div className="flex justify-between items-center text-secondary">
                 <span>选定版本</span>
-                <span className="font-medium text-primary">{config.name}</span>
+                <span className="font-medium text-primary">{product.name}</span>
               </div>
               <div className="flex justify-between items-center text-secondary">
                 <span>采购席位数</span>
@@ -293,7 +239,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div className="flex justify-between items-center text-secondary">
                 <span>折后对公单价</span>
                 <span className="font-semibold text-primary">
-                  ¥ {finalUnitPrice} <span className="text-[10px] text-secondary font-normal">/月/席位</span>
+                  ¥ {unitPrice} <span className="text-[10px] text-secondary font-normal">/月/席位</span>
                 </span>
               </div>
               {totalSavings > 0 && (
@@ -318,7 +264,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               </p>
             </div>
 
-            {/* Procurement Perk Box (Subtle Amber Glow) */}
+            {/* Procurement Perk Box */}
             <div className="p-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] dark:border-amber-400/25 dark:bg-amber-400/[0.04] mb-6">
               <div className="flex items-center gap-2 mb-1.5">
                 <Gift className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />

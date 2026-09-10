@@ -2,98 +2,38 @@
 
 import React from "react";
 import { Check, Sparkles, Zap, Cpu, Users, ArrowRight } from "lucide-react";
+import { PRODUCTS_CONFIG, ProductPricingConfig } from "@/config/pricing";
 
 interface ProductCatalogProps {
   onSelectProduct: (productId: string) => void;
   onOpenContact: (source?: string) => void;
 }
 
+const PRODUCT_ICONS: Record<string, { icon: React.ElementType; iconColor: string }> = {
+  plus: {
+    icon: Sparkles,
+    iconColor: "text-secondary",
+  },
+  pro5x: {
+    icon: Zap,
+    iconColor: "text-secondary",
+  },
+  pro20x: {
+    icon: Cpu,
+    iconColor: "text-amber-500 dark:text-amber-400",
+  },
+  team: {
+    icon: Users,
+    iconColor: "text-emerald-600 dark:text-emerald-400",
+  },
+};
+
 export default function ProductCatalog({ onSelectProduct, onOpenContact }: ProductCatalogProps) {
-  const products = [
-    {
-      id: "plus",
-      name: "ChatGPT Plus",
-      tagline: "个人账号转企业统一报销首选",
-      icon: Sparkles,
-      iconColor: "text-secondary",
-      badge: "高频普及款",
-      badgeColor: "bg-surface-elevated text-secondary border-theme-subtle",
-      officialPrice: "$20 / 月",
-      startingPrice: "¥ 155",
-      priceUnit: "/月/账号 (含税)",
-      description: "畅享最新 GPT-6 Astra 与 GPT-5.6 前沿旗舰，满足出海电商文案主笔、日常翻译、海外客服及职能部门的高频交互需求。",
-      features: [
-        "优先接入最新 GPT-6 Astra 旗舰基石模型",
-        "GPT-5.6 (Sol / Terra) 稳定高频调用与智能路由",
-        "高峰期免排队优先响应网络与高维记忆库",
-        "高级数据分析 (Python) 与多模态高清图像生成",
-        "支持企业员工现有个人邮箱直接官方直充",
-      ],
-      highlight: false,
-    },
-    {
-      id: "pro5x",
-      name: "ChatGPT Pro (5x)",
-      tagline: "中度算力攻坚与百万 Token 长文本",
-      icon: Zap,
-      iconColor: "text-secondary",
-      badge: "进阶生产力",
-      badgeColor: "bg-surface-elevated text-secondary border-theme-subtle",
-      officialPrice: "$100 / 月",
-      startingPrice: "¥ 690",
-      priceUnit: "/月/账号 (含税阶梯价)",
-      description: "适合资深独立站运营、高级研发工程及需要超长大上下文并行研判的业务核心人员。",
-      features: [
-        "5 倍于 Plus 版本的 GPT-6 Astra 与 GPT-5.6 频次限额",
-        "支持 GPT-6 Astra 深度思考推理与长程规划",
-        "支持 100 万 (1M Token) 超长上下文记忆分析",
-        "Deep Research 深度全网科研级调研能力",
-        "支持按月/按季灵活调整账号分配",
-      ],
-      highlight: false,
-    },
-    {
-      id: "pro20x",
-      name: "ChatGPT Pro (20x 旗舰版)",
-      tagline: "OpenAI $200 顶配 GPT-6 Astra 满血极限算力",
-      icon: Cpu,
-      iconColor: "text-amber-500 dark:text-amber-400",
-      badge: "研发与算法团队标配",
-      badgeColor: "bg-amber-500/10 text-amber-600 dark:text-amber-300 border-amber-500/30",
-      officialPrice: "$200 / 月",
-      startingPrice: "¥ 1,380",
-      priceUnit: "/月/账号 (含税阶梯价)",
-      description: "专为算法科学家、系统架构师及攻坚团队打造。搭载最新 GPT-6 Astra 满血旗舰与顶级深度推理集群。",
-      features: [
-        "搭载 OpenAI 满血旗舰 GPT-6 Astra (代号 Astra)",
-        "20 倍海量配额 / 极限算力，最高优先级极速计算",
-        "突破性 Computer Operator 智能体操控与多步工程",
-        "解决超高难度数学、复杂系统架构设计与代码审计",
-        "专属高端商业卡段绑定，附带大客户战略集采礼包",
-      ],
-      highlight: true,
-    },
-    {
-      id: "team",
-      name: "ChatGPT Team 空间",
-      tagline: "企业数据隔离与全员 GPT-6 权限中控",
-      icon: Users,
-      iconColor: "text-emerald-600 dark:text-emerald-400",
-      badge: "数据不入训",
-      badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-      officialPrice: "$30 / 人 / 月",
-      startingPrice: "¥ 235",
-      priceUnit: "/人/月 (2人起订)",
-      description: "适合 5 人以上研发及商业敏感型团队，统一掌控工作空间，数据严密隔离不参与训练。",
-      features: [
-        "全员享有 GPT-6 Astra 与 GPT-5.6 前沿模型能力",
-        "企业内部商业数据与代码默认完全不参与模型训练",
-        "企业管理员后台（统一调配席位/一键回收离职账号）",
-        "共享团队内部专属企业 GPTs 知识库与工作区工作流",
-        "统一出具一张对公汇总发票与按月/按季账单",
-      ],
-      highlight: false,
-    },
+  const products: ProductPricingConfig[] = [
+    PRODUCTS_CONFIG.plus,
+    PRODUCTS_CONFIG.pro5x,
+    PRODUCTS_CONFIG.pro20x,
+    PRODUCTS_CONFIG.team,
   ];
 
   return (
@@ -112,10 +52,12 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
           </p>
         </div>
 
-        {/* Product Cards Grid (OpenAI Model Spec Style) */}
+        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {products.map((product) => {
-            const Icon = product.icon;
+            const iconMeta = PRODUCT_ICONS[product.id] || { icon: Cpu, iconColor: "text-secondary" };
+            const Icon = iconMeta.icon;
+
             return (
               <div
                 key={product.id}
@@ -127,7 +69,7 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
               >
                 {/* Top Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`p-2 rounded-lg bg-surface-elevated border border-theme-subtle ${product.iconColor}`}>
+                  <div className={`p-2 rounded-lg bg-surface-elevated border border-theme-subtle ${iconMeta.iconColor}`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <span className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${product.badgeColor}`}>
@@ -140,15 +82,27 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
                   <h3 className="text-lg font-semibold text-primary mb-1">{product.name}</h3>
                   <p className="text-xs text-secondary mb-4">{product.tagline}</p>
 
-                  {/* Pricing Box */}
+                  {/* Pricing Box - Option B: Base Price Prominent + Bulk Tier Tag */}
                   <div className="p-3.5 rounded-xl bg-surface-elevated border border-theme-subtle mb-5 shadow-xs">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl font-bold text-primary tracking-tight">{product.startingPrice}</span>
-                      <span className="text-xs text-secondary">{product.priceUnit}</span>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] font-medium text-secondary">单席对公基准价</span>
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
+                        集采低至 ¥{product.lowestPriceRmb} 起
+                      </span>
                     </div>
-                    <div className="text-[11px] text-secondary mt-1 flex items-center justify-between font-mono">
-                      <span>原价: {product.officialPrice}</span>
-                      <span className="text-emerald-600 dark:text-[#10A37F] font-medium">含6%专票</span>
+
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-2xl font-bold text-primary tracking-tight">
+                        ¥ {product.baseMonthlyRmb.toLocaleString()}
+                      </span>
+                      <span className="text-xs text-secondary">
+                        {product.id === "team" ? "/人/月 (含税)" : "/月/账号 (含税)"}
+                      </span>
+                    </div>
+
+                    <div className="text-[11px] text-secondary mt-2 flex items-center justify-between font-mono pt-1.5 border-t border-theme-subtle/50">
+                      <span>原价: {product.officialPriceDisplay}</span>
+                      <span className="text-emerald-600 dark:text-[#10A37F] font-medium">5席起享阶梯价</span>
                     </div>
                   </div>
 
