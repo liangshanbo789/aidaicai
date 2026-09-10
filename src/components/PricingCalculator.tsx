@@ -34,9 +34,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
       case "pro5x":
         return {
           name: "ChatGPT Pro (5x)",
-          officialUsd: 50,
-          baseMonthlyRmb: 390,
-          perkPerSeatMonth: 40,
+          officialUsd: 100,
+          baseMonthlyRmb: 790,
+          perkPerSeatMonth: 60,
           minSeats: 1,
         };
       case "pro20x":
@@ -144,7 +144,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {[
                   { id: "plus", label: "Plus", desc: "$20/月" },
-                  { id: "pro5x", label: "Pro (5x)", desc: "$50/月" },
+                  { id: "pro5x", label: "Pro (5x)", desc: "$100/月" },
                   { id: "pro20x", label: "Pro (20x)", desc: "$200/月 旗舰" },
                   { id: "team", label: "Team 空间", desc: "$30/人/月" },
                 ].map((item) => (

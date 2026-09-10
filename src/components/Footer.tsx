@@ -106,7 +106,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
         {/* Disclaimer Bar */}
         <div className="pt-8 border-t border-theme-subtle text-[11px] text-tertiary leading-relaxed space-y-1">
           <p>
-            <strong className="text-secondary font-medium">免责与合规声明：</strong>OpenAI、ChatGPT、GPT-4o、o1、o3 及其相关商标均为 OpenAI, LLC 及其关联方的专有财产。<strong className="text-secondary font-medium">AI 代采 (aidaicai.com)</strong> 作为独立的企业级海外软件数字化采购与 SaaS 解决方案服务商，严格依据国际商业贸易惯例为中国企业提供合规的外币清算、代理采购、企业对公结算开票与本地化技术支持服务，与 OpenAI 官方无股权或代销关系。
+            <strong className="text-secondary font-medium">免责与合规声明：</strong>OpenAI、ChatGPT、GPT-6 Astra、GPT-5.6、o1、o3 及其相关商标均为 OpenAI, LLC 及其关联方的专有财产。<strong className="text-secondary font-medium">AI 代采 (aidaicai.com)</strong> 作为独立的企业级海外软件数字化采购与 SaaS 解决方案服务商，严格依据国际商业贸易惯例为中国企业提供合规的外币清算、代理采购、企业对公结算开票与本地化技术支持服务，与 OpenAI 官方无股权或代销关系。
           </p>
         </div>
       </div>

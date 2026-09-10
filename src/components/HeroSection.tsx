@@ -20,7 +20,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
           <span className="font-medium text-primary">aidaicai.com</span>
           <span className="text-tertiary">/</span>
-          <span>企业级海外 AI 官方代采直通车 · 支持 6% 专票</span>
+          <span>全面支持 GPT-6 Astra · 企业级官方代采直通车 · 6% 专票</span>
         </div>
 
         {/* Main Headline */}
@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
         {/* Subtitle */}
         <p className="text-base sm:text-lg text-secondary max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。提供 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方企业代采与对公结算服务。100% 正规商业信用卡代付、支持企业银行对公转账、6% 增值税专用发票、72 小时封号包赔与采购经理专属关怀礼遇。
+          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。全量支持 OpenAI 最新发布之 <strong className="text-primary font-medium">GPT-6 Astra</strong> 旗舰及 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方代采与对公结算。100% 正规商业信用卡代付、支持企业对公转账、6% 增值税专用发票与 72 小时风控兜底。
         </p>
 
         {/* Action Buttons */}

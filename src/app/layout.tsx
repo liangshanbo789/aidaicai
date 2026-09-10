@@ -10,15 +10,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "AI代采 aidaicai.com | 企业级海外 AI 官方代采与对公合规解决方案",
-  description: "国内领先的企业级 OpenAI / ChatGPT Plus、Pro (5x/20x)、Team 官方代采服务平台。支持企业银行对公转账、6% 增值税专用发票、100% 正规商业卡段直充、72小时封号包赔兜底及大客户战略集采增值权益。官网：aidaicai.com",
+  description: "国内领先的企业级 OpenAI / ChatGPT Plus、Pro (5x/20x)、Team 官方代采服务平台。全面支持最新 GPT-6 Astra 与 GPT-5.6 前沿模型，支持企业银行对公转账、6% 增值税专用发票、100% 正规商业卡段直充、72小时封号包赔兜底及大客户战略集采增值权益。官网：aidaicai.com",
   keywords: [
     "AI代采",
     "aidaicai.com",
-    "ChatGPT企业代采",
+    "GPT-6企业代采",
+    "GPT-6 Astra采购",
     "ChatGPT Pro代采",
+    "ChatGPT Plus企业采购",
     "OpenAI企业对公转账",
     "ChatGPT发票报销",
-    "ChatGPT Plus企业采购",
     "出海企业SaaS采购",
     "ChatGPT团队版购买",
     "AI工具合规采购"

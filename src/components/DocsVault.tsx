@@ -29,7 +29,7 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
 对公结算：企业银行对公转账，供应商提供“信息技术服务费” 6% 增值税专用发票
 
 二、 采购背景与业务必要性
-1. 研发攻坚需求：复杂系统架构演进、核心代码重构与高维算法推理，对 ChatGPT Pro (搭载 o1/o3 满血深度推理模型) 存在刚性依赖，标准免费版截断严重；
+1. 研发攻坚需求：复杂系统架构演进、核心代码重构与高维算法推理，对 ChatGPT Pro (搭载 GPT-6 Astra 满血旗舰与顶级深度推理集群) 存在刚性依赖，标准免费版截断严重；
 2. 跨境出海运营：海外独立站全语种文案、高阶商客沟通及社媒营销急需 Plus/Pro 稳定支持，可节省 40% 以上外包创作成本；
 3. 合规与财务堵点：为避免员工自行在淘宝购买非正规个人代充遭遇“黑卡封号”及个人私转无法报销做账，需引入具备对公资质的正规企业服务商。
 
@@ -53,13 +53,14 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
       content: `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
 
 一、 核心产品参数
-• ChatGPT Plus ($20/月)：GPT-4o 稳定高频调用、高级数据分析、DALL-E 3，适合跨境文案、日常翻译；
-• ChatGPT Pro (5x - $50/月)：5倍调用配额、支持 o1-mini 深度推理，适合独立站站长、日常研发辅助；
-• ChatGPT Pro (20x - $200/月 旗舰版)：搭载 o1/o3 满血深度逻辑推理、无限算力通道，适合算法科学家与技术总监；
-• ChatGPT Team 空间 ($30/人/月)：企业数据默认不入训、企业管理员统一分配席位、团队知识库共享。
+• ChatGPT Plus ($20/月)：优先接入最新 GPT-6 Astra 旗舰基石模型、GPT-5.6 (Sol/Terra) 高频调用、高级数据分析与多模态创作；
+• ChatGPT Pro (5x - $100/月)：5倍调用配额、支持 GPT-6 Astra 深度思考推理、100 万 Token (1M) 超长上下文与 Deep Research；
+• ChatGPT Pro (20x - $200/月 旗舰版)：搭载 GPT-6 Astra 满血深度逻辑推理、无限算力通道、突破性 Computer Operator 智能体操控，适合算法科学家与技术总监；
+• ChatGPT Team 空间 ($30/人/月)：全员享有 GPT-6 Astra 与 GPT-5.6 能力、企业数据默认不入训、企业管理员统一分配席位、团队知识库共享。
 
 二、 阶梯对公含税价 (含 6% 专票)
 • ChatGPT Plus：1~4个 ¥165/月；5~19个 ¥155/月(季付¥145)；20+个 ¥145/月(季付¥135)
+• ChatGPT Pro (5x 进阶版)：1~4个 ¥790/月；5~19个 ¥740/月(季付¥690)；20+个 ¥690/月(季付¥640)
 • ChatGPT Pro (20x 旗舰版)：1~2个 ¥1,580/月；3~9个 ¥1,480/月(季付¥1,390)；10+个 ¥1,380/月(季付¥1,290)
 
 三、 开票与结算规范
