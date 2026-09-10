@@ -74,7 +74,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
 阶梯优惠节省：¥ ${totalSavings.toLocaleString()} 元 (采购越多单价越低)
 增值服务权益：附赠专属技术响应保障及大客户定制增值方案（价值约 ¥ ${totalPerksAmount.toLocaleString()} 元）
 发票类目：*信息技术服务* 软件技术服务费 (进项税抵扣 6%)
-开户行：中国工商银行股份有限公司上海张江科技支行
+开户行：中国工商银行股份有限公司成都武侯大道支行
 付款方式：企业银行公对公转账
 资质保障：签署 72 小时封号退赔、保密协议 (NDA) 及正式采购合同`;
 
@@ -428,7 +428,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div className="absolute right-0 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[-6deg]">
                 <div className="w-24 h-24 rounded-full border-2 border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
                   <div className="text-[7px] font-bold text-center scale-90 leading-tight">
-                    AI代采（信息技术）服务有限公司
+                    成都游手科技有限公司
                   </div>
                   <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
                   <div className="text-[8px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
@@ -544,8 +544,8 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 </div>
                 <div className="space-y-1">
                   <div className="font-bold text-zinc-950 font-sans text-xs">【供应商企业】</div>
-                  <div>名称：AI代采（信息技术）服务有限公司</div>
-                  <div>开户银行：中国工商银行股份有限公司上海张江科技支行</div>
+                  <div>名称：成都游手科技有限公司</div>
+                  <div>开户银行：中国工商银行股份有限公司成都武侯大道支行</div>
                   <div>银行账号：1001 2488 **** **** 8820</div>
                 </div>
               </div>
@@ -617,7 +617,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
 
                 <div className="text-right">
                   <div className="text-xs font-bold font-sans text-zinc-950 mb-1">
-                    AI代采（信息技术）服务有限公司
+                    成都游手科技有限公司
                   </div>
                   <div className="text-[10px] text-zinc-500">
                     （已加盖商务报价与比选确认专用电子印章）
@@ -628,7 +628,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 <div className="absolute right-0 bottom-0 pointer-events-none select-none opacity-90 transform rotate-[-4deg]">
                   <div className="w-28 h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 bg-rose-500/[0.02]">
                     <div className="text-[7.5px] font-bold text-center scale-90 leading-tight">
-                      AI代采（信息技术）服务有限公司
+                      成都游手科技有限公司
                     </div>
                     <div className="my-0.5 text-base text-rose-600 font-sans">★</div>
                     <div className="text-[9px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">

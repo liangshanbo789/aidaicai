@@ -139,10 +139,10 @@ export default function ComplianceShowcase() {
                     </div>
                     <div className="space-y-1.5 bg-surface/60 p-3 rounded-lg border border-theme-subtle">
                       <div className="text-[11px] font-semibold text-primary font-sans">销售方信息（AI代采）</div>
-                      <div><span className="text-tertiary">名称：</span>AI代采（信息技术）服务有限公司</div>
+                      <div><span className="text-tertiary">名称：</span>成都游手科技有限公司</div>
                       <div><span className="text-tertiary">统一社会信用代码：</span>91110105MA88XXXXXX</div>
                       <div><span className="text-tertiary">地址/电话：</span>成都市高新区AI创新中心 028-8588XXXX</div>
-                      <div><span className="text-tertiary">开户行及账号：</span>中国工商银行张江科技支行 1001 **** 8820</div>
+                      <div><span className="text-tertiary">开户行及账号：</span>中国工商银行股份有限公司成都武侯大道支行 1001 **** 8820</div>
                     </div>
                   </div>
 
@@ -194,7 +194,7 @@ export default function ComplianceShowcase() {
                     <div className="absolute right-4 sm:right-24 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[-6deg]">
                       <div className="w-32 h-20 sm:w-36 sm:h-22 rounded-[50%] border-[2.5px] border-rose-600/90 text-rose-600 flex flex-col items-center justify-center p-1 relative shadow-xs bg-rose-500/[0.02]">
                         <div className="text-[9px] font-bold text-center tracking-tighter scale-90 leading-tight">
-                          AI代采（信息技术）服务有限公司
+                          成都游手科技有限公司
                         </div>
                         <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
                         <div className="text-[10px] font-extrabold tracking-widest border-t border-rose-600/70 pt-0.5">
@@ -289,9 +289,9 @@ export default function ComplianceShowcase() {
                     </div>
                     <div className="space-y-1.5 bg-surface/60 p-3 rounded-lg border border-theme-subtle">
                       <div className="text-[11px] font-semibold text-primary font-sans">【收款人信息】</div>
-                      <div><span className="text-tertiary">收款人户名：</span>AI代采（信息技术）服务有限公司</div>
+                      <div><span className="text-tertiary">收款人户名：</span>成都游手科技有限公司</div>
                       <div><span className="text-tertiary">收款人账号：</span>1001 2488 **** 8820</div>
-                      <div><span className="text-tertiary">收款开户行：</span>中国工商银行上海张江科技支行</div>
+                      <div><span className="text-tertiary">收款开户行：</span>中国工商银行股份有限公司成都武侯大道支行</div>
                     </div>
                   </div>
 
@@ -498,7 +498,7 @@ export default function ComplianceShowcase() {
                     </div>
 
                     <div className="space-y-1">
-                      <div className="text-tertiary">乙方（服务方）：AI代采（信息技术）服务有限公司</div>
+                      <div className="text-tertiary">乙方（服务方）：成都游手科技有限公司</div>
                       <div className="text-tertiary">法定代表人 / 授权代表：梁某某</div>
                       <div className="text-primary font-mono text-[11px] font-medium">
                         电子印章状态：已加盖合同专用电子印章（国密算法防篡改）
@@ -509,7 +509,7 @@ export default function ComplianceShowcase() {
                     <div className="absolute right-4 sm:right-12 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[4deg]">
                       <div className="w-28 h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
                         <div className="text-[8px] font-bold text-center scale-90 leading-tight">
-                          AI代采（信息技术）服务有限公司
+                          成都游手科技有限公司
                         </div>
                         <div className="my-0.5 text-base text-rose-600 font-sans">★</div>
                         <div className="text-[9.5px] font-extrabold tracking-widest border-t border-rose-600/70 pt-0.5">

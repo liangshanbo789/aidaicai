@@ -117,7 +117,7 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
       content: `企业级海外软件采购与技术支持服务框架协议（精简摘要）
 
 甲方：【采购企业全称】
-乙方：AI代采（信息技术）服务有限公司 (aidaicai.com)
+乙方：成都游手科技有限公司 (aidaicai.com)
 
 第一条 采购与委托
 甲方委托乙方为其代采并充值 OpenAI ChatGPT 等官方订阅服务，由乙方提供配套技术咨询与对公财务结算保障。
