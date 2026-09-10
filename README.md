@@ -19,7 +19,7 @@ d:\dev\ai-enterprise-hub/
 │   │   ├── enterprise-service-agreement.md  # 《企业软件代采购框架合作协议》
 │   │   └── sla-guarantee-terms.md           # 《SLA 服务等级与 72h 封号退赔保障条款》
 │   └── operations/                          # 运营与履约 SOP
-│       └── procurement-rewards-policy.md    # 《采购关怀计划与商务津贴合规发放管理规范》(茶水合规化)
+│       └── procurement-rewards-policy.md    # 《战略集采增值权益与生态伙伴引荐激励履约规范》(合规SOP)
 │
 ├── src/                                     # 【Next.js 现代化企业官网】
 │   ├── app/
@@ -31,9 +31,9 @@ d:\dev\ai-enterprise-hub/
 │       ├── HeroSection.tsx                  # 视觉首屏 (4大信任支柱与转化入口)
 │       ├── PainPointsCompare.tsx            # 个人代充 vs AI 代采官方服务痛点对比
 │       ├── ProductCatalog.tsx               # Plus / Pro 5x / Pro 20x / Team 产品矩阵
-│       ├── PricingCalculator.tsx            # 实时阶梯代采计算器 (算津贴/一键复制草案)
+│       ├── PricingCalculator.tsx            # 实时阶梯代采计算器 (算权益/一键复制合规立项草案)
 │       ├── ComplianceShowcase.tsx           # 真实凭据样张展示 (专票/银行回单/官方账单/公章)
-│       ├── ProcurementPerks.tsx             # 采购专属关怀计划 (商务津贴合规化说明)
+│       ├── ProcurementPerks.tsx             # 大客户集采尊享权益 (立项过审与伙伴计划说明)
 │       ├── SlaGuarantee.tsx                 # 4 重安全与 72h 封号兜底保障
 │       ├── FaqSection.tsx                   # 常见高频采购疑问手风琴
 │       ├── DocsVault.tsx                    # 网页内置商务文档阅读与一键复制弹窗
@@ -71,5 +71,5 @@ npm run dev
    - 签署加盖企业印章的《SLA 服务协议》，承诺 **72 小时闪电保换 + 全周期按天折算极速退款**。
 4. **替采购扫清内部阻力**：
    - 提供现成的 `docs/business/procurement-proposal-template.md`，采购填入公司名即可向老板和财务交差。
-5. **采购人员“茶水感谢”合规化**：
-   - 包装为“企业战略采购关怀计划”，通过京东 E 卡、中石化油卡或灵工平台发放，完全避开主合同流水，0 内部审计风险。
+5. **大客户集采增值权益与伙伴激励体系**：
+   - 全面升级为阳光透明的“企业战略集采增值礼遇”与“数字化先锋引荐人计划”，公域完全合规免责，私域支持灵活完税与增值履约，彻底消除内审与法律风险。

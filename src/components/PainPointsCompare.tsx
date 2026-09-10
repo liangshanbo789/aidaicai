@@ -36,9 +36,9 @@ export default function PainPointsCompare() {
       enterprise: "专属企业微信服务群 15 分钟极速响应，到期前 5 日主动提醒续订，业务 0 断档",
     },
     {
-      dimension: "采购人员个人利益与安全",
-      individual: "私下索要微信红包极易触发内控审计红线，面临职业操守调查",
-      enterprise: "“采购伙伴专属关怀计划”：合规发放全国通用商超卡券（京东 E 卡/油卡），私密无痕",
+      dimension: "采购与部门立项审批支持",
+      individual: "缺乏正规资质与比选报告，采购人员内部反复拉扯，费时费力甚至承担追责风险",
+      enterprise: "提供现成立项 Word 模板、多方比选分析及 6% 增值税专票，采购交差省心并尊享专属服务权益",
     },
   ];
 

@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
 
         {/* Subtitle */}
         <p className="text-base sm:text-lg text-secondary max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。提供 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方企业代采与对公结算服务。100% 正规商业信用卡代付、企业银行对公转账、6% 增值税专用发票、72 小时封号包赔与采购经理专属关怀礼遇。
+          <strong className="text-primary font-medium">AI 代采 (aidaicai.com)</strong> 专为出海团队、技术研发与企业用户打造。提供 <strong className="text-primary font-medium">ChatGPT Plus / Pro (5x/20x) / Team</strong> 官方企业代采与对公结算服务。100% 正规商业信用卡代付、支持企业银行对公转账、6% 增值税专用发票、72 小时封号包赔与采购经理专属关怀礼遇。
         </p>
 
         {/* Action Buttons */}
@@ -142,7 +142,7 @@ export default function HeroSection({ onOpenContact, onOpenDocs }: HeroSectionPr
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-            <span>采购经理专属商务津贴通道</span>
+            <span>大客户集采专属增值权益</span>
           </div>
         </div>
       </div>

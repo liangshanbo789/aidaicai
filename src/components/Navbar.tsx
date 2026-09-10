@@ -136,7 +136,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-xs font-medium text-amber-600 dark:text-amber-300 py-1"
           >
-            采购专属关怀计划 (商务津贴)
+            大客户采购尊享权益
           </a>
           <div className="pt-3 flex flex-col gap-2.5">
             <button

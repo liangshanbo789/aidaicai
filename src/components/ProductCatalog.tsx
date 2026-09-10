@@ -69,7 +69,7 @@ export default function ProductCatalog({ onSelectProduct, onOpenContact }: Produ
         "无算力配额限制，最高优先级的极速计算",
         "解决超高难度数学、复杂系统架构与代码审计",
         "专属高端商业卡段绑定，稳定性保障最高级",
-        "附带最高梯度的采购专属商务津贴礼包",
+        "附带最高梯度的企业战略集采增值礼包",
       ],
       highlight: true,
     },

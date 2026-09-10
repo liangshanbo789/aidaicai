@@ -49,7 +49,7 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
       title: "【官方文件】企业级 OpenAI / ChatGPT 采购阶梯报价单与权益手册",
       badge: "标准报价",
       badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-      desc: "涵盖 ChatGPT Plus、Pro 5x、Pro 20x 旗舰版及 Team 空间的单月、季度、年度采购对公含税阶梯价及采购津贴权益。",
+      desc: "涵盖 ChatGPT Plus、Pro 5x、Pro 20x 旗舰版及 Team 空间的单月、季度、年度采购对公含税阶梯价及大客户专属增值权益。",
       content: `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
 
 一、 核心产品参数

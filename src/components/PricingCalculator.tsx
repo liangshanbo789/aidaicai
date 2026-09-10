@@ -105,10 +105,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
 结算周期：${cycleName} (${cycleMonths} 个月)
 最终结算单价：¥ ${finalUnitPrice} 元/月/席位 (含 6% 增值税专票)
 合同含税总额：¥ ${totalAmount.toLocaleString()} 元
-累计已省预算：¥ ${totalSavings.toLocaleString()} 元
-专属采购关怀礼遇：等额 ¥ ${totalPerksAmount.toLocaleString()} 元专属商超卡券包
+阶梯优惠节省：¥ ${totalSavings.toLocaleString()} 元
+增值服务权益：附赠专属技术响应保障及大客户定制增值方案（价值约 ¥ ${totalPerksAmount.toLocaleString()} 元）
 付款方式：企业银行公对公转账
-售后保障：签署 72 小时封号退赔及 SLA 协议`;
+资质保障：签署 72 小时封号退赔、保密协议 (NDA) 及正式采购合同`;
 
     navigator.clipboard.writeText(summaryText).then(() => {
       setCopied(true);
@@ -125,10 +125,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <span>实时阶梯价格测算引擎</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold text-primary tracking-tight mb-4">
-            透明测算企业采购成本与专属津贴
+            透明测算企业采购成本与集采增值权益
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            选择采购产品、账号席位数与结算周期，实时获取含 6% 增值税专用发票对公结算价及采购经理关怀津贴。
+            选择采购产品、账号席位数与结算周期，实时获取含 6% 增值税专用发票对公结算价及战略集采专属增值方案。
           </p>
         </div>
 
@@ -293,13 +293,13 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <div className="p-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] dark:border-amber-400/25 dark:bg-amber-400/[0.04] mb-6">
               <div className="flex items-center gap-2 mb-1.5">
                 <Gift className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-                <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">采购经理专属关怀礼遇</span>
+                <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">企业战略集采增值礼遇</span>
               </div>
               <div className="text-lg font-bold text-primary mb-1">
-                赠送价值 ¥ {totalPerksAmount.toLocaleString()} 元
+                包含价值约 ¥ {totalPerksAmount.toLocaleString()} 元增值服务权益
               </div>
               <p className="text-[11px] text-secondary leading-relaxed">
-                款项到账后 24 小时内直接发放全国通用商超卡券（京东 E 卡 / 中石化油卡密），私密无痕发放，不体现在主合同账单中。
+                随单附赠企业专属顾问通道、一对一运维响应，并尊享大客户定制增值礼遇包（支持按企业需求灵活选配）。
               </p>
             </div>
 

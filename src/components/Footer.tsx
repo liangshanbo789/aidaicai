@@ -60,7 +60,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               </li>
               <li>
                 <a href="#perks" className="hover:text-amber-500 transition-colors text-amber-600 dark:text-amber-400 font-medium">
-                  采购伙伴专属关怀计划 (商务津贴)
+                  大客户集采尊享权益计划
                 </a>
               </li>
               <li>
