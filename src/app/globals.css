@@ -482,3 +482,17 @@ html.dark .codex-pill-green {
   filter: drop-shadow(0 0 1px rgba(220, 38, 38, 0.3));
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+
