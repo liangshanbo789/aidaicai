@@ -89,7 +89,7 @@ export default function Footer({ onOpenDocs, onOpenContact }: FooterProps) {
               <li>
                 <Link href="/live" target="_blank" className="hover:text-emerald-500 transition-colors text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>直播推流工作台大屏 (/live)</span>
+                  <span>企业采购竖屏直播工作台</span>
                 </Link>
               </li>
             </ul>
