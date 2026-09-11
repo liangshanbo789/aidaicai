@@ -14,8 +14,11 @@ import {
   Check,
   ChevronRight,
   Copy,
+  Calculator,
   Expand,
   EyeOff,
+  FileText,
+  HelpCircle,
   Layers,
   Pause,
   Play,
@@ -56,6 +59,33 @@ const SCENES = [
 ] as const;
 
 const ROTATION_MS = 30_000;
+
+const LIVE_MODULES = [
+  {
+    id: "faq",
+    label: "答疑",
+    icon: HelpCircle,
+    eyebrow: "直播答疑",
+    title: "对公付款怎么走？",
+    body: "确认方案后签约，企业网银对公付款；交付与开票节点以合同约定为准。",
+  },
+  {
+    id: "credentials",
+    label: "凭证",
+    icon: FileText,
+    eyebrow: "采购材料",
+    title: "立项、合同、发票材料",
+    body: "可按企业采购流程准备报价、协议及开票信息，供财务与法务核验。",
+  },
+  {
+    id: "estimate",
+    label: "测算",
+    icon: Calculator,
+    eyebrow: "预算示例",
+    title: "5 席 × 季付，按需测算",
+    body: "私信席位数与采购周期，获取适配贵司流程的书面方案与报价。",
+  },
+] as const;
 
 // Read URL state after hydration to support both static export and browser sources.
 function subscribeToLocation(onChange: () => void) {
@@ -98,6 +128,7 @@ export default function LiveStreamDashboard() {
   const [cleanOverride, setCleanOverride] = useState<boolean | null>(null);
   const [autoPlayOverride, setAutoPlay] = useState<boolean | null>(null);
   const [showSafeAreas, setShowSafeAreas] = useState(false);
+  const [activeModuleIndex, setActiveModuleIndex] = useState(0);
   const [safeTopOverride, setSafeTop] = useState<number | null>(null);
   const [safeBottomOverride, setSafeBottom] = useState<number | null>(null);
   const [safeRightOverride, setSafeRight] = useState<number | null>(null);
@@ -106,6 +137,8 @@ export default function LiveStreamDashboard() {
   const studioRef = useRef<HTMLDivElement>(null);
   const sceneIndex = sceneOverride ?? Math.max(0, queryScene);
   const scene = SCENES[sceneIndex];
+  const activeModule = LIVE_MODULES[activeModuleIndex];
+  const ActiveModuleIcon = activeModule.icon;
   const isClean = cleanOverride ?? query.get("clean") === "1";
   const autoPlay = autoPlayOverride ?? query.get("autoplay") === "1";
   const safeTop = safeTopOverride ?? readPercentage(query, "top", 8, 6, 14);
@@ -274,7 +307,19 @@ export default function LiveStreamDashboard() {
                   ChatGPT Pro <strong>5x / 20x</strong> 集中采购
                 </p>
               </header>
+              <div className={styles.chapterProgress} aria-label="当前讲解章节">
+                {SCENES.map((item, index) => (
+                  <span
+                    key={item.id}
+                    className={index === sceneIndex ? styles.chapterActive : ""}
+                  >
+                    <i>{String(index + 1).padStart(2, "0")}</i>
+                    {item.label}
+                  </span>
+                ))}
+              </div>
               <section
+                key={scene.id}
                 className={styles.scene}
                 aria-label={scene.label}
                 aria-live={autoPlay ? "off" : "polite"}
@@ -293,6 +338,16 @@ export default function LiveStreamDashboard() {
                     </li>
                   ))}
                 </ul>
+                <div className={styles.liveModule} aria-live="polite">
+                  <span className={styles.moduleIcon}>
+                    <ActiveModuleIcon aria-hidden="true" />
+                  </span>
+                  <div>
+                    <small>{activeModule.eyebrow}</small>
+                    <strong>{activeModule.title}</strong>
+                    <p>{activeModule.body}</p>
+                  </div>
+                </div>
               </section>
               <footer className={styles.canvasFooter}>
                 <p className={styles.promise}>从采购立项到交付售后，全程对接</p>
@@ -344,6 +399,23 @@ export default function LiveStreamDashboard() {
                       <small>{item.description}</small>
                     </span>
                     <kbd>{index + 1}</kbd>
+                  </button>
+                );
+              })}
+            </div>
+            <div className={styles.moduleChoices} aria-label="直播信息卡">
+              <span>直播信息卡</span>
+              {LIVE_MODULES.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-pressed={activeModuleIndex === index}
+                    onClick={() => setActiveModuleIndex(index)}
+                  >
+                    <Icon aria-hidden="true" />
+                    {item.label}
                   </button>
                 );
               })}

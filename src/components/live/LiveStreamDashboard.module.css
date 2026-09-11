@@ -49,13 +49,25 @@
 .positioning h1 { font-size: calc(10 * var(--u)); font-weight: 650; letter-spacing: -.04em; line-height: 1.25; margin: 0; }
 .positioning p { margin: calc(2.3 * var(--u)) 0 0; font-size: calc(4.3 * var(--u)); line-height: 1.5; color: #bbcfc0; white-space: nowrap; }
 .positioning strong { color: #edf5ef; font-weight: 500; }
+.chapterProgress { display: flex; align-items: center; gap: calc(2.2 * var(--u)); margin-top: calc(3 * var(--u)); color: #809587; font-size: calc(3.2 * var(--u)); white-space: nowrap; }
+.chapterProgress span { display: inline-flex; align-items: center; gap: calc(1 * var(--u)); transition: color .3s ease; }
+.chapterProgress i { font-style: normal; font-size: calc(2.6 * var(--u)); opacity: .7; }
+.chapterProgress .chapterActive { color: #c4f1ba; }
+.chapterProgress .chapterActive::after { content: ""; width: calc(5 * var(--u)); height: 1px; margin-left: calc(.7 * var(--u)); background: #a3d79c; animation: chapterPulse 2.4s ease-in-out infinite; }
 .scene { margin-top: calc(5 * var(--u)); }
+.scene { animation: sceneEnter .45s ease both; }
 .scene h2 { font-size: calc(12.2 * var(--u)); font-weight: 700; letter-spacing: -.045em; line-height: 1.18; color: #c4f1ba; margin: 0; }
 .scene h2 span { display: block; }
 .caption { font-size: calc(4.4 * var(--u)); line-height: 1.55; color: #b8cbbd; margin: calc(2 * var(--u)) 0 0; }
 .services { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: calc(3 * var(--u)); row-gap: calc(2 * var(--u)); margin: calc(3 * var(--u)) 0 0; padding: 0; }
 .services li { display: flex; align-items: center; gap: calc(1.8 * var(--u)); font-size: calc(5.1 * var(--u)); font-weight: 500; line-height: 1.5; white-space: nowrap; }
 .services svg { width: calc(4.2 * var(--u)); height: calc(4.2 * var(--u)); color: #a3d79c; stroke-width: 1.8; }
+.liveModule { display: flex; gap: calc(2 * var(--u)); margin-top: calc(4 * var(--u)); padding: calc(2.3 * var(--u)); border: 1px solid #47704e; border-radius: calc(1.4 * var(--u)); background: linear-gradient(120deg, #1d382566, #10231a99); animation: moduleBreathe 4s ease-in-out infinite; }
+.moduleIcon { display: grid; place-items: center; flex: 0 0 auto; width: calc(7 * var(--u)); height: calc(7 * var(--u)); color: #c4f1ba; border: 1px solid #609669; border-radius: 50%; }
+.moduleIcon svg { width: calc(3.7 * var(--u)); height: calc(3.7 * var(--u)); }
+.liveModule small { display: block; color: #9ab79e; font-size: calc(2.7 * var(--u)); letter-spacing: .08em; }
+.liveModule strong { display: block; color: #eaf2ec; font-size: calc(4.1 * var(--u)); line-height: 1.35; margin-top: calc(.5 * var(--u)); }
+.liveModule p { color: #adc2b1; font-size: calc(3.1 * var(--u)); line-height: 1.5; margin: calc(.7 * var(--u)) 0 0; }
 .canvasFooter { margin-top: auto; padding-top: calc(3 * var(--u)); }
 .promise { font-size: calc(4 * var(--u)); color: #bbcebf; margin: 0 0 calc(2 * var(--u)); line-height: 1.6; }
 .contact { display: flex; align-items: center; justify-content: space-between; gap: calc(2 * var(--u)); background: #c4f1ba; padding: calc(3 * var(--u)); color: #12271b; border-radius: calc(1 * var(--u)); }
@@ -68,6 +80,11 @@
 .controlHeading h2 { margin: 9px 0 5px; font-size: 24px; line-height: 1.4; font-weight: 500; letter-spacing: -.04em; }
 .controlHeading p { margin: 0; font-size: 12px; color: var(--studio-muted); }
 .sceneChoices { margin-top: 26px; display: grid; gap: 9px; }
+.moduleChoices { display: flex; align-items: center; gap: 6px; margin-top: 18px; }
+.moduleChoices > span { font-size: 11px; color: var(--studio-muted); margin-right: auto; }
+.moduleChoices button { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--studio-border); border-radius: 5px; padding: 7px 8px; font-size: 11px; color: #aec2b2; }
+.moduleChoices button svg { width: 13px; height: 13px; }
+.moduleChoices button[aria-pressed="true"] { border-color: #76a477; background: #1c3022; color: #d9f4d6; }
 .sceneButton { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 9px; border: 1px solid var(--studio-border); text-align: left; background: #111813; color: #c4d0c7; transition: background .15s, border-color .15s; }
 .sceneButton:hover { background: #18251c; border-color: #536e5c; }
 .sceneButton[aria-pressed="true"] { background: #1c3022; border-color: #82aa80; color: #e5f5df; }
@@ -119,6 +136,10 @@
 .clean .preview { width: 100%; height: 100%; justify-content: center; }
 .clean .canvas { width: min(100vw, calc(100dvh * 9 / 16)); box-shadow: none; }
 
+@keyframes sceneEnter { from { opacity: .35; transform: translateY(1.2%); } to { opacity: 1; transform: translateY(0); } }
+@keyframes moduleBreathe { 0%, 100% { border-color: #47704e; } 50% { border-color: #6f9c70; } }
+@keyframes chapterPulse { 0%, 100% { opacity: .5; transform: scaleX(.65); transform-origin: left; } 50% { opacity: 1; transform: scaleX(1); transform-origin: left; } }
+
 @media (max-width: 900px) {
   .studioHeader { padding: 0 22px; }
   .workspace { gap: 30px; padding-left: 22px; padding-right: 22px; grid-template-columns: minmax(0, 1fr) 290px; }
@@ -138,5 +159,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sceneButton { transition: none; }
+  .sceneButton, .chapterProgress span { transition: none; }
+  .scene, .liveModule, .chapterProgress .chapterActive::after { animation: none; }
 }

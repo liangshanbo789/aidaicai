@@ -29,7 +29,7 @@ export default function LiveLeadMagnet() {
             </span>
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-              《海外 AI 访问网络防封自检清单》(PDF)
+              《企业 AI 采购合规核验清单》(PDF)
             </span>
             <span className="flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />

@@ -103,7 +103,7 @@ export default function LiveClockHeader() {
         </div>
       </div>
 
-      {/* 毫秒防封跳动时钟核心 */}
+      {/* 当前时间显示 */}
       <div className="flex items-center gap-3 bg-zinc-950/80 px-3.5 py-1.5 rounded-lg border border-zinc-800/90 shadow-inner">
         <div className="text-right">
           <div className="text-[11px] text-zinc-400 font-mono tracking-wider">
