@@ -15,15 +15,24 @@ import {
   Lock,
   ExternalLink,
 } from "lucide-react";
-import { PRODUCTS_CONFIG, calculateQuotation, BillingCycle } from "@/config/pricing";
+import {
+  PRODUCTS_CONFIG,
+  calculateQuotation,
+  BillingCycle,
+} from "@/config/pricing";
 
 interface PricingCalculatorProps {
   selectedProductId: string;
   onOpenContact: (source?: string) => void;
 }
 
-export default function PricingCalculator({ selectedProductId, onOpenContact }: PricingCalculatorProps) {
-  const [productType, setProductType] = useState<string>(selectedProductId || "pro20x");
+export default function PricingCalculator({
+  selectedProductId,
+  onOpenContact,
+}: PricingCalculatorProps) {
+  const [productType, setProductType] = useState<string>(
+    selectedProductId || "pro20x",
+  );
   const [seats, setSeats] = useState<number>(5);
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("quarterly");
   const [copied, setCopied] = useState(false);
@@ -75,7 +84,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
     let num = Math.abs(totalAmount);
     let s = "";
     for (let i = 0; i < fraction.length; i++) {
-      s += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, "");
+      s += (
+        digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]
+      ).replace(/零./, "");
     }
     s = s || "整";
     let n = Math.floor(num);
@@ -87,7 +98,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
       }
       s = p.replace(/(零.)*零$/, "").replace(/^$/, "零") + unit[0][i] + s;
     }
-    return s.replace(/(零.)*零元/, "元").replace(/(零.)+/g, "零").replace(/^整$/, "零元整");
+    return s
+      .replace(/(零.)*零元/, "元")
+      .replace(/(零.)+/g, "零")
+      .replace(/^整$/, "零元整");
   }, [totalAmount]);
 
   // 生成固定可溯源的报价单唯一流水编号 (Quote ID)
@@ -100,7 +114,7 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
   const currentTeamPrice = product.tiers.team[billingCycle];
   const currentEnterprisePrice = product.tiers.enterprise[billingCycle];
 
-  const summaryText = `【AI代采 (aidaicai.com) - 企业采购预算草案】
+  const summaryText = `【AI代采 (gongsi.one) - 企业采购预算草案】
 报价单流水号：${quoteId}
 报价有效期：自生成之日起 30 天内有效
 采购客户抬头：${clientCompanyName || "【贵司企业全称】"}
@@ -144,7 +158,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
   ];
 
   return (
-    <section id="calculator" className="py-20 bg-canvas border-t border-theme-subtle transition-colors">
+    <section
+      id="calculator"
+      className="py-20 bg-canvas border-t border-theme-subtle transition-colors"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="codex-pill mb-3">
@@ -155,7 +172,8 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             透明测算企业采购成本与大宗集采优惠
           </h2>
           <p className="text-sm sm:text-base text-secondary">
-            采购账号席位越多、结算周期越长，单席成本越低，自动触发阶梯立减。报价全含 6% 增值税专票及 7×24 小时全天候交付保障。
+            采购账号席位越多、结算周期越长，单席成本越低，自动触发阶梯立减。报价全含
+            6% 增值税专票及 7×24 小时全天候交付保障。
           </p>
         </div>
 
@@ -183,8 +201,12 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
                     }`}
                   >
-                    <div className="font-semibold text-xs sm:text-sm text-primary">{item.label}</div>
-                    <div className="text-[10px] text-secondary mt-0.5 font-mono">{item.desc}</div>
+                    <div className="font-semibold text-xs sm:text-sm text-primary">
+                      {item.label}
+                    </div>
+                    <div className="text-[10px] text-secondary mt-0.5 font-mono">
+                      {item.desc}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -193,7 +215,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             {/* Step 2: Seats Count Slider & Tier Matrix */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label htmlFor={seatsSliderId} className="text-xs font-semibold text-secondary uppercase tracking-wider">
+                <label
+                  htmlFor={seatsSliderId}
+                  className="text-xs font-semibold text-secondary uppercase tracking-wider"
+                >
                   2. 采购账号席位数 (当前: {currentSeats} 席)
                 </label>
                 <span className="text-xs text-emerald-600 dark:text-[#10A37F] font-mono font-medium">
@@ -240,7 +265,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-semibold text-primary">{tier.name}</span>
+                      <span className="text-xs font-semibold text-primary">
+                        {tier.name}
+                      </span>
                       <span
                         className={`text-[9px] font-mono px-1.5 py-0.2 rounded-full font-medium ${
                           tier.active
@@ -253,9 +280,13 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                     </div>
                     <div className="text-xs sm:text-sm font-mono font-bold text-primary">
                       ¥{tier.price}
-                      <span className="text-[10px] font-normal text-secondary">/席/月</span>
+                      <span className="text-[10px] font-normal text-secondary">
+                        /席/月
+                      </span>
                     </div>
-                    <div className="text-[10px] text-secondary mt-0.5">{tier.label}</div>
+                    <div className="text-[10px] text-secondary mt-0.5">
+                      {tier.label}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -267,7 +298,11 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                     <span className="text-secondary text-[11px] flex items-center gap-1.5">
                       <span className="text-amber-500">💡</span>
                       <span>
-                        再增配 <strong className="text-primary font-semibold">{5 - currentSeats} 席</strong>，即可升级团队阶梯，每席再降{" "}
+                        再增配{" "}
+                        <strong className="text-primary font-semibold">
+                          {5 - currentSeats} 席
+                        </strong>
+                        ，即可升级团队阶梯，每席再降{" "}
                         <strong className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
                           ¥{currentIndivPrice - currentTeamPrice}/月
                         </strong>
@@ -286,7 +321,11 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                     <span className="text-secondary text-[11px] flex items-center gap-1.5">
                       <span className="text-amber-500">🔥</span>
                       <span>
-                        仅差 <strong className="text-primary font-semibold">{20 - currentSeats} 席</strong>，即解锁大客户底价，每席再省{" "}
+                        仅差{" "}
+                        <strong className="text-primary font-semibold">
+                          {20 - currentSeats} 席
+                        </strong>
+                        ，即解锁大客户底价，每席再省{" "}
                         <strong className="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
                           ¥{currentTeamPrice - currentEnterprisePrice}/月
                         </strong>{" "}
@@ -304,7 +343,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 ) : (
                   <div className="flex items-center gap-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
                     <span>🎉</span>
-                    <span>已享最高「战略大宗集采底价」，累计已优惠 ¥{totalSavings.toLocaleString()} 元！</span>
+                    <span>
+                      已享最高「战略大宗集采底价」，累计已优惠 ¥
+                      {totalSavings.toLocaleString()} 元！
+                    </span>
                   </div>
                 )}
               </div>
@@ -322,7 +364,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 />
                 <div className="relative w-full h-5 text-[11px] font-mono select-none">
                   {[
-                    { value: product.minSeats, label: `${product.minSeats} 起购` },
+                    {
+                      value: product.minSeats,
+                      label: `${product.minSeats} 起购`,
+                    },
                     { value: 5, label: "5 席 (团队)" },
                     { value: 10, label: "10 席" },
                     { value: 20, label: "20 席 (集采底价)" },
@@ -330,7 +375,10 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   ].map((mark) => {
                     const min = product.minSeats;
                     const max = 50;
-                    const percent = Math.max(0, Math.min(100, ((mark.value - min) / (max - min)) * 100));
+                    const percent = Math.max(
+                      0,
+                      Math.min(100, ((mark.value - min) / (max - min)) * 100),
+                    );
                     const isSelected = currentSeats === mark.value;
                     const isMin = mark.value === min;
                     const isMax = mark.value === max;
@@ -348,7 +396,8 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                         style={{
                           left: isMin ? "0%" : isMax ? "auto" : `${percent}%`,
                           right: isMax ? "0%" : "auto",
-                          transform: isMin || isMax ? "none" : "translateX(-50%)",
+                          transform:
+                            isMin || isMax ? "none" : "translateX(-50%)",
                         }}
                       >
                         {mark.label}
@@ -367,8 +416,18 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div className="grid grid-cols-3 gap-3">
                 {[
                   { id: "monthly", title: "按月结算", note: "灵活月结" },
-                  { id: "quarterly", title: "按季度结算", note: "团队优选 (立减)", rec: true },
-                  { id: "yearly", title: "按年度结算", note: "低至底价 (折上折)", rec: false },
+                  {
+                    id: "quarterly",
+                    title: "按季度结算",
+                    note: "团队优选 (立减)",
+                    rec: true,
+                  },
+                  {
+                    id: "yearly",
+                    title: "按年度结算",
+                    note: "低至底价 (折上折)",
+                    rec: false,
+                  },
                 ].map((cycle) => (
                   <button
                     key={cycle.id}
@@ -384,8 +443,12 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                         推荐
                       </span>
                     )}
-                    <div className="font-semibold text-xs sm:text-sm text-primary">{cycle.title}</div>
-                    <div className="text-[10px] text-emerald-600 dark:text-[#10A37F] mt-0.5 font-medium">{cycle.note}</div>
+                    <div className="font-semibold text-xs sm:text-sm text-primary">
+                      {cycle.title}
+                    </div>
+                    <div className="text-[10px] text-emerald-600 dark:text-[#10A37F] mt-0.5 font-medium">
+                      {cycle.note}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -395,7 +458,19 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <div className="p-3.5 rounded-xl bg-surface-elevated border border-theme-subtle flex items-start gap-2.5 text-xs text-secondary">
               <Info className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
               <span>
-                报价均含：<strong className="text-primary font-medium">6% 增值税专用发票</strong>、<strong className="text-primary font-medium">7×24 小时全天候交付与响应</strong>、海外商业银行真实信用卡结算成本、<strong className="text-primary font-medium">72 小时封号兜底退赔</strong>及大客户专属服务通道。
+                报价均含：
+                <strong className="text-primary font-medium">
+                  6% 增值税专用发票
+                </strong>
+                、
+                <strong className="text-primary font-medium">
+                  7×24 小时全天候交付与响应
+                </strong>
+                、海外商业银行真实信用卡结算成本、
+                <strong className="text-primary font-medium">
+                  72 小时封号兜底退赔
+                </strong>
+                及大客户专属服务通道。
               </span>
             </div>
           </div>
@@ -412,7 +487,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div>
                 <div className="flex items-center gap-1.5">
                   <Building2 className="w-4 h-4 text-secondary" />
-                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">企业采购正式试算单</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    企业采购正式试算单
+                  </span>
                 </div>
                 <div className="text-[10px] font-mono text-tertiary mt-0.5">
                   流水单号: {quoteId}
@@ -427,33 +504,46 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <div className="py-4 space-y-2.5 text-xs sm:text-sm border-b border-theme-subtle font-mono">
               <div className="flex justify-between items-center text-secondary font-sans">
                 <span>选定版本</span>
-                <span className="font-semibold text-primary">{product.name}</span>
+                <span className="font-semibold text-primary">
+                  {product.name}
+                </span>
               </div>
               <div className="flex justify-between items-center text-secondary font-sans">
                 <span>采购席位数</span>
-                <span className="text-primary font-semibold">{currentSeats} 个账号</span>
+                <span className="text-primary font-semibold">
+                  {currentSeats} 个账号
+                </span>
               </div>
               <div className="flex justify-between items-center text-secondary font-sans">
                 <span>结算周期</span>
-                <span className="text-primary font-semibold">{cycleMonths} 个月 ({cycleName})</span>
+                <span className="text-primary font-semibold">
+                  {cycleMonths} 个月 ({cycleName})
+                </span>
               </div>
               <div className="flex justify-between items-center text-secondary font-sans">
                 <span>折后对公单价</span>
                 <span className="font-bold text-primary font-mono">
-                  ¥ {unitPrice} <span className="text-[10px] text-secondary font-normal font-sans">/月/席位</span>
+                  ¥ {unitPrice}{" "}
+                  <span className="text-[10px] text-secondary font-normal font-sans">
+                    /月/席位
+                  </span>
                 </span>
               </div>
               {totalSavings > 0 && (
                 <div className="flex justify-between items-center text-emerald-600 dark:text-emerald-400 text-xs font-medium font-sans">
                   <span>阶梯与周期已优惠</span>
-                  <span className="font-mono font-bold">- ¥ {totalSavings.toLocaleString()}</span>
+                  <span className="font-mono font-bold">
+                    - ¥ {totalSavings.toLocaleString()}
+                  </span>
                 </div>
               )}
             </div>
 
             {/* Total Contract Amount with Red Seal Stamp Overlay */}
             <div className="relative py-4 border-b border-theme-subtle">
-              <div className="text-xs text-secondary mb-1">本次合同对公应付款 (含税)</div>
+              <div className="text-xs text-secondary mb-1">
+                本次合同对公应付款 (含税)
+              </div>
               <div className="flex items-baseline gap-2">
                 <span className="text-3xl sm:text-4xl font-bold text-primary tracking-tight font-mono">
                   ¥ {totalAmount.toLocaleString()}
@@ -470,7 +560,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   <div className="text-[7px] font-bold text-center scale-90 leading-tight">
                     成都游手科技有限公司
                   </div>
-                  <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
+                  <div className="my-0.5 text-xs text-rose-600 font-sans">
+                    ★
+                  </div>
                   <div className="text-[8px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
                     商务报价专用章
                   </div>
@@ -485,7 +577,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] dark:border-amber-400/25 dark:bg-amber-400/[0.04] my-4">
               <div className="flex items-center gap-1.5 mb-1">
                 <Gift className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-                <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">企业战略集采增值礼遇</span>
+                <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">
+                  企业战略集采增值礼遇
+                </span>
               </div>
               <div className="text-sm sm:text-base font-bold text-primary mb-1">
                 附赠价值约 ¥ {totalPerksAmount.toLocaleString()} 元增值服务权益
@@ -509,8 +603,14 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 onClick={handleCopySummary}
                 className="btn-openai-secondary w-full text-xs !py-2 flex items-center justify-center gap-2 cursor-pointer"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "方案摘要已复制！" : "复制采购预算方案摘要"}</span>
+                {copied ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-500" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
+                <span>
+                  {copied ? "方案摘要已复制！" : "复制采购预算方案摘要"}
+                </span>
               </button>
             </div>
           </div>
@@ -566,7 +666,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
             {/* Customization Bar: Edit Company Name Before Print */}
             <div className="px-5 py-2.5 bg-zinc-100 dark:bg-zinc-900/60 border-b border-theme-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs no-print">
               <div className="flex items-center gap-2 w-full sm:w-auto">
-                <span className="text-secondary font-medium shrink-0">自定义采购方抬头：</span>
+                <span className="text-secondary font-medium shrink-0">
+                  自定义采购方抬头：
+                </span>
                 <input
                   type="text"
                   value={clientCompanyName}
@@ -598,14 +700,22 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                       海外 AI 生产力工具官方企业代采立项呈批单
                     </div>
                     <div className="text-xs text-zinc-600 font-sans mt-1">
-                      服务品牌：AI 代采 (aidaicai.com) · OpenAI 官方企业商业卡代付与对公 6% 专票结算
+                      服务品牌：AI 代采 (gongsi.one) · OpenAI
+                      官方企业商业卡代付与对公 6% 专票结算
                     </div>
                   </div>
 
                   <div className="text-left sm:text-right text-[11px] text-zinc-600 space-y-0.5">
-                    <div><strong>报价单编号：</strong><span className="font-bold text-zinc-900">{quoteId}</span></div>
-                    <div><strong>出具日期：</strong>2026 年 09 月 10 日</div>
-                    <div><strong>报价有效期：</strong>自出具之日起 30 个自然日</div>
+                    <div>
+                      <strong>报价单编号：</strong>
+                      <span className="font-bold text-zinc-900">{quoteId}</span>
+                    </div>
+                    <div>
+                      <strong>出具日期：</strong>2026 年 09 月 10 日
+                    </div>
+                    <div>
+                      <strong>报价有效期：</strong>自出具之日起 30 个自然日
+                    </div>
                   </div>
                 </div>
               </div>
@@ -616,7 +726,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                 <div className="p-3.5 rounded-lg bg-zinc-50 border border-zinc-200 space-y-1">
                   <div className="font-bold text-zinc-950 text-xs flex items-center gap-1.5 pb-1 border-b border-zinc-200">
                     <span>【采购客户方 (买方)】</span>
-                    <span className="text-[10px] text-emerald-600 font-mono font-normal">对公立项核验</span>
+                    <span className="text-[10px] text-emerald-600 font-mono font-normal">
+                      对公立项核验
+                    </span>
                   </div>
                   <div className="pt-1">
                     <span className="text-zinc-500">单位名称：</span>
@@ -624,24 +736,46 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                       {clientCompanyName || "【贵公司企业法定名称】"}
                     </strong>
                   </div>
-                  <div><span className="text-zinc-500">结算方式：</span>企业网上银行公对公转账电汇</div>
-                  <div><span className="text-zinc-500">发票要求：</span>增值税专用发票 (6% 信息技术服务费)</div>
-                  <div><span className="text-zinc-500">交付方式：</span>官方代付邀请 / 企业主账号官方开通，签署保密协议</div>
+                  <div>
+                    <span className="text-zinc-500">结算方式：</span>
+                    企业网上银行公对公转账电汇
+                  </div>
+                  <div>
+                    <span className="text-zinc-500">发票要求：</span>
+                    增值税专用发票 (6% 信息技术服务费)
+                  </div>
+                  <div>
+                    <span className="text-zinc-500">交付方式：</span>
+                    官方代付邀请 / 企业主账号官方开通，签署保密协议
+                  </div>
                 </div>
 
                 {/* 供应商 */}
                 <div className="p-3.5 rounded-lg bg-zinc-50 border border-zinc-200 space-y-1">
                   <div className="font-bold text-zinc-950 text-xs flex items-center gap-1.5 pb-1 border-b border-zinc-200">
                     <span>【技术服务商 (卖方)】</span>
-                    <span className="text-[10px] text-rose-600 font-mono font-normal">签约主体</span>
+                    <span className="text-[10px] text-rose-600 font-mono font-normal">
+                      签约主体
+                    </span>
                   </div>
                   <div className="pt-1">
                     <span className="text-zinc-500">单位名称：</span>
-                    <strong className="text-zinc-950">成都游手科技有限公司</strong>
+                    <strong className="text-zinc-950">
+                      成都游手科技有限公司
+                    </strong>
                   </div>
-                  <div><span className="text-zinc-500">开户银行：</span>中国工商银行股份有限公司成都武侯大道支行</div>
-                  <div><span className="text-zinc-500">银行账号：</span>1001 2488 **** **** 8820</div>
-                  <div><span className="text-zinc-500">开票类目：</span>*信息技术服务* 软件技术服务费</div>
+                  <div>
+                    <span className="text-zinc-500">开户银行：</span>
+                    中国工商银行股份有限公司成都武侯大道支行
+                  </div>
+                  <div>
+                    <span className="text-zinc-500">银行账号：</span>1001 2488
+                    **** **** 8820
+                  </div>
+                  <div>
+                    <span className="text-zinc-500">开票类目：</span>
+                    *信息技术服务* 软件技术服务费
+                  </div>
                 </div>
               </div>
 
@@ -649,7 +783,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               <div>
                 <div className="font-bold text-zinc-950 font-sans mb-2 flex items-center justify-between">
                   <span>一、 采购服务清单与阶梯报价明细表：</span>
-                  <span className="text-[11px] text-zinc-500 font-normal">币种：人民币 (RMB) · 计价单位：元</span>
+                  <span className="text-[11px] text-zinc-500 font-normal">
+                    币种：人民币 (RMB) · 计价单位：元
+                  </span>
                 </div>
                 <table className="w-full text-left text-xs border border-zinc-300 font-sans">
                   <thead className="bg-zinc-100 text-zinc-800 text-[11px]">
@@ -660,21 +796,45 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                       <th className="p-2.5 text-right">折后含税单价</th>
                       <th className="p-2.5 text-right">不含税金额</th>
                       <th className="p-2.5 text-right">税率/税额</th>
-                      <th className="p-2.5 text-right font-bold">含税总额 (小计)</th>
+                      <th className="p-2.5 text-right font-bold">
+                        含税总额 (小计)
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-zinc-200 text-xs">
                     <tr>
                       <td className="p-2.5">
-                        <strong className="text-zinc-950">{product.name}</strong>
-                        <div className="text-[10px] text-zinc-500 font-mono">官方标价: {product.officialPriceDisplay} · 正规企业信用卡通道</div>
+                        <strong className="text-zinc-950">
+                          {product.name}
+                        </strong>
+                        <div className="text-[10px] text-zinc-500 font-mono">
+                          官方标价: {product.officialPriceDisplay} ·
+                          正规企业信用卡通道
+                        </div>
                       </td>
-                      <td className="p-2.5 text-center font-mono font-medium">{currentSeats} 席位</td>
-                      <td className="p-2.5 text-center font-mono">{cycleName} ({cycleMonths} 个月)</td>
-                      <td className="p-2.5 text-right font-mono">¥ {unitPrice} /月/席</td>
-                      <td className="p-2.5 text-right font-mono">¥ {taxExclusiveAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                      <td className="p-2.5 text-center font-mono font-medium">
+                        {currentSeats} 席位
+                      </td>
+                      <td className="p-2.5 text-center font-mono">
+                        {cycleName} ({cycleMonths} 个月)
+                      </td>
+                      <td className="p-2.5 text-right font-mono">
+                        ¥ {unitPrice} /月/席
+                      </td>
+                      <td className="p-2.5 text-right font-mono">
+                        ¥{" "}
+                        {taxExclusiveAmount.toLocaleString(undefined, {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                      </td>
                       <td className="p-2.5 text-right font-mono text-[11px]">
-                        6% (¥ {taxAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })})
+                        6% (¥{" "}
+                        {taxAmount.toLocaleString(undefined, {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                        )
                       </td>
                       <td className="p-2.5 text-right font-mono font-bold text-zinc-950">
                         ¥ {totalAmount.toLocaleString()} 元
@@ -687,13 +847,16 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
               {/* Financial Cost Breakdown & Perks */}
               <div className="bg-zinc-50 border border-zinc-200 p-4 rounded-lg space-y-2 font-sans">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm gap-1">
-                  <span className="font-semibold text-zinc-700">合同结算总金额（含税）：</span>
+                  <span className="font-semibold text-zinc-700">
+                    合同结算总金额（含税）：
+                  </span>
                   <div className="text-right">
                     <span className="font-extrabold text-zinc-950 text-base font-mono">
                       人民币 ¥ {totalAmount.toLocaleString()} 元整
                     </span>
                     <span className="text-xs text-zinc-600 block">
-                      大写：<strong>{chineseTotalAmount}</strong>（含 6% 增值税专用发票）
+                      大写：<strong>{chineseTotalAmount}</strong>（含 6%
+                      增值税专用发票）
                     </span>
                   </div>
                 </div>
@@ -702,27 +865,53 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   {totalSavings > 0 ? (
                     <div className="text-emerald-700">
                       <span>• 阶梯批量采购优惠：</span>
-                      <strong>已直接立减节省 ¥ {totalSavings.toLocaleString()} 元</strong>
+                      <strong>
+                        已直接立减节省 ¥ {totalSavings.toLocaleString()} 元
+                      </strong>
                     </div>
                   ) : (
                     <div className="text-zinc-600">
-                      <span>• 阶梯定价策略：采购席位越多单价越低，支持随需增补扩容</span>
+                      <span>
+                        • 阶梯定价策略：采购席位越多单价越低，支持随需增补扩容
+                      </span>
                     </div>
                   )}
                   <div className="text-amber-800">
                     <span>• 附赠战略集采增值礼遇：</span>
-                    <strong>价值约 ¥ {totalPerksAmount.toLocaleString()} 元（专属顾问专群与 7×24H 应急响应）</strong>
+                    <strong>
+                      价值约 ¥ {totalPerksAmount.toLocaleString()}{" "}
+                      元（专属顾问专群与 7×24H 应急响应）
+                    </strong>
                   </div>
                 </div>
               </div>
 
               {/* Service & Legal Guarantees */}
               <div className="space-y-1.5 text-[11px] text-zinc-600 leading-relaxed font-sans pt-2 border-t border-zinc-200">
-                <div className="font-bold text-zinc-950 text-xs mb-1">二、 供应商企业级履约承诺与法务风控兜底条款：</div>
-                <div>1. <strong>发票与入账：</strong>款到后 2 个工作日内开具国家税务总局全国可查验的“*信息技术服务* 软件技术服务费” 6% 增值税专用发票，直达财务邮箱。</div>
-                <div>2. <strong>支付链路核验：</strong>100% 采用海外商业银行合法企业信用卡原币直扣，出具带卡号末四位与扣款流水号的 OpenAI 原版 Invoice。</div>
-                <div>3. <strong>SLA 售后与退赔：</strong>激活 72 小时内若遇厂商不可抗力风控，免费更换补全；全周期内非违禁使用异常，严格按当月剩余未生效天数 1 个工作日内公对公足额退款。</div>
-                <div>4. <strong>数据与商业安全：</strong>严格执行“零知识原则”，无需记录客户主密码，所有 Prompt 商业秘密与研发代码资产 100% 归客户所有，支持签署保密协议 (NDA)。</div>
+                <div className="font-bold text-zinc-950 text-xs mb-1">
+                  二、 供应商企业级履约承诺与法务风控兜底条款：
+                </div>
+                <div>
+                  1. <strong>发票与入账：</strong>款到后 2
+                  个工作日内开具国家税务总局全国可查验的“*信息技术服务*
+                  软件技术服务费” 6% 增值税专用发票，直达财务邮箱。
+                </div>
+                <div>
+                  2. <strong>支付链路核验：</strong>100%
+                  采用海外商业银行合法企业信用卡原币直扣，出具带卡号末四位与扣款流水号的
+                  OpenAI 原版 Invoice。
+                </div>
+                <div>
+                  3. <strong>SLA 售后与退赔：</strong>激活 72
+                  小时内若遇厂商不可抗力风控，免费更换补全；全周期内非违禁使用异常，严格按当月剩余未生效天数
+                  1 个工作日内公对公足额退款。
+                </div>
+                <div>
+                  4. <strong>数据与商业安全：</strong>
+                  严格执行“零知识原则”，无需记录客户主密码，所有 Prompt
+                  商业秘密与研发代码资产 100% 归客户所有，支持签署保密协议
+                  (NDA)。
+                </div>
               </div>
 
               {/* Internal Approval & Stamp Area (三方审批签字与公章) */}
@@ -739,15 +928,25 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-zinc-600">部门申请经办人：</span>
-                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">签字/日期</span>
+                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">
+                        签字/日期
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-zinc-600">技术主管 / CTO 审核：</span>
-                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">签字/日期</span>
+                      <span className="text-zinc-600">
+                        技术主管 / CTO 审核：
+                      </span>
+                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">
+                        签字/日期
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-zinc-600">财务总监 / 总经理批复：</span>
-                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">签字/盖章/日期</span>
+                      <span className="text-zinc-600">
+                        财务总监 / 总经理批复：
+                      </span>
+                      <span className="border-b border-zinc-400 w-32 inline-block text-center text-zinc-400">
+                        签字/盖章/日期
+                      </span>
                     </div>
                   </div>
 
@@ -757,7 +956,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                       【技术服务商确认与加盖商务专用章】
                     </div>
                     <div className="space-y-1">
-                      <div>单位名称：<strong>成都游手科技有限公司</strong></div>
+                      <div>
+                        单位名称：<strong>成都游手科技有限公司</strong>
+                      </div>
                       <div>制单部门：企业大客户代采事业部</div>
                       <div>服务专线：7×24H 企微顾问专班 (yqtp01)</div>
                       <div className="text-[10px] text-zinc-500 pt-1">
@@ -771,7 +972,9 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                         <div className="text-[7.5px] font-bold text-center scale-90 leading-tight">
                           成都游手科技有限公司
                         </div>
-                        <div className="my-0.5 text-base text-rose-600 font-sans leading-none">★</div>
+                        <div className="my-0.5 text-base text-rose-600 font-sans leading-none">
+                          ★
+                        </div>
                         <div className="text-[9px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
                           商务报价专用章
                         </div>
@@ -804,8 +1007,14 @@ export default function PricingCalculator({ selectedProductId, onOpenContact }: 
                   onClick={handleCopyModalText}
                   className="btn-openai-secondary w-full sm:w-auto text-xs !py-2 cursor-pointer flex items-center justify-center gap-1.5"
                 >
-                  {copiedModalText ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copiedModalText ? "公函文本已复制" : "复制公函文本"}</span>
+                  {copiedModalText ? (
+                    <Check className="w-3.5 h-3.5 text-emerald-500" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5" />
+                  )}
+                  <span>
+                    {copiedModalText ? "公函文本已复制" : "复制公函文本"}
+                  </span>
                 </button>
                 <button
                   type="button"

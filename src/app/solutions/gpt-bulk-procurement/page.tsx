@@ -16,7 +16,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | 统一对公与 6% 数电专票 - AI代采",
+  title:
+    "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | 统一对公与 6% 数电专票 - AI代采",
   description:
     "专为采购部、行政与财务定制的大中型企业 GPT 官方集中采购 (集采) 解决方案。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间。实行采购越多单价越低阶梯降本机制，单席最高直降 25%。一纸框架合同、工行对公转账、一张 6% 增值税专用发票统一平账，附带公章 SLA 72h 封号包赔兜底。",
   keywords: [
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     description:
       "多买立减、量大从优。专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 专票统一入账与经办人战略集采礼遇。",
     url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
-    siteName: "AI代采 aidaicai.com",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -119,21 +120,21 @@ export default function GptBulkProcurementPage() {
     itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://gongsi.one",
+        position: 1,
+        name: "首页",
+        item: "https://gongsi.one",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "行业解决方案",
-        "item": "https://gongsi.one/solutions/gpt-bulk-procurement/",
+        position: 2,
+        name: "行业解决方案",
+        item: "https://gongsi.one/solutions/gpt-bulk-procurement/",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "大中型企业 GPT 官方集中采购 (集采) 方案",
-        "item": "https://gongsi.one/solutions/gpt-bulk-procurement/",
+        position: 3,
+        name: "大中型企业 GPT 官方集中采购 (集采) 方案",
+        item: "https://gongsi.one/solutions/gpt-bulk-procurement/",
       },
     ],
   };
@@ -162,7 +163,8 @@ export default function GptBulkProcurementPage() {
       url: "https://gongsi.one/",
     },
     areaServed: "CN",
-    description: "专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 增值税专用发票统一平账、最高立减 25% 预算与公章 SLA 72h 封号包赔兜底。",
+    description:
+      "专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 增值税专用发票统一平账、最高立减 25% 预算与公章 SLA 72h 封号包赔兜底。",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CNY",
@@ -189,14 +191,19 @@ export default function GptBulkProcurementPage() {
       />
 
       {/* 面包屑导航 */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-tertiary">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex items-center gap-2 text-xs font-mono text-tertiary"
+      >
         <Link href="/" className="hover:text-primary transition-colors">
           首页
         </Link>
         <span>/</span>
         <span className="text-secondary">行业解决方案</span>
         <span>/</span>
-        <span className="text-primary font-medium">大中型企业 GPT 官方集中采购</span>
+        <span className="text-primary font-medium">
+          大中型企业 GPT 官方集中采购
+        </span>
       </nav>
 
       {/* 头部 Hero 区域 */}
@@ -211,7 +218,11 @@ export default function GptBulkProcurementPage() {
         </h1>
 
         <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-3xl">
-          专为企业采购部、行政负责人与财务主管定制的一站式海外 AI 集采通道。覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6 Astra。实行“采购越多单价越低”阶梯机制，单席最高直降 25%，支持一纸框架合同、统一工行对公转账、一张 6% 增值税专用发票合并报销及经办人专属战略集采礼遇。
+          专为企业采购部、行政负责人与财务主管定制的一站式海外 AI 集采通道。覆盖
+          ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6
+          Astra。实行“采购越多单价越低”阶梯机制，单席最高直降
+          25%，支持一纸框架合同、统一工行对公转账、一张 6%
+          增值税专用发票合并报销及经办人专属战略集采礼遇。
         </p>
 
         <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -242,7 +253,9 @@ export default function GptBulkProcurementPage() {
       {/* 为什么企业需要集采？三大核心价值 */}
       <section className="space-y-6">
         <div>
-          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">ENTERPRISE PROCUREMENT VALUE</div>
+          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">
+            ENTERPRISE PROCUREMENT VALUE
+          </div>
           <h2 className="text-2xl font-semibold text-primary tracking-tight">
             大中型企业实施 GPT 官方集采的三大核心收益
           </h2>
@@ -253,9 +266,12 @@ export default function GptBulkProcurementPage() {
             <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-theme-subtle flex items-center justify-center text-[#10A37F]">
               <TrendingDown className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-semibold text-primary">1. 阶梯规模让利，采购直降 25%</h3>
+            <h3 className="text-base font-semibold text-primary">
+              1. 阶梯规模让利，采购直降 25%
+            </h3>
             <p className="text-xs text-secondary leading-relaxed">
-              摆脱分散购买带来的溢价与汇率损耗。采购席位越多、结算周期越长，单席成本越低，大客户阶梯底价单席最高降幅超 25%，为企业节约巨额预算。
+              摆脱分散购买带来的溢价与汇率损耗。采购席位越多、结算周期越长，单席成本越低，大客户阶梯底价单席最高降幅超
+              25%，为企业节约巨额预算。
             </p>
           </div>
 
@@ -263,9 +279,13 @@ export default function GptBulkProcurementPage() {
             <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-theme-subtle flex items-center justify-center text-[#10A37F]">
               <Receipt className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-semibold text-primary">2. 一张数电专票，彻底解决财务做账</h3>
+            <h3 className="text-base font-semibold text-primary">
+              2. 一张数电专票，彻底解决财务做账
+            </h3>
             <p className="text-xs text-secondary leading-relaxed">
-              全量提供国家税务局认证 6% 增值税专用发票（信息技术服务费），直接抵扣企业增值税销项税，满足研发费用加计扣除核查，审计合规 100% 阳光无忧。
+              全量提供国家税务局认证 6%
+              增值税专用发票（信息技术服务费），直接抵扣企业增值税销项税，满足研发费用加计扣除核查，审计合规
+              100% 阳光无忧。
             </p>
           </div>
 
@@ -273,9 +293,12 @@ export default function GptBulkProcurementPage() {
             <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-theme-subtle flex items-center justify-center text-[#10A37F]">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-semibold text-primary">3. 公章效力合同与 72h SLA 兜底</h3>
+            <h3 className="text-base font-semibold text-primary">
+              3. 公章效力合同与 72h SLA 兜底
+            </h3>
             <p className="text-xs text-secondary leading-relaxed">
-              统一签订《企业代采购框架协议》，法务盖章承诺 72 小时封号保换及按天折算极速退款。杜绝黑卡盗刷风险，保障企业研发与业务系统持续可用。
+              统一签订《企业代采购框架协议》，法务盖章承诺 72
+              小时封号保换及按天折算极速退款。杜绝黑卡盗刷风险，保障企业研发与业务系统持续可用。
             </p>
           </div>
         </div>
@@ -284,7 +307,9 @@ export default function GptBulkProcurementPage() {
       {/* 阶梯让利机制对比表格 (Volume Tier Matrix) */}
       <section className="space-y-6">
         <div>
-          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">VOLUME TIER MATRIX</div>
+          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">
+            VOLUME TIER MATRIX
+          </div>
           <h2 className="text-2xl font-semibold text-primary tracking-tight">
             企业集中采购阶梯让利梯次与增值权益
           </h2>
@@ -305,7 +330,9 @@ export default function GptBulkProcurementPage() {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-tertiary">{tier.tier}</span>
+                  <span className="text-xs font-mono text-tertiary">
+                    {tier.tier}
+                  </span>
                   {tier.highlight && (
                     <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
                       大宗首选
@@ -314,7 +341,9 @@ export default function GptBulkProcurementPage() {
                 </div>
 
                 <div>
-                  <div className="text-xl font-bold text-primary">{tier.seats}</div>
+                  <div className="text-xl font-bold text-primary">
+                    {tier.seats}
+                  </div>
                   <div className="text-xs text-secondary mt-1">{tier.desc}</div>
                 </div>
 
@@ -324,16 +353,22 @@ export default function GptBulkProcurementPage() {
                   </div>
                   <div className="flex justify-between text-xs pt-1 border-t border-theme-subtle">
                     <span className="text-secondary">ChatGPT Plus:</span>
-                    <span className="font-mono text-primary font-medium">{tier.plusPrice}</span>
+                    <span className="font-mono text-primary font-medium">
+                      {tier.plusPrice}
+                    </span>
                   </div>
                   <div className="flex justify-between text-xs">
                     <span className="text-secondary">ChatGPT Pro 20x:</span>
-                    <span className="font-mono text-primary font-medium">{tier.pro20xPrice}</span>
+                    <span className="font-mono text-primary font-medium">
+                      {tier.pro20xPrice}
+                    </span>
                   </div>
                 </div>
 
                 <div className="text-xs text-secondary leading-relaxed bg-surface-elevated/60 p-3 rounded-xl border border-theme-subtle">
-                  <strong className="text-primary block mb-1">专属增值权益：</strong>
+                  <strong className="text-primary block mb-1">
+                    专属增值权益：
+                  </strong>
                   {tier.perk}
                 </div>
               </div>
@@ -356,7 +391,9 @@ export default function GptBulkProcurementPage() {
       <section className="p-6 sm:p-8 rounded-2xl bg-surface border border-theme-subtle space-y-6">
         <div className="flex items-center gap-2.5 text-amber-600 dark:text-amber-400">
           <Gift className="w-5 h-5" />
-          <span className="text-xs font-mono font-semibold tracking-wide">ENTERPRISE PROCUREMENT PARTNER PROGRAM</span>
+          <span className="text-xs font-mono font-semibold tracking-wide">
+            ENTERPRISE PROCUREMENT PARTNER PROGRAM
+          </span>
         </div>
 
         <div>
@@ -364,7 +401,8 @@ export default function GptBulkProcurementPage() {
             助力经办人轻松立项：全套采购支持与战略伙伴礼遇
           </h2>
           <p className="text-xs sm:text-sm text-secondary mt-1">
-            我们深知企业采购与 IT 经办人员在立项过程中面临的合规审查、比选报告与审批压力。我们提供完整的赋能工具包。
+            我们深知企业采购与 IT
+            经办人员在立项过程中面临的合规审查、比选报告与审批压力。我们提供完整的赋能工具包。
           </p>
         </div>
 
@@ -377,7 +415,10 @@ export default function GptBulkProcurementPage() {
             <p className="text-secondary leading-relaxed">
               涵盖业务必要性、供应商比选打分表、数据安全说明及合规论证，直接套用公司名称即可上报审批。
             </p>
-            <Link href="/docs/proposal/" className="text-emerald-600 dark:text-emerald-400 hover:underline inline-block pt-1">
+            <Link
+              href="/docs/proposal/"
+              className="text-emerald-600 dark:text-emerald-400 hover:underline inline-block pt-1"
+            >
               查阅立项模板 →
             </Link>
           </div>
@@ -388,9 +429,13 @@ export default function GptBulkProcurementPage() {
               <span>《框架采购合作协议(公章范本)》</span>
             </div>
             <p className="text-secondary leading-relaxed">
-              标准双方盖章合同，明确约定技术服务品目、付款周期、发票送达与 72h SLA 违约赔偿责任，法务秒过审。
+              标准双方盖章合同，明确约定技术服务品目、付款周期、发票送达与 72h
+              SLA 违约赔偿责任，法务秒过审。
             </p>
-            <Link href="/docs/agreement/" className="text-emerald-600 dark:text-emerald-400 hover:underline inline-block pt-1">
+            <Link
+              href="/docs/agreement/"
+              className="text-emerald-600 dark:text-emerald-400 hover:underline inline-block pt-1"
+            >
               查阅协议范本 →
             </Link>
           </div>
@@ -413,13 +458,20 @@ export default function GptBulkProcurementPage() {
       {/* 企业集采常见问答 FAQ */}
       <section className="space-y-4">
         <div>
-          <div className="text-xs font-mono text-[#10A37F] mb-1">FREQUENTLY ASKED QUESTIONS</div>
-          <h2 className="text-2xl font-semibold text-primary">企业 GPT 官方集中采购常见问答</h2>
+          <div className="text-xs font-mono text-[#10A37F] mb-1">
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <h2 className="text-2xl font-semibold text-primary">
+            企业 GPT 官方集中采购常见问答
+          </h2>
         </div>
 
         <div className="space-y-3">
           {BULK_FAQS.map((faq, idx) => (
-            <div key={idx} className="p-5 rounded-2xl bg-surface border border-theme-subtle space-y-2">
+            <div
+              key={idx}
+              className="p-5 rounded-2xl bg-surface border border-theme-subtle space-y-2"
+            >
               <h3 className="text-sm font-semibold text-primary flex items-start gap-2">
                 <span className="text-[#10A37F] font-mono">Q{idx + 1}.</span>
                 <span>{faq.q}</span>
@@ -438,7 +490,9 @@ export default function GptBulkProcurementPage() {
           启动企业 GPT 官方集采：省时、省钱、合规、安心
         </h2>
         <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-          10 分钟出具正规盖章报价单，支持 5 至 100+ 席位规模化交付与一张数电专票统一清算。专属大客户总监全程 1 对 1 保驾护航。
+          10 分钟出具正规盖章报价单，支持 5 至 100+
+          席位规模化交付与一张数电专票统一清算。专属大客户总监全程 1 对 1
+          保驾护航。
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <a

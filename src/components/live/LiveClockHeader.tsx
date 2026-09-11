@@ -17,13 +17,13 @@ export default function LiveClockHeader() {
       if (timestamp - lastUpdate >= 35) {
         lastUpdate = timestamp;
         const now = new Date();
-        
+
         // 格式化时间与毫秒
         const hours = String(now.getHours()).padStart(2, "0");
         const minutes = String(now.getMinutes()).padStart(2, "0");
         const seconds = String(now.getSeconds()).padStart(2, "0");
         const millis = String(now.getMilliseconds()).padStart(3, "0");
-        
+
         setTimeStr(`${hours}:${minutes}:${seconds}`);
         setMillisStr(millis);
 
@@ -31,7 +31,15 @@ export default function LiveClockHeader() {
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, "0");
         const day = String(now.getDate()).padStart(2, "0");
-        const weekDays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+        const weekDays = [
+          "周日",
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+        ];
         setDateStr(`${year}年${month}月${day}日 ${weekDays[now.getDay()]}`);
       }
       animFrameRef.current = requestAnimationFrame(updateTime);
@@ -62,7 +70,7 @@ export default function LiveClockHeader() {
             <h1 className="text-lg font-bold text-white tracking-wide flex items-center gap-2">
               <span>AI 代采</span>
               <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono font-normal">
-                aidaicai.com
+                gongsi.one
               </span>
             </h1>
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 animate-pulse">

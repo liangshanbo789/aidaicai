@@ -2,7 +2,13 @@ import React from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
-import { ArrowLeft, Code2, Building2, BookOpen, Calculator } from "lucide-react";
+import {
+  ArrowLeft,
+  Code2,
+  Building2,
+  BookOpen,
+  Calculator,
+} from "lucide-react";
 
 const SOLUTIONS_NAV = [
   {
@@ -46,7 +52,9 @@ export default function SolutionsLayout({
                 <BrandLogo size={16} variant="emerald" />
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm tracking-tight text-primary">AI 代采</span>
+                <span className="font-semibold text-sm tracking-tight text-primary">
+                  AI 代采
+                </span>
                 <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
                   行业解决方案
                 </span>
@@ -76,7 +84,9 @@ export default function SolutionsLayout({
         {/* 二级方案切换导航条 */}
         <div className="border-t border-theme-subtle bg-surface-elevated/60 overflow-x-auto scrollbar-none">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2">
-            <span className="text-[11px] font-mono text-tertiary mr-1 shrink-0">方案场景:</span>
+            <span className="text-[11px] font-mono text-tertiary mr-1 shrink-0">
+              方案场景:
+            </span>
             {SOLUTIONS_NAV.map((item) => {
               const Icon = item.icon;
               return (
@@ -107,33 +117,49 @@ export default function SolutionsLayout({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left border-b border-theme-subtle/60 pb-6">
             <div>
-              <div className="font-semibold text-primary mb-2 text-sm">AI 代采 · 官方企业服务</div>
+              <div className="font-semibold text-primary mb-2 text-sm">
+                AI 代采 · 官方企业服务
+              </div>
               <p className="text-secondary text-xs leading-relaxed">
-                专注为国内研发技术团队、出海机构及中大型企业提供 OpenAI 官方代采、GPT 战略集采、对公结算与 6% 增值税专用发票开具服务。
+                专注为国内研发技术团队、出海机构及中大型企业提供 OpenAI
+                官方代采、GPT 战略集采、对公结算与 6% 增值税专用发票开具服务。
               </p>
             </div>
             <div>
-              <div className="font-semibold text-primary mb-2 text-sm">核心方案专区</div>
+              <div className="font-semibold text-primary mb-2 text-sm">
+                核心方案专区
+              </div>
               <ul className="space-y-1.5 text-xs">
                 <li>
-                  <Link href="/solutions/codex-procurement/" className="hover:text-primary transition-colors">
+                  <Link
+                    href="/solutions/codex-procurement/"
+                    className="hover:text-primary transition-colors"
+                  >
                     • 研发团队 OpenAI Codex / 代码助手对公代采
                   </Link>
                 </li>
                 <li>
-                  <Link href="/solutions/gpt-bulk-procurement/" className="hover:text-primary transition-colors">
+                  <Link
+                    href="/solutions/gpt-bulk-procurement/"
+                    className="hover:text-primary transition-colors"
+                  >
                     • 大中型企业 GPT 官方集中采购 (集采) 方案
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs/pricing/" className="hover:text-primary transition-colors">
+                  <Link
+                    href="/docs/pricing/"
+                    className="hover:text-primary transition-colors"
+                  >
                     • 2026 最新官方代采阶梯报价单手册
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <div className="font-semibold text-primary mb-2 text-sm">合规与支持</div>
+              <div className="font-semibold text-primary mb-2 text-sm">
+                合规与支持
+              </div>
               <ul className="space-y-1.5 text-xs text-secondary">
                 <li>• 结算银行：中国工商银行股份有限公司对公账户</li>
                 <li>• 发票资质：国家税务数电 6% 增值税专用发票</li>
@@ -143,7 +169,8 @@ export default function SolutionsLayout({
             </div>
           </div>
           <div className="text-center text-[11px] text-tertiary font-mono">
-            © 2026 AI 代采 (gongsi.one / aidaicai.com) · 四川省成都市高新区AI创新中心 · 统一社会信用代码可查
+            © 2026 AI 代采 (gongsi.one / gongsi.one) ·
+            四川省成都市高新区AI创新中心 · 统一社会信用代码可查
           </div>
         </div>
       </footer>

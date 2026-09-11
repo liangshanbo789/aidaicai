@@ -2,7 +2,14 @@ import React from "react";
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
-import { ArrowLeft, BookOpen, ShieldCheck, Receipt, FileText, FileCheck } from "lucide-react";
+import {
+  ArrowLeft,
+  BookOpen,
+  ShieldCheck,
+  Receipt,
+  FileText,
+  FileCheck,
+} from "lucide-react";
 
 const DOCS_NAV = [
   {
@@ -58,8 +65,12 @@ export default function DocsLayout({
                 <BrandLogo size={16} variant="emerald" />
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm tracking-tight text-primary">AI 代采</span>
-                <span className="text-[11px] font-mono text-secondary">文档知识库</span>
+                <span className="font-semibold text-sm tracking-tight text-primary">
+                  AI 代采
+                </span>
+                <span className="text-[11px] font-mono text-secondary">
+                  文档知识库
+                </span>
               </div>
             </Link>
           </div>
@@ -123,10 +134,11 @@ export default function DocsLayout({
       <footer className="border-t border-theme-subtle bg-surface-elevated text-xs text-secondary py-8 mt-16 transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
           <p className="text-secondary">
-            AI 代采 (aidaicai.com) · 企业级海外 AI 官方代采与对公合规解决方案
+            AI 代采 (gongsi.one) · 企业级海外 AI 官方代采与对公合规解决方案
           </p>
           <p className="text-[11px] text-tertiary font-mono">
-            四川省成都市高新区AI创新中心 · 官方客服微信：yqtp01 · 邮箱：liang@yqtp.cn
+            四川省成都市高新区AI创新中心 · 官方客服微信：yqtp01 ·
+            邮箱：liang@yqtp.cn
           </p>
         </div>
       </footer>

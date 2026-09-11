@@ -18,7 +18,8 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | 支持 6% 专票与对公结算 - AI代采",
+  title:
+    "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | 支持 6% 专票与对公结算 - AI代采",
   description:
     "专为软件互联网、出海技术架构与研发团队打造的 OpenAI Codex / ChatGPT Pro 20x 官方代采合规通道。解决研发个人外币卡拒付、某宝代充黑卡封号与发票报销难题。支持中国工商银行对公转账、国家税务 6% 增值税专用发票开具、72h 封号包赔兜底，研发费用合规列支。",
   keywords: [
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "告别员工私人外币卡垫资与黑卡代充封号风险。支持中国工商银行对公转账，开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。",
     url: "https://gongsi.one/solutions/codex-procurement/",
-    siteName: "AI代采 aidaicai.com",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -134,21 +135,21 @@ export default function CodexProcurementPage() {
     itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "首页",
-        "item": "https://gongsi.one",
+        position: 1,
+        name: "首页",
+        item: "https://gongsi.one",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "行业解决方案",
-        "item": "https://gongsi.one/solutions/codex-procurement/",
+        position: 2,
+        name: "行业解决方案",
+        item: "https://gongsi.one/solutions/codex-procurement/",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "研发团队 Codex 代码助手企业对公代采方案",
-        "item": "https://gongsi.one/solutions/codex-procurement/",
+        position: 3,
+        name: "研发团队 Codex 代码助手企业对公代采方案",
+        item: "https://gongsi.one/solutions/codex-procurement/",
       },
     ],
   };
@@ -177,7 +178,8 @@ export default function CodexProcurementPage() {
       url: "https://gongsi.one/",
     },
     areaServed: "CN",
-    description: "专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 算力代采通道。支持中国工商银行对公转账、6% 增值税专票与 72h 封号退赔保障。",
+    description:
+      "专为软件互联网与研发技术团队提供 OpenAI Codex、ChatGPT Plus/Pro 20x 算力代采通道。支持中国工商银行对公转账、6% 增值税专票与 72h 封号退赔保障。",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CNY",
@@ -204,7 +206,10 @@ export default function CodexProcurementPage() {
       />
 
       {/* 面包屑导航 */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-tertiary">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex items-center gap-2 text-xs font-mono text-tertiary"
+      >
         <Link href="/" className="hover:text-primary transition-colors">
           首页
         </Link>
@@ -226,7 +231,10 @@ export default function CodexProcurementPage() {
         </h1>
 
         <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-3xl">
-          彻底终结程序员个人外币卡垫资难、某宝黑卡代充连环封号、财务无票做账的三大死结。提供 100% 海外商业实体卡官方代充、中国工商银行对公转账、国家税务 6% 增值税专用发票与公章法律效力 SLA 72h 封号包赔兜底，全面支持研发费用合规税前扣除。
+          彻底终结程序员个人外币卡垫资难、某宝黑卡代充连环封号、财务无票做账的三大死结。提供
+          100% 海外商业实体卡官方代充、中国工商银行对公转账、国家税务 6%
+          增值税专用发票与公章法律效力 SLA 72h
+          封号包赔兜底，全面支持研发费用合规税前扣除。
         </p>
 
         <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -257,7 +265,9 @@ export default function CodexProcurementPage() {
       {/* 核心痛点对比区块 */}
       <section className="space-y-6">
         <div className="text-center sm:text-left">
-          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">PAIN POINTS & SOLUTIONS</div>
+          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">
+            PAIN POINTS & SOLUTIONS
+          </div>
           <h2 className="text-2xl font-semibold text-primary tracking-tight">
             传统个人垫资/代充 vs AI 代采企业合规通道
           </h2>
@@ -273,15 +283,26 @@ export default function CodexProcurementPage() {
             <ul className="space-y-3 text-xs text-secondary leading-relaxed">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                <span><strong>支付被拒与账号标记</strong>：国内普通双币卡频频被 OpenAI 防欺诈拒付，反复尝试导致 IP 与账号直接被列入高危黑名单。</span>
+                <span>
+                  <strong>支付被拒与账号标记</strong>：国内普通双币卡频频被
+                  OpenAI 防欺诈拒付，反复尝试导致 IP
+                  与账号直接被列入高危黑名单。
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                <span><strong>黑卡盗刷连带永久封禁</strong>：电商平台代充普遍使用盗刷黑卡，一旦拒付账号被封，数月调优的代码上下文与 Prompt 全部清零。</span>
+                <span>
+                  <strong>黑卡盗刷连带永久封禁</strong>
+                  ：电商平台代充普遍使用盗刷黑卡，一旦拒付账号被封，数月调优的代码上下文与
+                  Prompt 全部清零。
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0 mt-1.5" />
-                <span><strong>无票难报销与财税风险</strong>：海外 Receipt 无法入账，员工私人转账报销极易触发金税四期审计，假发票更是严重的违法行为。</span>
+                <span>
+                  <strong>无票难报销与财税风险</strong>：海外 Receipt
+                  无法入账，员工私人转账报销极易触发金税四期审计，假发票更是严重的违法行为。
+                </span>
               </li>
             </ul>
           </div>
@@ -295,15 +316,26 @@ export default function CodexProcurementPage() {
             <ul className="space-y-3 text-xs text-secondary leading-relaxed">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#10A37F] shrink-0 mt-0.5" />
-                <span><strong>100% 正规海外商业银行卡</strong>：直连 OpenAI 官方扣费系统，出具官方原版带真实付款卡号的 Invoice 电子凭证。</span>
+                <span>
+                  <strong>100% 正规海外商业银行卡</strong>：直连 OpenAI
+                  官方扣费系统，出具官方原版带真实付款卡号的 Invoice 电子凭证。
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#10A37F] shrink-0 mt-0.5" />
-                <span><strong>中国工商银行公对公结算</strong>：直接对公打款，开具国家税务 6% 增值税专用发票（信息技术服务费），研发费用合法列支加计扣除。</span>
+                <span>
+                  <strong>中国工商银行公对公结算</strong>
+                  ：直接对公打款，开具国家税务 6%
+                  增值税专用发票（信息技术服务费），研发费用合法列支加计扣除。
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#10A37F] shrink-0 mt-0.5" />
-                <span><strong>公章效力 SLA 72h 封号包赔</strong>：若遇厂商网络封锁，72 小时闪电保换，中途异常按天折算极速退款，研发资产零风险。</span>
+                <span>
+                  <strong>公章效力 SLA 72h 封号包赔</strong>
+                  ：若遇厂商网络封锁，72
+                  小时闪电保换，中途异常按天折算极速退款，研发资产零风险。
+                </span>
               </li>
             </ul>
           </div>
@@ -313,7 +345,9 @@ export default function CodexProcurementPage() {
       {/* 研发算力与 Codex 推荐配置矩阵 */}
       <section className="space-y-6">
         <div>
-          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">PRODUCT TIERS FOR ENGINEERS</div>
+          <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">
+            PRODUCT TIERS FOR ENGINEERS
+          </div>
           <h2 className="text-2xl font-semibold text-primary tracking-tight">
             研发团队各职能岗位推荐采购配置
           </h2>
@@ -346,12 +380,20 @@ export default function CodexProcurementPage() {
                     )}
                   </div>
 
-                  <h3 className="text-base font-semibold text-primary">{item.name}</h3>
-                  <div className="text-xs text-secondary mt-1 mb-3">适用：{item.target}</div>
+                  <h3 className="text-base font-semibold text-primary">
+                    {item.name}
+                  </h3>
+                  <div className="text-xs text-secondary mt-1 mb-3">
+                    适用：{item.target}
+                  </div>
 
                   <div className="p-3 rounded-xl bg-surface-elevated border border-theme-subtle mb-4">
-                    <div className="text-[10px] text-tertiary">团队阶梯代采价 (含 6% 专票)</div>
-                    <div className="text-lg font-bold text-primary mt-0.5">{item.price}</div>
+                    <div className="text-[10px] text-tertiary">
+                      团队阶梯代采价 (含 6% 专票)
+                    </div>
+                    <div className="text-lg font-bold text-primary mt-0.5">
+                      {item.price}
+                    </div>
                   </div>
 
                   <ul className="space-y-2 text-xs text-secondary mb-6">
@@ -382,38 +424,55 @@ export default function CodexProcurementPage() {
       {/* 研发采购全流程 SOP */}
       <section className="p-6 sm:p-8 rounded-2xl bg-surface border border-theme-subtle space-y-6">
         <div>
-          <div className="text-xs font-mono text-[#10A37F] mb-1">PROCUREMENT WORKFLOW</div>
-          <h2 className="text-xl font-semibold text-primary">研发团队对公代采标准化 4 步流程</h2>
-          <p className="text-xs text-secondary mt-1">从需求统计到开通研发账号，最快 20 分钟内完成，全程企业微信与法务合同保驾护航。</p>
+          <div className="text-xs font-mono text-[#10A37F] mb-1">
+            PROCUREMENT WORKFLOW
+          </div>
+          <h2 className="text-xl font-semibold text-primary">
+            研发团队对公代采标准化 4 步流程
+          </h2>
+          <p className="text-xs text-secondary mt-1">
+            从需求统计到开通研发账号，最快 20
+            分钟内完成，全程企业微信与法务合同保驾护航。
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="p-4 rounded-xl bg-surface-elevated border border-theme-subtle space-y-2">
             <div className="text-xs font-mono text-tertiary">STEP 01</div>
-            <div className="text-sm font-semibold text-primary">提供邮箱与规格清单</div>
+            <div className="text-sm font-semibold text-primary">
+              提供邮箱与规格清单
+            </div>
             <div className="text-xs text-secondary leading-relaxed">
               统计研发人员现有 OpenAI 邮箱或由我方提供全新纯净企业专属账号。
             </div>
           </div>
           <div className="p-4 rounded-xl bg-surface-elevated border border-theme-subtle space-y-2">
             <div className="text-xs font-mono text-tertiary">STEP 02</div>
-            <div className="text-sm font-semibold text-primary">签署公章框架合同</div>
+            <div className="text-sm font-semibold text-primary">
+              签署公章框架合同
+            </div>
             <div className="text-xs text-secondary leading-relaxed">
-              支持 e 签宝电子签或纸质盖章，合同附带《SLA 72h 封号包赔退款协议》。
+              支持 e 签宝电子签或纸质盖章，合同附带《SLA 72h
+              封号包赔退款协议》。
             </div>
           </div>
           <div className="p-4 rounded-xl bg-surface-elevated border border-theme-subtle space-y-2">
             <div className="text-xs font-mono text-tertiary">STEP 03</div>
-            <div className="text-sm font-semibold text-primary">工行网银对公打款</div>
+            <div className="text-sm font-semibold text-primary">
+              工行网银对公打款
+            </div>
             <div className="text-xs text-secondary leading-relaxed">
               财务通过企业网银向中国工商银行账户付款，备注“软件技术服务费”。
             </div>
           </div>
           <div className="p-4 rounded-xl bg-surface-elevated border border-theme-subtle space-y-2">
             <div className="text-xs font-mono text-tertiary">STEP 04</div>
-            <div className="text-sm font-semibold text-primary">交付 Invoice 与专票</div>
+            <div className="text-sm font-semibold text-primary">
+              交付 Invoice 与专票
+            </div>
             <div className="text-xs text-secondary leading-relaxed">
-              款到 10 分钟激活订阅，交付 OpenAI 官方原版 Invoice，专票发至财务邮箱。
+              款到 10 分钟激活订阅，交付 OpenAI 官方原版
+              Invoice，专票发至财务邮箱。
             </div>
           </div>
         </div>
@@ -422,13 +481,20 @@ export default function CodexProcurementPage() {
       {/* 常见问题解答 FAQ */}
       <section className="space-y-4">
         <div>
-          <div className="text-xs font-mono text-[#10A37F] mb-1">FREQUENTLY ASKED QUESTIONS</div>
-          <h2 className="text-2xl font-semibold text-primary">研发团队采购 Codex 常见问答</h2>
+          <div className="text-xs font-mono text-[#10A37F] mb-1">
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <h2 className="text-2xl font-semibold text-primary">
+            研发团队采购 Codex 常见问答
+          </h2>
         </div>
 
         <div className="space-y-3">
           {CODEX_FAQS.map((faq, idx) => (
-            <div key={idx} className="p-5 rounded-2xl bg-surface border border-theme-subtle space-y-2">
+            <div
+              key={idx}
+              className="p-5 rounded-2xl bg-surface border border-theme-subtle space-y-2"
+            >
               <h3 className="text-sm font-semibold text-primary flex items-start gap-2">
                 <span className="text-[#10A37F] font-mono">Q{idx + 1}.</span>
                 <span>{faq.q}</span>
@@ -447,7 +513,8 @@ export default function CodexProcurementPage() {
           立即为研发团队配齐满血版 OpenAI Codex 与代码生产力
         </h2>
         <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-          全流程对公合规、6% 增值税专用发票、官方带卡号 Invoice 与 72h SLA 兜底。支持 1 席体验试用至百人团队批量扩容。
+          全流程对公合规、6% 增值税专用发票、官方带卡号 Invoice 与 72h SLA
+          兜底。支持 1 席体验试用至百人团队批量扩容。
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <a

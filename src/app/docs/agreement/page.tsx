@@ -5,7 +5,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "【标准合同范本】企业级海外软件采购与技术支持服务框架协议",
-  description: "企业级海外 AI 软件官方代采框架合作协议标准范本。明确对公人民币银行结算、6% 增值税专用发票开具、账号交付与所有权归属、保密义务（NDA）及法务公章盖印标准，支持法务快速合规过审签约。",
+  description:
+    "企业级海外 AI 软件官方代采框架合作协议标准范本。明确对公人民币银行结算、6% 增值税专用发票开具、账号交付与所有权归属、保密义务（NDA）及法务公章盖印标准，支持法务快速合规过审签约。",
   keywords: [
     "海外软件代采合同范本",
     "ChatGPT代付合作协议",
@@ -17,10 +18,11 @@ export const metadata: Metadata = {
     canonical: "https://gongsi.one/docs/agreement/",
   },
   openGraph: {
-    title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
-    description: "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
+    title: "企业级海外软件代采购框架合作协议范本 | AI代采 gongsi.one",
+    description:
+      "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
     url: "https://gongsi.one/docs/agreement/",
-    siteName: "AI代采 aidaicai.com",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -34,8 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
-    description: "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
+    title: "企业级海外软件代采购框架合作协议范本 | AI代采 gongsi.one",
+    description:
+      "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
     images: ["/og-image.png"],
   },
 };
@@ -45,35 +48,36 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "BreadcrumbList",
-      "itemListElement": [
+      itemListElement: [
         {
           "@type": "ListItem",
-          "position": 1,
-          "name": "首页",
-          "item": "https://gongsi.one/",
+          position: 1,
+          name: "首页",
+          item: "https://gongsi.one/",
         },
         {
           "@type": "ListItem",
-          "position": 2,
-          "name": "文档知识库",
-          "item": "https://gongsi.one/docs/agreement/",
+          position: 2,
+          name: "文档知识库",
+          item: "https://gongsi.one/docs/agreement/",
         },
         {
           "@type": "ListItem",
-          "position": 3,
-          "name": "代采购合作协议",
-          "item": "https://gongsi.one/docs/agreement/",
+          position: 3,
+          name: "代采购合作协议",
+          item: "https://gongsi.one/docs/agreement/",
         },
       ],
     },
     {
       "@type": "TechArticle",
-      "headline": "企业级海外软件代采购框架合作协议范本",
-      "description": "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
-      "url": "https://gongsi.one/docs/agreement/",
-      "author": {
+      headline: "企业级海外软件代采购框架合作协议范本",
+      description:
+        "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
+      url: "https://gongsi.one/docs/agreement/",
+      author: {
         "@type": "Organization",
-        "name": "AI代采",
+        name: "AI代采",
       },
     },
   ],
@@ -88,7 +92,7 @@ const agreementText = `【标准合同范本】企业级海外软件采购与技
 统一社会信用代码：【 】
 注册地址：【 】
 
-乙方（服务方）：AI代采信息技术服务有限公司（aidaicai.com）
+乙方（服务方）：AI代采信息技术服务有限公司（gongsi.one）
 统一社会信用代码：【 】
 注册地址：四川省成都市高新区AI创新中心
 
@@ -125,7 +129,9 @@ export default function AgreementDocPage() {
 
       {/* 面包屑 */}
       <nav className="flex items-center gap-2 text-xs text-secondary">
-        <Link href="/" className="hover:text-primary transition-colors">官网首页</Link>
+        <Link href="/" className="hover:text-primary transition-colors">
+          官网首页
+        </Link>
         <ChevronRight className="w-3.5 h-3.5 text-tertiary" />
         <span className="text-primary font-medium">代采购框架合作协议范本</span>
       </nav>
@@ -140,7 +146,8 @@ export default function AgreementDocPage() {
           【标准合同范本】企业级海外软件采购与技术支持服务框架协议
         </h1>
         <p className="text-sm text-secondary leading-relaxed max-w-3xl">
-          专为出海企业法务内审量身定制。严格遵循《中华人民共和国民法典》，厘清双方在对公打款、6% 数电专票交付、数据保密不接触及 SLA 违约赔付责任界限。
+          专为出海企业法务内审量身定制。严格遵循《中华人民共和国民法典》，厘清双方在对公打款、6%
+          数电专票交付、数据保密不接触及 SLA 违约赔付责任界限。
         </p>
         <div className="pt-2">
           <DocCopyAction content={agreementText} source="agreement" />
@@ -150,37 +157,53 @@ export default function AgreementDocPage() {
       {/* 正文条目 */}
       <div className="codex-panel p-6 sm:p-8 bg-surface space-y-6 text-sm leading-relaxed border-theme-subtle">
         <section className="space-y-2">
-          <h2 className="text-base font-semibold text-primary">第一条 合作内容与采购范围</h2>
+          <h2 className="text-base font-semibold text-primary">
+            第一条 合作内容与采购范围
+          </h2>
           <p className="text-xs sm:text-sm text-secondary">
-            甲方委托乙方提供海外 AI 生产力工具（OpenAI ChatGPT Plus / Pro / Team 等）的官方代订、卡段清算、账号激活与售后支持服务。每次采购以双方盖章的《订单确认书》为准。
+            甲方委托乙方提供海外 AI 生产力工具（OpenAI ChatGPT Plus / Pro / Team
+            等）的官方代订、卡段清算、账号激活与售后支持服务。每次采购以双方盖章的《订单确认书》为准。
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-semibold text-primary">第二条 费用结算与发票开具</h2>
+          <h2 className="text-base font-semibold text-primary">
+            第二条 费用结算与发票开具
+          </h2>
           <p className="text-xs sm:text-sm text-secondary">
-            全款采用人民币通过企业银行网银对公转账结算。乙方在款项确认后 2 个工作日内向甲方开具等额的 6% 增值税专用发票（信息技术服务费），可全额进项抵扣。
+            全款采用人民币通过企业银行网银对公转账结算。乙方在款项确认后 2
+            个工作日内向甲方开具等额的 6%
+            增值税专用发票（信息技术服务费），可全额进项抵扣。
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-semibold text-primary">第三条 交付流程与账号归属</h2>
+          <h2 className="text-base font-semibold text-primary">
+            第三条 交付流程与账号归属
+          </h2>
           <p className="text-xs sm:text-sm text-secondary">
-            乙方在款到 30 分钟内完成激活交付。甲方享有交付账号的全部使用权与由其生成之所有知识产权资产，乙方绝不留存或窥探业务内容。
+            乙方在款到 30
+            分钟内完成激活交付。甲方享有交付账号的全部使用权与由其生成之所有知识产权资产，乙方绝不留存或窥探业务内容。
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-semibold text-primary">第四条 售后保障与违约责任</h2>
+          <h2 className="text-base font-semibold text-primary">
+            第四条 售后保障与违约责任
+          </h2>
           <p className="text-xs sm:text-sm text-secondary">
-            乙方严格按照双方确认的《SLA 售后协议》执行：72 小时内风控免费换新补齐；后续在订阅期内若遇厂商风控按日折算极速退款。
+            乙方严格按照双方确认的《SLA 售后协议》执行：72
+            小时内风控免费换新补齐；后续在订阅期内若遇厂商风控按日折算极速退款。
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-base font-semibold text-primary">第五条 协议期限与争议解决</h2>
+          <h2 className="text-base font-semibold text-primary">
+            第五条 协议期限与争议解决
+          </h2>
           <p className="text-xs sm:text-sm text-secondary">
-            协议自双方盖章之日起生效，有效期 1 年，期满无异议自动顺延。支持腾讯电子签、契约锁等企业电子印章签署。
+            协议自双方盖章之日起生效，有效期 1
+            年，期满无异议自动顺延。支持腾讯电子签、契约锁等企业电子印章签署。
           </p>
         </section>
       </div>

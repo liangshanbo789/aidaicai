@@ -9,8 +9,14 @@ interface DocsVaultProps {
   onOpenContact: (source?: string) => void;
 }
 
-export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultProps) {
-  const [activeDoc, setActiveDoc] = useState<"proposal" | "pricing" | "sla" | "agreement">("proposal");
+export default function DocsVault({
+  isOpen,
+  onClose,
+  onOpenContact,
+}: DocsVaultProps) {
+  const [activeDoc, setActiveDoc] = useState<
+    "proposal" | "pricing" | "sla" | "agreement"
+  >("proposal");
   const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
@@ -33,7 +39,7 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
 2. 跨境出海运营：海外独立站全语种文案、高阶商客沟通及社媒营销急需 Plus/Pro 稳定支持，可节省 40% 以上外包创作成本；
 3. 合规与财务堵点：为避免员工自行在淘宝购买非正规个人代充遭遇“黑卡封号”及个人私转无法报销做账，需引入具备对公资质的正规企业服务商。
 
-三、 供应商评估比选（AI代采 aidaicai.com 优势）
+三、 供应商评估比选（AI代采 gongsi.one 优势）
 • 票据合规：开具 6% 增值税专用发票（信息技术服务费），可全额进项抵扣；
 • 资金阳光：企业银行网银对公电汇，资金链路安全可审计；
 • 渠道真实：100% 正规海外商业银行企业信用卡直充，附带官方账单核验；
@@ -51,9 +57,10 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
     pricing: {
       title: "【官方文件】企业级 OpenAI / ChatGPT 采购阶梯报价单与权益手册",
       badge: "标准报价",
-      badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+      badgeColor:
+        "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
       desc: "涵盖 ChatGPT Plus、Team 空间、Pro 5x、Pro 20x 旗舰版的单月、季度、年度采购对公含税阶梯价及大客户专属增值权益。",
-      content: `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
+      content: `【AI代采 gongsi.one】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
 
 一、 核心产品参数
 • ChatGPT Plus ($20/月)：优先接入最新 GPT-6 Astra 旗舰基石模型、GPT-5.6 (Sol/Terra) 高频调用、高级数据分析与多模态创作；
@@ -90,9 +97,10 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
     sla: {
       title: "【保障条款】企业海外 AI 服务 SLA 等级与风控退赔协议",
       badge: "法律兜底",
-      badgeColor: "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/20",
+      badgeColor:
+        "bg-purple-500/10 text-purple-600 dark:text-purple-300 border-purple-500/20",
       desc: "明确 72 小时闪电保换、全周期按天折算退赔、100% 正规商业信用卡来源与零知识保密协议等法定义务。",
-      content: `【AI代采 aidaicai.com】企业级海外 AI 账号服务 SLA 与风控退赔保障条款
+      content: `【AI代采 gongsi.one】企业级海外 AI 账号服务 SLA 与风控退赔保障条款
 
 核心服务指标承诺：
 1. 首单开通时效：对公款项确认后 ≤ 30 分钟内完成全员充值激活；
@@ -112,12 +120,13 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
     agreement: {
       title: "【合同范本】企业级海外软件采购与技术支持服务框架协议",
       badge: "法务合同",
-      badgeColor: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25",
+      badgeColor:
+        "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25",
       desc: "具备完整法律效力的企业框架采购合同，支持双方使用腾讯电子签/契约锁权威数字印章在线盖章签约。",
       content: `企业级海外软件采购与技术支持服务框架协议（精简摘要）
 
 甲方：【采购企业全称】
-乙方：成都游手科技有限公司 (aidaicai.com)
+乙方：成都游手科技有限公司 (gongsi.one)
 
 第一条 采购与委托
 甲方委托乙方为其代采并充值 OpenAI ChatGPT 等官方订阅服务，由乙方提供配套技术咨询与对公财务结算保障。
@@ -149,7 +158,9 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
         <div className="p-5 border-b border-theme-subtle flex items-center justify-between bg-surface-elevated">
           <div className="flex items-center gap-2.5">
             <BookOpen className="w-4 h-4 text-secondary" />
-            <span className="font-semibold text-sm sm:text-base text-primary">商务与法务中心 · 官方采购文档库</span>
+            <span className="font-semibold text-sm sm:text-base text-primary">
+              商务与法务中心 · 官方采购文档库
+            </span>
           </div>
           <button
             onClick={onClose}
@@ -189,8 +200,12 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-sm sm:text-base font-semibold text-primary">{currentDoc.title}</h3>
-                <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${currentDoc.badgeColor}`}>
+                <h3 className="text-sm sm:text-base font-semibold text-primary">
+                  {currentDoc.title}
+                </h3>
+                <span
+                  className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${currentDoc.badgeColor}`}
+                >
                   {currentDoc.badge}
                 </span>
               </div>
@@ -210,7 +225,11 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
                 onClick={handleCopy}
                 className="btn-openai-white text-xs !py-1.5 !px-3.5 flex items-center gap-1.5 cursor-pointer"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-500" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
                 <span>{copied ? "已复制全文！" : "复制文档内容"}</span>
               </button>
             </div>
@@ -224,7 +243,9 @@ export default function DocsVault({ isOpen, onClose, onOpenContact }: DocsVaultP
 
         {/* Footer Actions */}
         <div className="p-4 border-t border-theme-subtle bg-surface-elevated flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-secondary">
-          <span>如需 Word / PDF 盖章原件或定制特殊开票需求，请联系专属客户经理</span>
+          <span>
+            如需 Word / PDF 盖章原件或定制特殊开票需求，请联系专属客户经理
+          </span>
           <button
             onClick={() => {
               onClose();
