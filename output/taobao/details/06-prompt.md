@@ -1,0 +1,7 @@
+# 企业采购咨询引导图
+
+内置 image_gen 生成，1024×1536，作为详情页第六张收尾图。
+
+## 提示词
+
+Create a single polished Taobao ecommerce detail-page closing call-to-action image, portrait 2:3, 1024x1536. Premium dark forest green marble background, champagne gold and ivory bold Chinese sans-serif text, tasteful glowing glass cards, matching AI代采 enterprise procurement branding. Top small brand text exactly 'AI代采'. Large strong two-line headline exactly '企业采购合作' and '先聊需求，再定方案'. Below headline subtitle exactly '批量订阅 · 合规发票 · 对公转账'. Central large decorative customer-service chat illustration with gold headset icon and three spacious numbered vertically arranged action cards. Card 01 heading '联系客服' body '告诉我们您的采购需求'. Card 02 heading '点击「企业采购」' body '进入企业采购咨询'. Card 03 heading '沟通合作方案' body '对接套餐、数量、报价与交付安排'. The second step should be the strongest visual focal point with a large gold button-shaped decorative label '企业采购' and a subtle pointer arrow, not a screenshot or imitation of actual Taobao UI. Bottom large highlighted CTA exactly '联系客服，点击「企业采购」'. Under it helpful smaller line exactly '可提前准备：套餐＋数量＋开票及材料要求'. Footer small exactly '具体合作方案，以双方沟通确认为准'. Use only specified words, exact clearly legible Simplified Chinese, generous margins and balanced typography. No QR code, no URL, no telephone or off-platform contact, no GPT ChatGPT OpenAI names, no third-party logos, no invented response time or discounts. Single full-page artwork only, no mockup.
