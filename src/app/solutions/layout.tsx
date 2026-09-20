@@ -169,7 +169,7 @@ export default function SolutionsLayout({
             </div>
           </div>
           <div className="text-center text-[11px] text-tertiary font-mono">
-            © 2026 AI 代采 (gongsi.one / gongsi.one) ·
+            © 2026 AI 代采 (aidaicai.com) ·
             四川省成都市高新区AI创新中心 · 统一社会信用代码可查
           </div>
         </div>

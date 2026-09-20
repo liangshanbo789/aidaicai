@@ -11,7 +11,7 @@
  * export BAIDU_PUSH_TOKEN="your_baidu_token" (Bash)
  */
 
-const HOST = "gongsi.one";
+const HOST = "aidaicai.com";
 const BASE_URL = `https://${HOST}`;
 const INDEXNOW_KEY = "18b3e34bca8f4e6988894178a9c2be0b";
 const KEY_LOCATION = `${BASE_URL}/${INDEXNOW_KEY}.txt`;

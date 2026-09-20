@@ -70,7 +70,7 @@ export default function LiveClockHeader() {
             <h1 className="text-lg font-bold text-white tracking-wide flex items-center gap-2">
               <span>AI 代采</span>
               <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono font-normal">
-                gongsi.one
+                aidaicai.com
               </span>
             </h1>
             <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 animate-pulse">

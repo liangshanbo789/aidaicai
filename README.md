@@ -1,14 +1,14 @@
 <div align="center">
 
-# AI 代采 (gongsi.one)
+# AI 代采 (aidaicai.com)
 
 ### 企业级海外 AI 官方代采 · 阶梯量采降本 · 对公财税合规结算平台
 
-[![Official Website](https://img.shields.io/badge/官方网站-www.gongsi.one-10a37f?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.gongsi.one)
-[![WeChat Certified](https://img.shields.io/badge/企微认证-成都游手好闲科技有限公司-07c160?style=for-the-badge&logo=wechat&logoColor=white)](https://www.gongsi.one)
-[![Corporate Bank](https://img.shields.io/badge/对公结算-中国工商银行-c7000b?style=for-the-badge)](https://www.gongsi.one)
-[![VAT Invoice](https://img.shields.io/badge/数电发票-6%25增值税专用发票-2563eb?style=for-the-badge)](https://www.gongsi.one)
-[![SLA Guarantee](https://img.shields.io/badge/品质承诺-72H封号包赔退款-f59e0b?style=for-the-badge)](https://www.gongsi.one)
+[![Official Website](https://img.shields.io/badge/官方网站-www.aidaicai.com-10a37f?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.aidaicai.com)
+[![WeChat Certified](https://img.shields.io/badge/企微认证-成都游手好闲科技有限公司-07c160?style=for-the-badge&logo=wechat&logoColor=white)](https://www.aidaicai.com)
+[![Corporate Bank](https://img.shields.io/badge/对公结算-中国工商银行-c7000b?style=for-the-badge)](https://www.aidaicai.com)
+[![VAT Invoice](https://img.shields.io/badge/数电发票-6%25增值税专用发票-2563eb?style=for-the-badge)](https://www.aidaicai.com)
+[![SLA Guarantee](https://img.shields.io/badge/品质承诺-72H封号包赔退款-f59e0b?style=for-the-badge)](https://www.aidaicai.com)
 
 <br/>
 
@@ -49,7 +49,7 @@
   </tr>
 </table>
 
-**商务沟通直达**：微信添加 `yqtp01` ｜ 官方邮箱：`biz@gongsi.one` ｜ 官方服务门户：[www.gongsi.one](https://www.gongsi.one)
+**商务沟通直达**：微信添加 `yqtp01` ｜ 官方邮箱：`biz@aidaicai.com` ｜ 官方服务门户：[www.aidaicai.com](https://www.aidaicai.com)
 
 </div>
 
@@ -57,7 +57,7 @@
 
 ## 🌟 为什么选择 AI 代采？四大核心合规交付支柱
 
-| 核心维度             | 传统个人代充 / 某宝电商 / 虚拟卡买U                                          | AI 代采（gongsi.one）企业官方服务                                                                       |
+| 核心维度             | 传统个人代充 / 某宝电商 / 虚拟卡买U                                          | AI 代采（aidaicai.com）企业官方服务                                                                       |
 | :------------------- | :--------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
 | **资金与结算方式**   | 员工个人信用卡垫资 / 私人微信支付宝 / 采购虚拟币（买U），涉嫌资金外逃风控    | **100% 走中国工商银行对公转账**，正规企业银行结算回单，满足企业财务内审与反洗钱监管要求                 |
 | **发票与财务报销**   | 无法提供发票，或提供假发票、走壳公司开杂项发票，存在巨大税务稽查风险         | **开具国家税务局 6% 增值税专用发票 / 普通发票**（类目：信息技术服务费），一般纳税人可直接进项抵扣       |
@@ -155,7 +155,7 @@ graph LR
 | **银行对公账号**     | `1001 2488 0910 0088 820`                                             |
 | **汇款用途 / 附言**  | `技术服务费` 或 `软件代采款`                                          |
 | **发票开具类目**     | `*信息技术服务* 软件技术服务费`（增值税普通发票 / 专用发票，税率 6%） |
-| **官方线上服务域名** | [https://www.gongsi.one](https://www.gongsi.one)                      |
+| **官方线上服务域名** | [https://www.aidaicai.com](https://www.aidaicai.com)                      |
 
 ---
 
@@ -164,7 +164,7 @@ graph LR
 
 <br/>
 
-本项目同时也是 **AI 代采官方现代化官方站点（gongsi.one）** 的开源代码仓库，基于 **Next.js 15 (App Router) + Tailwind CSS + TypeScript** 构建，拥有极客级暗黑毛玻璃美学与极致响应速度。
+本项目同时也是 **AI 代采官方现代化官方站点（aidaicai.com）** 的开源代码仓库，基于 **Next.js 15 (App Router) + Tailwind CSS + TypeScript** 构建，拥有极客级暗黑毛玻璃美学与极致响应速度。
 
 ### 1. 项目目录结构
 
@@ -214,7 +214,7 @@ npm run dev
 <div align="center">
 
 **💼 立即开启企业合规海外 AI 采买通道**  
-添加大客户经理微信：`yqtp01` ｜ 官网：[www.gongsi.one](https://www.gongsi.one)  
-_Copyright © 2026 AI 代采 (gongsi.one) · 成都游手好闲科技有限公司 · 版权所有_
+添加大客户经理微信：`yqtp01` ｜ 官网：[www.aidaicai.com](https://www.aidaicai.com)  
+_Copyright © 2026 AI 代采 (aidaicai.com) · 成都游手好闲科技有限公司 · 版权所有_
 
 </div>

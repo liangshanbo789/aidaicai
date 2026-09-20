@@ -52,6 +52,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://gongsi.one/sitemap.xml",
+    sitemap: "https://aidaicai.com/sitemap.xml",
   };
 }

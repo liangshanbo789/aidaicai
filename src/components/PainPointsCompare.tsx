@@ -131,7 +131,7 @@ export default function PainPointsCompare() {
             <strong className="text-primary font-medium">
               财务合规可报销、资金阳光可审计、业务零断档与采购安全免责
             </strong>
-            。选择 AI 代采（gongsi.one），从源头筑牢企业合规防线。
+            。选择 AI 代采（aidaicai.com），从源头筑牢企业合规防线。
           </p>
         </div>
 
@@ -208,7 +208,7 @@ export default function PainPointsCompare() {
                     <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 flex items-center justify-center">
                       <Check className="w-2.5 h-2.5 text-[#10A37F]" />
                     </span>
-                    <span>AI 代采 (gongsi.one) 官方企业服务</span>
+                    <span>AI 代采 (aidaicai.com) 官方企业服务</span>
                   </div>
                   <p className="text-primary font-normal leading-relaxed pl-5 text-[12px]">
                     {item.enterprise}
@@ -235,7 +235,7 @@ export default function PainPointsCompare() {
             <div className="col-span-5 sm:col-span-5 text-primary flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10A37F] animate-pulse" />
               <span className="text-primary font-bold">
-                AI 代采 (gongsi.one) 官方企业服务
+                AI 代采 (aidaicai.com) 官方企业服务
               </span>
             </div>
           </div>

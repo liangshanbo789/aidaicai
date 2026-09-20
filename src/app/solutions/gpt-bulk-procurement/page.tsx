@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     "AI代采",
   ],
   alternates: {
-    canonical: "https://gongsi.one/solutions/gpt-bulk-procurement/",
+    canonical: "https://aidaicai.com/solutions/gpt-bulk-procurement/",
   },
   openGraph: {
     title: "大中型企业 GPT 官方集中采购 (集采) 方案与阶梯报价手册 | AI代采",
     description:
       "多买立减、量大从优。专为 5~100+ 席位企业打造的 GPT 官方集采通道。支持统一对公转账、一张 6% 专票统一入账与经办人战略集采礼遇。",
-    url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
-    siteName: "AI代采 gongsi.one",
+    url: "https://aidaicai.com/solutions/gpt-bulk-procurement/",
+    siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -122,19 +122,19 @@ export default function GptBulkProcurementPage() {
         "@type": "ListItem",
         position: 1,
         name: "首页",
-        item: "https://gongsi.one",
+        item: "https://aidaicai.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "行业解决方案",
-        item: "https://gongsi.one/solutions/gpt-bulk-procurement/",
+        item: "https://aidaicai.com/solutions/gpt-bulk-procurement/",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "大中型企业 GPT 官方集中采购 (集采) 方案",
-        item: "https://gongsi.one/solutions/gpt-bulk-procurement/",
+        item: "https://aidaicai.com/solutions/gpt-bulk-procurement/",
       },
     ],
   };
@@ -160,7 +160,7 @@ export default function GptBulkProcurementPage() {
     provider: {
       "@type": "Organization",
       name: "AI代采",
-      url: "https://gongsi.one/",
+      url: "https://aidaicai.com/",
     },
     areaServed: "CN",
     description:
@@ -170,7 +170,7 @@ export default function GptBulkProcurementPage() {
       priceCurrency: "CNY",
       lowPrice: "135",
       highPrice: "1580",
-      url: "https://gongsi.one/solutions/gpt-bulk-procurement/",
+      url: "https://aidaicai.com/solutions/gpt-bulk-procurement/",
     },
   };
 

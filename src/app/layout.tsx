@@ -13,14 +13,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gongsi.one"),
+  metadataBase: new URL("https://aidaicai.com"),
   title: {
     default:
-      "AI代采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
-    template: "%s | AI代采 gongsi.one",
+      "AI代采 aidaicai.com | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+    template: "%s | AI代采 aidaicai.com",
   },
   description:
-    "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：gongsi.one",
+    "国内领先的企业级 GPT 官方集中采购 (集采) 与 OpenAI Codex 研发代码助手代采服务平台。全系覆盖 ChatGPT Plus、Pro (5x/20x)、Team 空间及 GPT-6 Astra，支持银行对公转账、开具 6% 增值税专用发票、大客户阶梯让利降本与 72h 封号包赔兜底。官网：aidaicai.com",
   keywords: [
     "codex采购",
     "OpenAI Codex采购",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     "研发团队AI代采",
     "ChatGPT批量采购",
     "AI代采",
-    "gongsi.one",
-    "gongsi.one",
+    "aidaicai.com",
+    "AI代采官网",
     "ChatGPT企业代采",
     "ChatGPT对公转账",
     "ChatGPT开专票",
@@ -44,21 +44,21 @@ export const metadata: Metadata = {
     "出海企业SaaS采购",
     "信息技术服务费专票",
   ],
-  authors: [{ name: "AI代采", url: "https://gongsi.one" }],
+  authors: [{ name: "AI代采", url: "https://aidaicai.com" }],
   creator: "AI代采",
   publisher: "AI代采",
   formatDetection: {
     telephone: false,
   },
   alternates: {
-    canonical: "https://gongsi.one/",
+    canonical: "https://aidaicai.com/",
   },
   openGraph: {
     title: "AI代采 | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description:
       "国内领先的企业级 GPT 官方集中采购与 OpenAI Codex 研发代采平台。支持 6% 增值税专用发票、银行对公转账、100% 正规海外商业卡直充与 72 小时封号退赔保障。",
-    url: "https://gongsi.one/",
-    siteName: "AI代采 gongsi.one",
+    url: "https://aidaicai.com/",
+    siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "website",
     images: [
@@ -66,14 +66,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI代采 gongsi.one 企业级海外 AI 官方代采合规平台",
+        alt: "AI代采 aidaicai.com 企业级海外 AI 官方代采合规平台",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "AI代采 gongsi.one | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
+      "AI代采 aidaicai.com | 企业级 GPT 官方集采与 OpenAI Codex 研发代采合规平台",
     description:
       "让中国企业合规、阳光采购全球顶尖 AI 生产力与 Codex 研发工具。支持 6% 增值税专票、银行对公转账与 72h 封号包赔。",
     images: ["/og-image.png"],
@@ -100,10 +100,10 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "AI代采 gongsi.one",
+    name: "AI代采 aidaicai.com",
     alternateName: "AI Enterprise Hub",
-    url: "https://gongsi.one",
-    logo: "https://gongsi.one/logo.svg",
+    url: "https://aidaicai.com",
+    logo: "https://aidaicai.com/logo.svg",
     description:
       "国内领先的企业级海外 AI / OpenAI Codex 官方代采、GPT 批量集采、对公财务结算与合规风控兜底服务平台",
     contactPoint: {
@@ -124,8 +124,8 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "AI代采 gongsi.one",
-    url: "https://gongsi.one",
+    name: "AI代采 aidaicai.com",
+    url: "https://aidaicai.com",
     description: "企业级海外 AI 官方代采与 GPT 集中采购合规解决方案平台",
   },
   {

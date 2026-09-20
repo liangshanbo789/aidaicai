@@ -17,15 +17,15 @@ export const metadata: Metadata = {
     "ChatGPT专票采购价格表",
   ],
   alternates: {
-    canonical: "https://gongsi.one/docs/pricing/",
+    canonical: "https://aidaicai.com/docs/pricing/",
   },
   openGraph: {
     title:
-      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 gongsi.one",
+      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 aidaicai.com",
     description:
       "全面覆盖 Plus、Pro 5x/20x、Team 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
-    url: "https://gongsi.one/docs/pricing/",
-    siteName: "AI代采 gongsi.one",
+    url: "https://aidaicai.com/docs/pricing/",
+    siteName: "AI代采 aidaicai.com",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 gongsi.one",
+      "企业级 OpenAI / ChatGPT 官方代采阶梯报价单 (2026版) | AI代采 aidaicai.com",
     description:
       "全面覆盖 Plus、Pro 5x/20x、Team 空间阶梯报价，支持企业对公转账与 6% 专票开具。",
     images: ["/og-image.png"],
@@ -57,19 +57,19 @@ const jsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "首页",
-          item: "https://gongsi.one/",
+          item: "https://aidaicai.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "文档知识库",
-          item: "https://gongsi.one/docs/pricing/",
+          item: "https://aidaicai.com/docs/pricing/",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "阶梯代采报价单",
-          item: "https://gongsi.one/docs/pricing/",
+          item: "https://aidaicai.com/docs/pricing/",
         },
       ],
     },
@@ -89,13 +89,13 @@ const jsonLd = {
         highPrice: "1580",
         offerCount: "6",
         availability: "https://schema.org/InStock",
-        url: "https://gongsi.one/docs/pricing/",
+        url: "https://aidaicai.com/docs/pricing/",
       },
     },
   ],
 };
 
-const pricingDocText = `【AI代采 gongsi.one】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
+const pricingDocText = `【AI代采 aidaicai.com】企业级 OpenAI / ChatGPT 官方采购阶梯报价单 (2026版)
 
 一、 核心产品参数
 • ChatGPT Plus ($20/月)：优先接入最新 GPT-6 Astra 旗舰基石模型、GPT-5.6 高频日常调用、高级数据分析与多模态创作；
