@@ -165,8 +165,62 @@ export default function PainPointsCompare() {
           })}
         </div>
 
-        {/* Comparison Table */}
-        <div className="codex-panel overflow-hidden border border-theme-subtle shadow-lg max-w-5xl mx-auto">
+        {/* Comparison Presentation: Desktop Table (md+) vs Mobile Card Stack (<md) */}
+        
+        {/* 1. 移动端专属自适应卡片堆叠 (< md) */}
+        <div className="md:hidden space-y-3.5 max-w-xl mx-auto">
+          {comparisonItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="codex-panel p-4 border border-theme-subtle bg-surface shadow-xs space-y-3"
+            >
+              {/* 卡片头部：维度与标签 */}
+              <div className="flex items-center justify-between gap-2 border-b border-theme-subtle pb-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <h3 className="font-bold text-sm text-primary">
+                    {item.dimension}
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface-elevated text-secondary border border-theme-subtle shrink-0">
+                  {item.tag}
+                </span>
+              </div>
+
+              {/* 对比主体：个人散户 vs 官方代采 */}
+              <div className="space-y-2">
+                {/* 个人代充 (高风险) */}
+                <div className="p-3 rounded-lg bg-rose-500/[0.05] dark:bg-rose-500/[0.08] border border-rose-500/20 text-xs">
+                  <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-semibold mb-1 text-[11px]">
+                    <span className="w-3.5 h-3.5 rounded-full bg-rose-500/20 flex items-center justify-center text-[10px] font-mono leading-none">
+                      ✕
+                    </span>
+                    <span>个人代充 / 散户网店 (高风险)</span>
+                  </div>
+                  <p className="text-secondary leading-relaxed pl-5 text-[12px]">
+                    {item.individual}
+                  </p>
+                </div>
+
+                {/* 官方企业服务 (安全合规) */}
+                <div className="p-3 rounded-lg bg-emerald-500/[0.08] dark:bg-emerald-500/[0.12] border border-emerald-500/30 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-600 dark:text-[#10A37F] font-bold mb-1 text-[11px]">
+                    <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 text-[#10A37F]" />
+                    </span>
+                    <span>AI 代采 (gongsi.one) 官方企业服务</span>
+                  </div>
+                  <p className="text-primary font-normal leading-relaxed pl-5 text-[12px]">
+                    {item.enterprise}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 2. 桌面端 12 列对比表格 (md+) */}
+        <div className="hidden md:block codex-panel overflow-hidden border border-theme-subtle shadow-lg max-w-5xl mx-auto">
           {/* Header Row */}
           <div className="grid grid-cols-12 bg-surface-elevated border-b border-theme-subtle py-4 px-4 sm:px-6 text-xs font-semibold">
             <div className="col-span-3 sm:col-span-3 text-secondary uppercase tracking-wider">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useId, useMemo } from "react";
+import React, { useState, useId, useMemo, useRef, useEffect } from "react";
 import {
   Calculator,
   Gift,
@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Lock,
   ExternalLink,
+  ArrowDown,
 } from "lucide-react";
 import {
   PRODUCTS_CONFIG,
@@ -39,9 +40,24 @@ export default function PricingCalculator({
   const [showOfficialModal, setShowOfficialModal] = useState(false);
   const [copiedModalText, setCopiedModalText] = useState(false);
   const [clientCompanyName, setClientCompanyName] = useState<string>("");
+  const [isCalcInView, setIsCalcInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const seatsSliderId = useId();
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCalcInView(entry.isIntersecting);
+      },
+      { threshold: 0.08 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     if (selectedProductId && PRODUCTS_CONFIG[selectedProductId]) {
       setProductType(selectedProductId);
       // Ensure seats not below new product's minSeats
@@ -150,6 +166,13 @@ export default function PricingCalculator({
     window.print();
   };
 
+  const handleScrollToQuote = () => {
+    const quoteElement = document.getElementById("quote-panel");
+    if (quoteElement) {
+      quoteElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const productList = [
     { id: "plus", label: "Plus", desc: "$20/月" },
     { id: "pro5x", label: "Pro (5x)", desc: "$100/月" },
@@ -160,6 +183,7 @@ export default function PricingCalculator({
   return (
     <section
       id="calculator"
+      ref={sectionRef}
       className="py-20 bg-canvas border-t border-theme-subtle transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,13 +204,13 @@ export default function PricingCalculator({
         {/* Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column: Interactive Controls (7 cols) */}
-          <div className="lg:col-span-7 codex-panel p-6 sm:p-8 space-y-6 border-theme-subtle bg-surface">
+          <div className="lg:col-span-7 codex-panel p-5 sm:p-8 space-y-6 border-theme-subtle bg-surface">
             {/* Step 1: Product Selection */}
             <div>
               <label className="block text-xs font-semibold text-secondary uppercase tracking-wider mb-3">
                 1. 选择采购产品版本
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                 {productList.map((item) => (
                   <button
                     key={item.id}
@@ -195,7 +219,7 @@ export default function PricingCalculator({
                       const targetMin = PRODUCTS_CONFIG[item.id]?.minSeats || 1;
                       setSeats((prev) => Math.max(prev, targetMin));
                     }}
-                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       productType === item.id
                         ? "border-emerald-500/50 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
@@ -226,8 +250,8 @@ export default function PricingCalculator({
                 </span>
               </div>
 
-              {/* 3 档阶梯对比矩阵看板 */}
-              <div className="grid grid-cols-3 gap-2.5 mb-3">
+              {/* 3 档阶梯对比矩阵看板 (移动端紧凑自适应) */}
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 mb-3">
                 {[
                   {
                     name: "1~4 席",
@@ -243,7 +267,7 @@ export default function PricingCalculator({
                     price: currentTeamPrice,
                     active: currentSeats >= 5 && currentSeats < 20,
                     targetSeats: 5,
-                    tag: `省 ${Math.round((1 - currentTeamPrice / currentIndivPrice) * 100)}%`,
+                    tag: `省${Math.round((1 - currentTeamPrice / currentIndivPrice) * 100)}%`,
                   },
                   {
                     name: "20+ 席",
@@ -251,25 +275,25 @@ export default function PricingCalculator({
                     price: currentEnterprisePrice,
                     active: currentSeats >= 20,
                     targetSeats: 20,
-                    tag: `省 ${Math.round((1 - currentEnterprisePrice / currentIndivPrice) * 100)}%`,
+                    tag: `省${Math.round((1 - currentEnterprisePrice / currentIndivPrice) * 100)}%`,
                   },
                 ].map((tier, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setSeats(tier.targetSeats)}
-                    className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer relative ${
+                    className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all cursor-pointer relative ${
                       tier.active
                         ? "border-emerald-500/60 bg-surface-hover text-primary shadow-xs ring-1 ring-emerald-500/30"
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-semibold text-primary">
+                    <div className="flex items-center justify-between gap-1 mb-1">
+                      <span className="text-[11px] sm:text-xs font-semibold text-primary truncate">
                         {tier.name}
                       </span>
                       <span
-                        className={`text-[9px] font-mono px-1.5 py-0.2 rounded-full font-medium ${
+                        className={`text-[8px] sm:text-[9px] font-mono px-1 sm:px-1.5 py-0.2 rounded-full font-medium shrink-0 ${
                           tier.active
                             ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
                             : "bg-surface text-secondary border border-theme-subtle"
@@ -278,13 +302,13 @@ export default function PricingCalculator({
                         {tier.tag}
                       </span>
                     </div>
-                    <div className="text-xs sm:text-sm font-mono font-bold text-primary">
+                    <div className="text-xs sm:text-sm font-mono font-bold text-primary leading-tight">
                       ¥{tier.price}
-                      <span className="text-[10px] font-normal text-secondary">
+                      <span className="text-[9px] sm:text-[10px] font-normal text-secondary ml-0.5">
                         /席/月
                       </span>
                     </div>
-                    <div className="text-[10px] text-secondary mt-0.5">
+                    <div className="text-[9px] sm:text-[10px] text-secondary mt-0.5 truncate">
                       {tier.label}
                     </div>
                   </button>
@@ -413,7 +437,7 @@ export default function PricingCalculator({
               <label className="block text-xs font-semibold text-secondary uppercase tracking-wider mb-3">
                 3. 结算周期模式 (长订折上折)
               </label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {[
                   { id: "monthly", title: "按月结算", note: "灵活月结" },
                   {
@@ -432,21 +456,21 @@ export default function PricingCalculator({
                   <button
                     key={cycle.id}
                     onClick={() => setBillingCycle(cycle.id as BillingCycle)}
-                    className={`p-3 rounded-xl border text-center transition-all relative cursor-pointer ${
+                    className={`p-2.5 sm:p-3 rounded-xl border text-center transition-all relative cursor-pointer ${
                       billingCycle === cycle.id
                         ? "border-emerald-500/50 bg-surface-hover text-primary shadow-xs font-semibold ring-1 ring-emerald-500/30"
                         : "border-theme-subtle bg-surface-elevated text-secondary hover:border-theme-hover hover:text-primary"
                     }`}
                   >
                     {cycle.rec && (
-                      <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#09090B] dark:bg-white text-white dark:text-zinc-900 text-[9px] font-semibold px-2 py-0.2 rounded-full shadow-xs">
+                      <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#09090B] dark:bg-white text-white dark:text-zinc-900 text-[8px] sm:text-[9px] font-semibold px-1.5 sm:px-2 py-0.2 rounded-full shadow-xs">
                         推荐
                       </span>
                     )}
                     <div className="font-semibold text-xs sm:text-sm text-primary">
                       {cycle.title}
                     </div>
-                    <div className="text-[10px] text-emerald-600 dark:text-[#10A37F] mt-0.5 font-medium">
+                    <div className="text-[9px] sm:text-[10px] text-emerald-600 dark:text-[#10A37F] mt-0.5 font-medium truncate">
                       {cycle.note}
                     </div>
                   </button>
@@ -476,7 +500,10 @@ export default function PricingCalculator({
           </div>
 
           {/* Right Column: Dynamic Quotation Receipt (5 cols) - Official Commercial Format */}
-          <div className="lg:col-span-5 codex-panel p-6 sm:p-7 border-theme-subtle bg-surface shadow-2xl relative overflow-hidden">
+          <div
+            id="quote-panel"
+            className="lg:col-span-5 codex-panel p-5 sm:p-7 border-theme-subtle bg-surface shadow-2xl relative overflow-hidden scroll-mt-20"
+          >
             {/* Background Watermark */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.03] dark:opacity-[0.04] text-5xl font-bold tracking-widest text-primary rotate-[-25deg]">
               OFFICIAL QUOTATION
@@ -1031,6 +1058,60 @@ export default function PricingCalculator({
           </div>
         </div>
       )}
+
+      {/* Mobile Floating Sticky Calculation Summary Bar (仅在移动端测算器可见时悬浮) */}
+      <aside
+        className={`fixed left-0 right-0 z-30 lg:hidden transition-all duration-300 pointer-events-auto ${
+          isCalcInView
+            ? "bottom-0 opacity-100 translate-y-0"
+            : "bottom-[-120px] opacity-0 translate-y-6 pointer-events-none"
+        }`}
+        style={{
+          paddingBottom: "max(0.6rem, env(safe-area-inset-bottom, 0px))",
+        }}
+        aria-label="移动端测算即时汇总"
+      >
+        <div className="mx-2.5 mb-1 p-2.5 sm:p-3 rounded-2xl bg-surface/95 dark:bg-[#121215]/95 backdrop-blur-xl border border-theme-subtle shadow-2xl flex items-center justify-between gap-2.5 ring-1 ring-black/5 dark:ring-white/10">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5 text-[11px] text-secondary truncate">
+              <span className="font-semibold text-primary">{product.name}</span>
+              <span>·</span>
+              <span>{currentSeats}席</span>
+              <span>·</span>
+              <span>{cycleName}</span>
+              {totalSavings > 0 && (
+                <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-medium">
+                  省¥{totalSavings.toLocaleString()}
+                </span>
+              )}
+            </div>
+            <div className="flex items-baseline gap-1 mt-0.5">
+              <span className="text-[11px] text-secondary">含税预估</span>
+              <span className="text-base sm:text-lg font-bold font-mono tracking-tight text-emerald-600 dark:text-[#10A37F]">
+                ¥{totalAmount.toLocaleString()}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              type="button"
+              onClick={handleScrollToQuote}
+              className="btn-openai-secondary text-xs !py-1.5 !px-2.5 flex items-center gap-1 cursor-pointer"
+            >
+              <span>查看试算单</span>
+              <ArrowDown className="w-3 h-3" />
+            </button>
+            <button
+              type="button"
+              onClick={() => onOpenContact("mobile-calc-bar")}
+              className="btn-openai-white text-xs !py-1.5 !px-2.5 cursor-pointer whitespace-nowrap"
+            >
+              锁定底价
+            </button>
+          </div>
+        </div>
+      </aside>
     </section>
   );
 }

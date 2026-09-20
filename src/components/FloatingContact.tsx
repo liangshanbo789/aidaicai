@@ -27,10 +27,12 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
   const containerRef = useRef<HTMLDivElement>(null);
   const weChatAccount = "yqtp01";
 
-  // 用户自然浏览 5 秒后，若未手动关闭过且当前未展开，直接平滑自动展开客服微名片
+  // 用户自然浏览 5 秒后，若未手动关闭过且当前未展开，在宽屏桌面端平滑自动展开；移动端保持收起避免遮挡内容
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!hasManuallyClosed && !isOpen) {
+      // 仅在桌面端 (>=768px) 自动展开，移动端保持静默收起
+      const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
+      if (!hasManuallyClosed && !isOpen && isDesktop) {
         setIsOpen(true);
       }
     }, 5000);
@@ -103,12 +105,15 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end pointer-events-auto"
+      className="fixed right-3 sm:right-6 z-40 flex flex-col items-end pointer-events-auto transition-all duration-200"
+      style={{
+        bottom: "max(1rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
+      }}
       aria-label="客服与采购顾问支持"
     >
       {/* 快捷客服微名片展开卡片 */}
       {isOpen && (
-        <div className="mb-3 w-[320px] sm:w-[350px] rounded-2xl bg-surface border border-theme-subtle shadow-2xl overflow-hidden animate-fade-in transition-all origin-bottom-right flex flex-col">
+        <div className="mb-2.5 w-[calc(100vw-1.5rem)] max-w-[340px] sm:w-[350px] max-h-[82vh] rounded-2xl bg-surface border border-theme-subtle shadow-2xl overflow-hidden animate-fade-in transition-all origin-bottom-right flex flex-col overscroll-contain">
           {/* Header with Enterprise Verification Blue Badge */}
           <div className="p-4 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -138,8 +143,8 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
             </button>
           </div>
 
-          {/* Body Content */}
-          <div className="p-4 space-y-3.5">
+          {/* Body Content - 允许在小屏幕上下滑动 */}
+          <div className="p-4 space-y-3 overflow-y-auto overscroll-contain">
             {/* 顶部福利与即领提示 */}
             <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-[11px] text-emerald-700 dark:text-emerald-400 flex items-center justify-between shadow-2xs">
               <span className="flex items-center gap-1.5 font-medium">
@@ -183,28 +188,28 @@ export default function FloatingContact({ onOpenFullContact }: FloatingContactPr
             </div>
 
             {/* 二维码展示区（白底高对比度，确保扫码清晰） */}
-            <div className="flex flex-col items-center justify-center pt-1">
+            <div className="flex flex-col items-center justify-center pt-0.5">
               <div className="p-2.5 bg-white rounded-xl border border-theme-subtle shadow-xs flex items-center justify-center">
                 {activeTab === "wechat" ? (
                   <img
                     src="/images/微信二维码.webp"
                     alt="业务经理微信二维码"
-                    className="w-40 h-40 object-contain rounded-lg block"
+                    className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg block"
                     loading="eager"
                   />
                 ) : (
                   <img
                     src="/images/企业微信二维码.jpg"
                     alt="业务经理企业微信二维码"
-                    className="w-40 h-40 object-contain rounded-lg block"
+                    className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg block"
                     loading="eager"
                   />
                 )}
               </div>
-              <p className="mt-2 text-[11px] text-secondary text-center">
+              <p className="mt-1.5 text-[10px] text-secondary text-center leading-snug">
                 {activeTab === "wechat"
-                  ? "微信扫码直联大客户总监（加微领立项报告，支持个性化商务统筹）"
-                  : "支持微信或企业微信扫码添加官方认证专员"}
+                  ? "手机端可长按保存二维码，或点击下方直接复制微信号添加"
+                  : "支持微信或企业微信长按识别 / 扫码添加官方专员"}
               </p>
             </div>
 

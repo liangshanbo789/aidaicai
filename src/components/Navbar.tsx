@@ -63,6 +63,17 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
     };
   }, []);
 
+  // 移动端抽屉菜单打开时锁定背景滚动，防止用户滑动抽屉内容时穿透带动底层网页
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-theme-subtle bg-[var(--bg-canvas)]/90 backdrop-blur-xl transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
@@ -265,7 +276,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-secondary hover:text-primary rounded-lg bg-surface-elevated border border-theme-subtle cursor-pointer transition-colors"
+            className="p-2 text-secondary hover:text-primary rounded-lg bg-surface-elevated border border-theme-subtle cursor-pointer transition-colors min-w-[38px] min-h-[38px] flex items-center justify-center"
             aria-label={mobileMenuOpen ? "关闭导航菜单" : "展开导航菜单"}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -275,7 +286,7 @@ export default function Navbar({ onOpenContact, onOpenDocs }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-theme-subtle bg-surface-elevated/95 backdrop-blur-xl px-5 py-4 space-y-4 shadow-xl max-h-[85vh] overflow-y-auto">
+        <div className="lg:hidden border-b border-theme-subtle bg-surface-elevated/95 backdrop-blur-xl px-5 py-4 space-y-4 shadow-xl max-h-[85vh] overflow-y-auto overscroll-contain">
           {/* 方案专区卡片 */}
           <div className="space-y-1.5">
             <div className="text-[11px] font-medium text-tertiary px-1 font-mono uppercase tracking-wider">

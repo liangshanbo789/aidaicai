@@ -61,38 +61,38 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 dark:bg-black/85 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/65 dark:bg-black/85 backdrop-blur-md animate-fade-in"
       onClick={onClose}
     >
       <div
-        className="bg-surface border border-theme-subtle rounded-2xl w-full max-w-2xl max-h-[94vh] overflow-hidden shadow-2xl flex flex-col"
+        className="bg-surface border border-theme-subtle rounded-2xl w-full max-w-2xl max-h-[88vh] sm:max-h-[92vh] overflow-hidden shadow-2xl flex flex-col overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         {/* 1. Modal Header */}
-        <div className="p-4 sm:p-5 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-surface border border-theme-subtle text-primary flex items-center justify-center shadow-xs">
+        <div className="p-3.5 sm:p-5 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-surface border border-theme-subtle text-primary flex items-center justify-center shadow-xs shrink-0">
               <MessageCircle className="w-4 h-4 text-[#10A37F]" />
             </div>
             <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-sm sm:text-base font-bold text-primary">官方大客户总监专线</h3>
-                <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-medium">
-                  <BadgeCheck className="w-3 h-3" />
-                  <span>企微官方实名认证商户</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                <h3 className="text-xs sm:text-base font-bold text-primary">官方大客户总监专线</h3>
+                <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-mono px-1.5 sm:px-2 py-0.2 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-medium">
+                  <BadgeCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                  <span>企微官方实名认证</span>
                 </span>
               </div>
-              <p className="text-[11px] text-secondary">
-                签约主体：成都游手科技有限公司 · 工号: ADC-DIR-8820 · 7×24H 在线
+              <p className="text-[10px] sm:text-[11px] text-secondary">
+                成都游手科技 · 工号: ADC-DIR-8820 · 7×24H 在线
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-secondary hover:text-primary text-xs p-1.5 rounded-lg hover:bg-surface-hover transition-colors cursor-pointer"
+            className="text-secondary hover:text-primary text-xs p-2 rounded-lg hover:bg-surface-hover transition-colors cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
             aria-label="关闭弹窗"
           >
-            ✕ 关闭
+            ✕
           </button>
         </div>
 
@@ -195,13 +195,16 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
               </div>
 
               {/* 微信二维码 */}
-              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-2 flex items-center justify-center">
+              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-1 flex items-center justify-center">
                 <img
                   src="/images/微信二维码.webp"
                   alt="大客户总监个人微信二维码"
                   className="w-32 h-32 object-contain rounded-lg block"
                   loading="eager"
                 />
+              </div>
+              <div className="text-[10px] text-tertiary mb-2 sm:hidden">
+                手机端可长按图片保存或识别
               </div>
 
               <div className="text-[11px] text-secondary mb-1">
@@ -241,13 +244,16 @@ export default function ContactModal({ isOpen, onClose, source }: ContactModalPr
               </div>
 
               {/* 企业微信二维码 */}
-              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-2 flex items-center justify-center">
+              <div className="p-2 bg-white rounded-xl border border-theme-subtle shadow-xs mb-1 flex items-center justify-center">
                 <img
                   src="/images/企业微信二维码.jpg"
                   alt="官方认证企业微信二维码"
                   className="w-32 h-32 object-contain rounded-lg block"
                   loading="eager"
                 />
+              </div>
+              <div className="text-[10px] text-tertiary mb-2 sm:hidden">
+                手机端可长按图片保存或识别
               </div>
 
               <div className="text-[11px] text-secondary mb-1">

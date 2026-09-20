@@ -56,12 +56,12 @@ export default function ComplianceShowcase() {
         </div>
 
         {/* Tab Selector (Capsule Pills) */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-8">
           {[
-            { id: "invoice", label: "数电增值税专用发票 (6%)", icon: Receipt },
-            { id: "bank", label: "银行对公转账电子回执", icon: Building2 },
-            { id: "openai", label: "OpenAI 官方原版扣费账单", icon: CreditCard },
-            { id: "contract", label: "企业盖章 SLA 兜底协议", icon: FileCheck2 },
+            { id: "invoice", label: "数电增值税专票 (6%)", fullLabel: "数电增值税专用发票 (6%)", icon: Receipt },
+            { id: "bank", label: "银行对公转账回执", fullLabel: "银行对公转账电子回执", icon: Building2 },
+            { id: "openai", label: "官方原版扣费账单", fullLabel: "OpenAI 官方原版扣费账单", icon: CreditCard },
+            { id: "contract", label: "企业盖章 SLA 协议", fullLabel: "企业盖章 SLA 兜底协议", icon: FileCheck2 },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -69,14 +69,15 @@ export default function ComplianceShowcase() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-medium transition-all cursor-pointer min-h-[38px] ${
                   isActive
                     ? "bg-[#09090B] dark:bg-white text-white dark:text-zinc-950 font-semibold shadow-md ring-2 ring-emerald-500/30"
                     : "bg-surface-elevated text-secondary border border-theme-subtle hover:bg-surface-hover hover:text-primary"
                 }`}
               >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{tab.label}</span>
+                <Icon className="w-3.5 h-3.5 shrink-0" />
+                <span className="sm:hidden">{tab.label}</span>
+                <span className="hidden sm:inline">{tab.fullLabel}</span>
               </button>
             );
           })}
@@ -85,70 +86,72 @@ export default function ComplianceShowcase() {
         {/* Display Panel - Verification Inspector Box */}
         <div className="codex-panel max-w-4xl mx-auto border-theme-subtle bg-surface overflow-hidden shadow-2xl">
           {/* Top Window Inspector Bar */}
-          <div className="px-5 py-3 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
+          <div className="px-4 sm:px-5 py-3 border-b border-theme-subtle bg-surface-elevated flex items-center justify-between">
+            <div className="flex items-center gap-2 sm:gap-2.5">
               <div className="flex items-center gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
               </div>
-              <span className="text-[11px] font-mono text-secondary ml-1">
+              <span className="text-[10px] sm:text-[11px] font-mono text-secondary ml-1 truncate max-w-[200px] sm:max-w-none">
                 audit-inspector / {activeTab === "invoice" ? "vat-special-invoice.pdf" : activeTab === "bank" ? "bank-transfer-receipt.pdf" : activeTab === "openai" ? "openai-stripe-receipt.pdf" : "sla-contract-signed.pdf"}
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-medium">
-                <Lock className="w-2.5 h-2.5" />
-                <span>官方全要素核验通过</span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-medium">
+                <BadgeCheck className="w-3 h-3" />
+                <span>实证已验真</span>
               </span>
             </div>
           </div>
 
-          <div className="p-6 sm:p-8">
-            {/* ==================== TAB 1: VAT SPECIAL INVOICE ==================== */}
+          {/* Panel Content Wrapper */}
+          <div className="p-4 sm:p-7">
+            {/* ==================== TAB 1: INVOICE ==================== */}
             {activeTab === "invoice" && (
               <div className="space-y-6">
-                {/* Official Certification Bar */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-dashed border-theme-subtle gap-2">
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                      <ShieldCheck className="w-4 h-4" />
+                      <Receipt className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-[11px] font-mono text-emerald-600 dark:text-[#10A37F] font-semibold flex items-center gap-1.5">
-                        <span>国家税务总局全国增值税发票查验平台认证</span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/15">真伪可查</span>
+                      <div className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
+                        <span>国家税务总局全国统一数电发票</span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/15">真实样张</span>
                       </div>
-                      <h3 className="text-base font-semibold text-primary mt-0.5">
-                        电子发票（数电增值税专用发票）官方标准样张
+                      <h3 className="text-sm sm:text-base font-semibold text-primary mt-0.5">
+                        增值税专用发票样张（6% 税率 · 信息技术服务费）
                       </h3>
                     </div>
                   </div>
 
                   <div className="text-left sm:text-right text-[11px] font-mono text-secondary">
-                    <div>发票号码: 26112000000088921820</div>
+                    <div>发票号码: 88921820</div>
                     <div>开票日期: 2026年09月08日</div>
                   </div>
                 </div>
 
-                {/* High-Fidelity Invoice Canvas */}
-                <div className="relative bg-surface-elevated border border-theme-subtle rounded-xl p-5 sm:p-6 text-xs text-secondary font-mono space-y-4 overflow-hidden shadow-inner">
-                  {/* Decorative Security Background Watermark */}
-                  <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-[0.03] dark:opacity-[0.05] text-5xl font-bold tracking-widest text-primary rotate-[-15deg]">
-                    增值税专用发票
+                {/* Electronic Invoice Simulated Paper Canvas */}
+                <div className="relative bg-surface-elevated border border-theme-subtle rounded-xl p-4 sm:p-6 text-xs text-secondary font-mono space-y-4 overflow-hidden shadow-inner">
+                  {/* Decorative Background Watermark */}
+                  <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-[0.03] dark:opacity-[0.04] text-5xl font-bold tracking-widest text-primary">
+                    CHINA TAX VAT
                   </div>
 
-                  {/* Header Title with Official Layout */}
-                  <div className="text-center pb-2 border-b-2 border-emerald-500/30">
-                    <div className="text-base sm:text-lg font-bold text-primary tracking-wider font-sans">
-                      电子发票（增值税专用发票）
+                  {/* Invoice Header */}
+                  <div className="text-center pb-2 border-b-2 border-emerald-500/30 relative">
+                    <div className="text-base sm:text-xl font-bold text-primary tracking-widest font-sans">
+                      数 电 增 值 税 专 用 发 票
                     </div>
-                    <div className="text-[10px] text-tertiary">统一发票监制码：NO. 008192837192</div>
+                    <div className="text-[10px] text-tertiary mt-0.5 font-sans">
+                      （国家税务总局电子发票服务平台开具 · 电子发票防伪底账库实时核验）
+                    </div>
                   </div>
 
                   {/* Buyer & Seller Info Box */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-3 border-b border-theme-subtle">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pb-3 border-b border-theme-subtle">
                     <div className="space-y-1.5 bg-surface/60 p-3 rounded-lg border border-theme-subtle">
                       <div className="text-[11px] font-semibold text-primary font-sans">购买方信息（客户企业）</div>
                       <div><span className="text-tertiary">名称：</span>【贵司企业法定名称】</div>
@@ -165,38 +168,46 @@ export default function ComplianceShowcase() {
                     </div>
                   </div>
 
-                  {/* Line Items Table */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left text-xs">
-                      <thead>
-                        <tr className="border-b border-theme-subtle text-secondary font-medium">
-                          <th className="py-2">项目名称及规格</th>
-                          <th className="py-2 text-center">单位/数量</th>
-                          <th className="py-2 text-right">单价 (不含税)</th>
-                          <th className="py-2 text-right">金额 (RMB)</th>
-                          <th className="py-2 text-center">税率</th>
-                          <th className="py-2 text-right">税额 (RMB)</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-theme-subtle">
-                        <tr>
-                          <td className="py-3 text-primary font-sans">
-                            <div className="font-semibold">*信息技术服务* 软件技术服务费</div>
-                            <div className="text-[10px] text-tertiary font-mono">规格: ChatGPT Pro (20x) 官方代采对公年订</div>
-                          </td>
-                          <td className="py-3 text-center text-secondary">席位 / 10</td>
-                          <td className="py-3 text-right font-mono text-primary">¥ 1,311.32</td>
-                          <td className="py-3 text-right font-mono text-primary font-semibold">¥ 13,113.21</td>
-                          <td className="py-3 text-center text-emerald-600 dark:text-emerald-400 font-bold">6%</td>
-                          <td className="py-3 text-right font-mono text-emerald-600 dark:text-emerald-400 font-semibold">¥ 786.79</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  {/* Line Items Table with Mobile Horizontal Scroll Hint */}
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px] text-tertiary sm:hidden px-1">
+                      <span>发票明细清单</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-sans flex items-center gap-0.5">
+                        ↔ 左右滑动查看完整数据
+                      </span>
+                    </div>
+                    <div className="overflow-x-auto pb-1 -mx-1 px-1">
+                      <table className="w-full text-left text-xs min-w-[540px]">
+                        <thead>
+                          <tr className="border-b border-theme-subtle text-secondary font-medium">
+                            <th className="py-2">项目名称及规格</th>
+                            <th className="py-2 text-center">单位/数量</th>
+                            <th className="py-2 text-right">单价 (不含税)</th>
+                            <th className="py-2 text-right">金额 (RMB)</th>
+                            <th className="py-2 text-center">税率</th>
+                            <th className="py-2 text-right">税额 (RMB)</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-theme-subtle">
+                          <tr>
+                            <td className="py-3 text-primary font-sans">
+                              <div className="font-semibold">*信息技术服务* 软件技术服务费</div>
+                              <div className="text-[10px] text-tertiary font-mono">规格: ChatGPT Pro (20x) 官方代采对公年订</div>
+                            </td>
+                            <td className="py-3 text-center text-secondary">席位 / 10</td>
+                            <td className="py-3 text-right font-mono text-primary">¥ 1,311.32</td>
+                            <td className="py-3 text-right font-mono text-primary font-semibold">¥ 13,113.21</td>
+                            <td className="py-3 text-center text-emerald-600 dark:text-emerald-400 font-bold">6%</td>
+                            <td className="py-3 text-right font-mono text-emerald-600 dark:text-emerald-400 font-semibold">¥ 786.79</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
 
-                  {/* Summary & Red Stamp Layer */}
+                  {/* Summary & Red Stamp Layer (文字置于 z-10，印章置于底层且移动端半透明化，杜绝遮字) */}
                   <div className="relative pt-3 border-t border-theme-subtle flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                    <div className="space-y-1">
+                    <div className="space-y-1 relative z-10 max-w-[85%] sm:max-w-none">
                       <div className="text-xs sm:text-sm">
                         <span className="text-secondary">价税合计（大写）：</span>
                         <span className="font-bold text-primary font-sans">人民币壹万叁仟玖佰元整</span>
@@ -205,14 +216,14 @@ export default function ComplianceShowcase() {
                         收款人：张财务 · 复核：李核算 · 开票人：系统自动校验开具
                       </div>
                     </div>
-                    <div className="font-semibold text-primary text-base sm:text-lg font-mono">
+                    <div className="font-semibold text-primary text-base sm:text-lg font-mono relative z-10">
                       （小写）¥ 13,900.00
                     </div>
 
-                    {/* Realistic Red Official Invoice Stamp (拟真红色数电发票专用章) */}
-                    <div className="absolute right-4 sm:right-24 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[-6deg]">
-                      <div className="w-32 h-20 sm:w-36 sm:h-22 rounded-[50%] border-[2.5px] border-rose-600/90 text-rose-600 flex flex-col items-center justify-center p-1 relative shadow-xs bg-rose-500/[0.02]">
-                        <div className="text-[9px] font-bold text-center tracking-tighter scale-90 leading-tight">
+                    {/* Realistic Red Official Invoice Stamp (拟真红色数电发票专用章：移动端半透明避免遮挡金额大写) */}
+                    <div className="absolute right-2 sm:right-24 bottom-0 sm:bottom-1 pointer-events-none select-none opacity-25 sm:opacity-85 dark:opacity-30 dark:sm:opacity-90 transform rotate-[-6deg] z-0">
+                      <div className="w-28 h-18 sm:w-36 sm:h-22 rounded-[50%] border-[2.5px] border-rose-600/90 text-rose-600 flex flex-col items-center justify-center p-1 relative shadow-xs bg-rose-500/[0.02]">
+                        <div className="text-[8px] sm:text-[9px] font-bold text-center tracking-tighter scale-90 leading-tight">
                           成都游手科技有限公司
                         </div>
                         <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
@@ -375,22 +386,22 @@ export default function ComplianceShowcase() {
 
                   {/* Bottom Verification Details & Red Bank Stamp */}
                   <div className="relative pt-2 flex flex-col sm:flex-row justify-between items-start sm:items-center text-[11px] text-tertiary gap-2">
-                    <div>
+                    <div className="relative z-10 max-w-[85%] sm:max-w-none">
                       <div>交易时间：2026-09-08 14:22:18 · 报文类型：大额实时支付系统</div>
                       <div>印章状态：【已加盖中国工商银行电子转账回单业务专用章】</div>
                     </div>
 
-                    {/* Realistic Red Bank Round Stamp (拟真银行电子回单专用章) */}
-                    <div className="absolute right-4 sm:right-16 bottom-0 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[-4deg]">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
-                        <div className="text-[7.5px] font-bold text-center scale-90 leading-tight">
+                    {/* Realistic Red Bank Round Stamp (拟真银行电子回单专用章：移动端半透明避免遮挡流水) */}
+                    <div className="absolute right-2 sm:right-16 bottom-0 pointer-events-none select-none opacity-25 sm:opacity-85 dark:opacity-30 dark:sm:opacity-90 transform rotate-[-4deg] z-0">
+                      <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
+                        <div className="text-[6.5px] sm:text-[7.5px] font-bold text-center scale-90 leading-tight">
                           中国工商银行股份有限公司
                         </div>
                         <div className="my-0.5 text-xs text-rose-600 font-sans">★</div>
-                        <div className="text-[8.5px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
+                        <div className="text-[7.5px] sm:text-[8.5px] font-extrabold tracking-wider border-t border-rose-600/70 pt-0.5">
                           业务回单专用章
                         </div>
-                        <div className="text-[7px] font-mono scale-75 text-rose-600/90">
+                        <div className="text-[6px] sm:text-[7px] font-mono scale-75 text-rose-600/90">
                           (电子验印流水 8820)
                         </div>
                       </div>
@@ -553,13 +564,13 @@ export default function ComplianceShowcase() {
 
                   {/* Signature Area with Red Corporate Electronic Seal */}
                   <div className="relative pt-4 border-t border-theme-subtle grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
+                    <div className="space-y-1 relative z-10">
                       <div className="text-tertiary">甲方（采购方）：【客户企业全称】</div>
                       <div className="text-tertiary">法定代表人 / 授权代表：【客户代表】</div>
                       <div className="text-tertiary font-mono">电子印章状态：待签署 / 已通过 CA 数字证书</div>
                     </div>
 
-                    <div className="space-y-1">
+                    <div className="space-y-1 relative z-10 max-w-[85%] sm:max-w-none">
                       <div className="text-tertiary">乙方（服务方）：成都游手科技有限公司</div>
                       <div className="text-tertiary">法定代表人 / 授权代表：梁某某</div>
                       <div className="text-primary font-mono text-[11px] font-medium">
@@ -567,17 +578,17 @@ export default function ComplianceShowcase() {
                       </div>
                     </div>
 
-                    {/* Realistic Red Contract Seal (拟真红色合同专用章) */}
-                    <div className="absolute right-4 sm:right-12 bottom-1 pointer-events-none select-none opacity-85 dark:opacity-90 transform rotate-[4deg]">
-                      <div className="w-28 h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
-                        <div className="text-[8px] font-bold text-center scale-90 leading-tight">
+                    {/* Realistic Red Contract Seal (拟真红色合同专用章：移动端半透明避免遮挡签署信息) */}
+                    <div className="absolute right-2 sm:right-12 bottom-0 sm:bottom-1 pointer-events-none select-none opacity-25 sm:opacity-85 dark:opacity-30 dark:sm:opacity-90 transform rotate-[4deg] z-0">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-[2.5px] border-rose-600 text-rose-600 flex flex-col items-center justify-center p-1 shadow-xs bg-rose-500/[0.02]">
+                        <div className="text-[7.5px] sm:text-[8px] font-bold text-center scale-90 leading-tight">
                           成都游手科技有限公司
                         </div>
                         <div className="my-0.5 text-base text-rose-600 font-sans">★</div>
-                        <div className="text-[9.5px] font-extrabold tracking-widest border-t border-rose-600/70 pt-0.5">
+                        <div className="text-[8.5px] sm:text-[9.5px] font-extrabold tracking-widest border-t border-rose-600/70 pt-0.5">
                           合同专用章
                         </div>
-                        <div className="text-[7.5px] font-mono scale-75 text-rose-600/90">
+                        <div className="text-[6.5px] sm:text-[7.5px] font-mono scale-75 text-rose-600/90">
                           (CA 权威数字证书)
                         </div>
                       </div>
