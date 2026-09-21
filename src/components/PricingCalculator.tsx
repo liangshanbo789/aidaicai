@@ -130,7 +130,7 @@ export default function PricingCalculator({
   const currentTeamPrice = product.tiers.team[billingCycle];
   const currentEnterprisePrice = product.tiers.enterprise[billingCycle];
 
-  const summaryText = `【AI代采 (aidaicai.com) - 企业采购预算草案】
+  const summaryText = `【AI代采 (gongsi.one) - 企业采购预算草案】
 报价单流水号：${quoteId}
 报价有效期：自生成之日起 30 天内有效
 采购客户抬头：${clientCompanyName || "【贵司企业全称】"}
@@ -727,7 +727,7 @@ export default function PricingCalculator({
                       海外 AI 生产力工具官方企业代采立项呈批单
                     </div>
                     <div className="text-xs text-zinc-600 font-sans mt-1">
-                      服务品牌：AI 代采 (aidaicai.com) · OpenAI
+                      服务品牌：AI 代采 (gongsi.one) · OpenAI
                       官方企业商业卡代付与对公 6% 专票结算
                     </div>
                   </div>

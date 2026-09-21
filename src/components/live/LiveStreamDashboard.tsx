@@ -299,7 +299,7 @@ export default function LiveStreamDashboard() {
                 <span className={styles.brandName}>
                   <span className={styles.brandMark}>AI</span>代采
                 </span>
-                <span className={styles.domain}>aidaicai.com</span>
+                <span className={styles.domain}>gongsi.one</span>
               </div>
               <header className={styles.positioning}>
                 <h1>专门服务企业</h1>

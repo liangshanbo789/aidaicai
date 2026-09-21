@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     "AI代采",
   ],
   alternates: {
-    canonical: "https://aidaicai.com/solutions/codex-procurement/",
+    canonical: "https://gongsi.one/solutions/codex-procurement/",
   },
   openGraph: {
     title: "研发团队 OpenAI Codex / 代码助手企业对公代采解决方案 | AI代采",
     description:
       "告别员工私人外币卡垫资与黑卡代充封号风险。支持中国工商银行对公转账，开具 6% 增值税专用发票，签署公章 SLA 72h 封号退赔保障。",
-    url: "https://aidaicai.com/solutions/codex-procurement/",
-    siteName: "AI代采 aidaicai.com",
+    url: "https://gongsi.one/solutions/codex-procurement/",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -137,19 +137,19 @@ export default function CodexProcurementPage() {
         "@type": "ListItem",
         position: 1,
         name: "首页",
-        item: "https://aidaicai.com",
+        item: "https://gongsi.one",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "行业解决方案",
-        item: "https://aidaicai.com/solutions/codex-procurement/",
+        item: "https://gongsi.one/solutions/codex-procurement/",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "研发团队 Codex 代码助手企业对公代采方案",
-        item: "https://aidaicai.com/solutions/codex-procurement/",
+        item: "https://gongsi.one/solutions/codex-procurement/",
       },
     ],
   };
@@ -175,7 +175,7 @@ export default function CodexProcurementPage() {
     provider: {
       "@type": "Organization",
       name: "AI代采",
-      url: "https://aidaicai.com/",
+      url: "https://gongsi.one/",
     },
     areaServed: "CN",
     description:
@@ -185,7 +185,7 @@ export default function CodexProcurementPage() {
       priceCurrency: "CNY",
       lowPrice: "135",
       highPrice: "1580",
-      url: "https://aidaicai.com/solutions/codex-procurement/",
+      url: "https://gongsi.one/solutions/codex-procurement/",
     },
   };
 

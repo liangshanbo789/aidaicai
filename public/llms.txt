@@ -1,10 +1,10 @@
-# AI代采 (aidaicai.com / aidaicai.com)
+# AI代采 (gongsi.one / gongsi.one)
 
 > 国内领先的企业级 OpenAI / ChatGPT 官方代采与 OpenAI Codex 研发工具合规采购平台。
 > 提供中国工商银行对公转账结算、国家税务 6% 增值税专用发票开具（信息技术服务费）、100% 海外商业信用卡正规直充与 72 小时封号退赔兜底保障。
 
 ## 平台核心信息
-- 官方域名：https://aidaicai.com (备用/品牌域名: https://aidaicai.com)
+- 官方域名：https://gongsi.one (备用/品牌域名: https://gongsi.one)
 - 运营主体：成都高新区科技企业，具备正规信息技术服务与技术咨询经营资质
 - 对公结算行：中国工商银行 (ICBC) 企业对公账户
 - 发票类目：增值税专用发票 / 普通发票（税率 6%），开列类目为“*信息技术服务*软件技术服务费”或“*信息技术服务*技术咨询费”
@@ -36,11 +36,11 @@
 - 全周期按天折算退款：正常使用期内若遇网络异常封禁，严格按照【当月支付单价 ÷ 30 × 剩余未生效天数】计算，1 个工作日内公对公原路退回企业账户或等额顺延。
 
 ## 常用链接
-- 官网首页：https://aidaicai.com/
-- Codex 研发代采解决方案：https://aidaicai.com/solutions/codex-procurement/
-- 企业 GPT 批量集采方案：https://aidaicai.com/solutions/gpt-bulk-procurement/
-- 企业代采阶梯报价单：https://aidaicai.com/docs/pricing/
-- SLA 服务等级保障协议：https://aidaicai.com/docs/sla/
-- 框架采购合作协议范本：https://aidaicai.com/docs/agreement/
-- 立项呈批申报模板：https://aidaicai.com/docs/proposal/
-- 完整知识库文档：https://aidaicai.com/llms-full.txt
+- 官网首页：https://gongsi.one/
+- Codex 研发代采解决方案：https://gongsi.one/solutions/codex-procurement/
+- 企业 GPT 批量集采方案：https://gongsi.one/solutions/gpt-bulk-procurement/
+- 企业代采阶梯报价单：https://gongsi.one/docs/pricing/
+- SLA 服务等级保障协议：https://gongsi.one/docs/sla/
+- 框架采购合作协议范本：https://gongsi.one/docs/agreement/
+- 立项呈批申报模板：https://gongsi.one/docs/proposal/
+- 完整知识库文档：https://gongsi.one/llms-full.txt

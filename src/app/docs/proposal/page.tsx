@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     "企业AI采购立项申请书",
   ],
   alternates: {
-    canonical: "https://aidaicai.com/docs/proposal/",
+    canonical: "https://gongsi.one/docs/proposal/",
   },
   openGraph: {
-    title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 aidaicai.com",
+    title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 gongsi.one",
     description:
       "专为采购与行政编写，解决业务必要性论证、供应商合规比选及财务专票报销流程。",
-    url: "https://aidaicai.com/docs/proposal/",
-    siteName: "AI代采 aidaicai.com",
+    url: "https://gongsi.one/docs/proposal/",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 aidaicai.com",
+    title: "企业采购 OpenAI 高级生产力工具立项申请报告模板 | AI代采 gongsi.one",
     description:
       "专为采购与行政编写，解决业务必要性论证、供应商合规比选及财务专票报销流程。",
     images: ["/og-image.png"],
@@ -58,19 +58,19 @@ const jsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "首页",
-          item: "https://aidaicai.com/",
+          item: "https://gongsi.one/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "文档知识库",
-          item: "https://aidaicai.com/docs/proposal/",
+          item: "https://gongsi.one/docs/proposal/",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "立项呈批申报模板",
-          item: "https://aidaicai.com/docs/proposal/",
+          item: "https://gongsi.one/docs/proposal/",
         },
       ],
     },
@@ -79,7 +79,7 @@ const jsonLd = {
       headline: "企业采购 OpenAI 高级生产力工具立项申请报告模板",
       description:
         "专为企业行政、采购与研发总监打造的 ChatGPT / OpenAI 官方企业代采立项呈批报告模板，解决业务论证与财务专票报销。",
-      url: "https://aidaicai.com/docs/proposal/",
+      url: "https://gongsi.one/docs/proposal/",
       author: {
         "@type": "Organization",
         name: "AI代采",
@@ -100,7 +100,7 @@ const fullTextContent = `关于采购 OpenAI 高级企业生产力账号以提�
 2. 跨境出海运营：海外独立站全语种文案、高阶商客沟通及社媒营销急需 Plus/Pro 稳定支持，可节省 40% 以上外包创作成本；
 3. 合规与财务堵点：为避免员工自行在淘宝购买非正规个人代充遭遇“黑卡封号”及个人私转无法报销做账，需引入具备对公资质的正规企业服务商。
 
-三、 拟选供应商与服务方案比选（AI代采 aidaicai.com 优势）
+三、 拟选供应商与服务方案比选（AI代采 gongsi.one 优势）
 • 票据合规：开具 6% 增值税专用发票（信息技术服务费），可全额进项抵扣；
 • 资金阳光：企业银行网银对公电汇，资金链路安全可审计；
 • 渠道真实：100% 正规海外商业银行企业信用卡直充，附带官方账单核验；
@@ -163,7 +163,7 @@ export default function ProposalDocPage() {
           <div className="text-xs text-secondary">
             <span className="font-semibold text-primary">使用指引：</span>
             本模板由 AI
-            代采（aidaicai.com）法务与商务团队整理，已通过数十家出海与研发型上市公司内审。您可直接点击上方按钮复制全文，按需填入贵司采购席位数与部门名称后提交呈报。
+            代采（gongsi.one）法务与商务团队整理，已通过数十家出海与研发型上市公司内审。您可直接点击上方按钮复制全文，按需填入贵司采购席位数与部门名称后提交呈报。
           </div>
         </div>
 
@@ -231,7 +231,7 @@ export default function ProposalDocPage() {
 
         <section className="space-y-3">
           <h2 className="text-lg font-semibold text-primary border-l-2 border-[#10A37F] pl-3">
-            三、 拟选供应商与服务方案比选（AI代采 aidaicai.com）
+            三、 拟选供应商与服务方案比选（AI代采 gongsi.one）
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
             <div className="p-3.5 rounded-lg bg-surface-elevated border border-theme-subtle">

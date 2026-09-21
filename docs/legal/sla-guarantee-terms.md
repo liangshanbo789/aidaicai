@@ -1,6 +1,6 @@
-# 【AI 代采 aidaicai.com】企业级海外 AI 账号服务 SLA 与风控兜底保障条款
+# 【AI 代采 gongsi.one】企业级海外 AI 账号服务 SLA 与风控兜底保障条款
 
-> **服务主体**：AI 代采平台（www.aidaicai.com）  
+> **服务主体**：AI 代采平台（www.gongsi.one）  
 > **适用范围**：面向所有签订《企业软件采购与技术服务框架协议》的签约企业客户。
 
 ---

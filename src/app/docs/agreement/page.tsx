@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     "软件技术服务费专票合同",
   ],
   alternates: {
-    canonical: "https://aidaicai.com/docs/agreement/",
+    canonical: "https://gongsi.one/docs/agreement/",
   },
   openGraph: {
-    title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
+    title: "企业级海外软件代采购框架合作协议范本 | AI代采 gongsi.one",
     description:
       "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
-    url: "https://aidaicai.com/docs/agreement/",
-    siteName: "AI代采 aidaicai.com",
+    url: "https://gongsi.one/docs/agreement/",
+    siteName: "AI代采 gongsi.one",
     locale: "zh_CN",
     type: "article",
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "企业级海外软件代采购框架合作协议范本 | AI代采 aidaicai.com",
+    title: "企业级海外软件代采购框架合作协议范本 | AI代采 gongsi.one",
     description:
       "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
     images: ["/og-image.png"],
@@ -53,19 +53,19 @@ const jsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "首页",
-          item: "https://aidaicai.com/",
+          item: "https://gongsi.one/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "文档知识库",
-          item: "https://aidaicai.com/docs/agreement/",
+          item: "https://gongsi.one/docs/agreement/",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "代采购合作协议",
-          item: "https://aidaicai.com/docs/agreement/",
+          item: "https://gongsi.one/docs/agreement/",
         },
       ],
     },
@@ -74,7 +74,7 @@ const jsonLd = {
       headline: "企业级海外软件代采购框架合作协议范本",
       description:
         "法务合规标准框架协议：对公银行电汇、6% 增值税专票、数据保密与 SLA 售后条款健全。",
-      url: "https://aidaicai.com/docs/agreement/",
+      url: "https://gongsi.one/docs/agreement/",
       author: {
         "@type": "Organization",
         name: "AI代采",
@@ -92,7 +92,7 @@ const agreementText = `【标准合同范本】企业级海外软件采购与技
 统一社会信用代码：【 】
 注册地址：【 】
 
-乙方（服务方）：AI代采信息技术服务有限公司（aidaicai.com）
+乙方（服务方）：AI代采信息技术服务有限公司（gongsi.one）
 统一社会信用代码：【 】
 注册地址：四川省成都市高新区AI创新中心
 
